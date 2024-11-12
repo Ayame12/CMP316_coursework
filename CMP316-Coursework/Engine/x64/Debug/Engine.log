@@ -4,4 +4,4 @@
   Generating Code...
 winmm.lib(WINMM.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
 gdi32.lib(GDI32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
-  Engine.vcxproj -> C:\Users\2200147\OneDrive - Abertay University\CMP316 - Engine\coursework\CMP316-Coursework\x64\Debug\Engine.lib
+  Engine.vcxproj -> E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\x64\Debug\Engine.lib

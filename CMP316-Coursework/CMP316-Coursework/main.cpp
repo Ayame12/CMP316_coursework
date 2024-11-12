@@ -1,6 +1,8 @@
 #include "EngineUtility.h"
 
 int main() {
-	Test();
+	//Test();
+	Initialize();
+	Run();
 	return 0;
 }
