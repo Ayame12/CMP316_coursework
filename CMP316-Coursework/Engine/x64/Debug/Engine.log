@@ -1,6 +1,8 @@
-﻿  pch.cpp
-  Engine.cpp
-  EngineUtility.cpp
+﻿  GameState.cpp
+  Input.cpp
+  Level.cpp
+  Menu.cpp
+  Scene.cpp
   Generating Code...
 winmm.lib(WINMM.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
 gdi32.lib(GDI32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
