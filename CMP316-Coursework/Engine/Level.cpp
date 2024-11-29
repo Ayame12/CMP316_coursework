@@ -11,8 +11,9 @@ Level::~Level()
 
 void Level::loadLevel()
 {
-	GameObject* n = new GameObject;
-	objectList.push_back(n);
+	objectList.push_back(GameObject());
+
+	//objectList.clear();
 
 }
 

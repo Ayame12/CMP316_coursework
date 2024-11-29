@@ -22,6 +22,6 @@ private:
 	GameState* gameState;
 	float completion;
 
-	std::vector<GameObject>* objectList;
+	std::vector<GameObject> objectList;
 };
 

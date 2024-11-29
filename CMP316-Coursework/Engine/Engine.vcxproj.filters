@@ -13,72 +13,93 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\the engine stuff">
+      <UniqueIdentifier>{4c2e9f12-2778-4b9a-a507-bae22b2b07f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\components">
+      <UniqueIdentifier>{5574add4-9c96-44a8-a3c8-4367f1534db6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\additional functionality">
+      <UniqueIdentifier>{f040f5df-6173-478d-b8a1-b8a31a8dbc19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\the engine stuff">
+      <UniqueIdentifier>{ff82b308-fed0-4d97-89ae-4ee644aba162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\additional functionality">
+      <UniqueIdentifier>{f69192a5-182d-43b8-b5ef-4f3804ba6167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\the engine stuff\abstractions">
+      <UniqueIdentifier>{4e29a21d-a5db-4e4d-8e3b-068848d0c453}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\the engine stuff\abstractions">
+      <UniqueIdentifier>{e727561c-62a0-4d64-b2d7-bb4217e8101c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Level.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Input.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\additional functionality</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\additional functionality</Filter>
     </ClInclude>
-    <ClInclude Include="Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\additional functionality</Filter>
     </ClInclude>
     <ClInclude Include="ActorObj.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\additional functionality</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files\the engine stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files\the engine stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files\the engine stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\the engine stuff\abstractions</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header Files\the engine stuff\abstractions</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\the engine stuff\abstractions</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files\the engine stuff</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files\the engine stuff</Filter>
+    </ClCompile>
     <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Level.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\the engine stuff</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\additional functionality</Filter>
     </ClCompile>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files\the engine stuff</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source Files\the engine stuff\abstractions</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\the engine stuff\abstractions</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\the engine stuff\abstractions</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files\additional functionality</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\additional functionality</Filter>
     </ClCompile>
     <ClCompile Include="ActorObj.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\additional functionality</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -14,11 +14,11 @@ public:
 
 	void setIsPlayer(bool p) { isPlayer = p; };
 	void setMovementControlls(int up, int dowm, int left, int right);
-	std::vector<sf::Keyboard::Key>* getControllsVctor() { return &controlls; };
+	std::vector<int>* getControllsVctor() { return &controlls; };
 
 private:
 	bool isPlayer;
-	std::vector<sf::Keyboard::Key> controlls;
+	std::vector<int> controlls;
 
 
 };

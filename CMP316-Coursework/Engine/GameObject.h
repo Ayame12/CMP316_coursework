@@ -35,7 +35,7 @@ public:
 	void setInput(Input* i) { input = i; };
 	void setWindow(sf::RenderWindow* w) { window = w; };
 
-private:
+protected:
 	bool alive;
 	sf::Vector2f velocity;
 

@@ -4,8 +4,8 @@
 ActorObj::ActorObj()
 {
 	isPlayer = false;
-	input = nullptr;
-	controlls.push_back(input.GetSFKey(0));
+	//input = nullptr;
+	controlls.push_back(1);
 }
 
 ActorObj::~ActorObj()
