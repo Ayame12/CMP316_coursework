@@ -34,6 +34,9 @@
     <Filter Include="Header Files\the engine stuff\abstractions">
       <UniqueIdentifier>{e727561c-62a0-4d64-b2d7-bb4217e8101c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\components">
+      <UniqueIdentifier>{989c1a15-5fce-4a17-bf75-ae9e592277f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Input.h">
@@ -69,6 +72,9 @@
     <ClInclude Include="GameState.h">
       <Filter>Header Files\the engine stuff</Filter>
     </ClInclude>
+    <ClInclude Include="InputComponent.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -100,6 +106,9 @@
     </ClCompile>
     <ClCompile Include="ActorObj.cpp">
       <Filter>Source Files\additional functionality</Filter>
+    </ClCompile>
+    <ClCompile Include="InputComponent.cpp">
+      <Filter>Source Files\components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
