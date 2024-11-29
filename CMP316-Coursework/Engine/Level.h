@@ -1,26 +1,27 @@
 #pragma once
 
 #include "GameState.h"
+#include "GameObject.h"
 
 class Level
 {
 public:
-	Level(sf::RenderWindow* hwnd, GameState* gs);
+	Level();
 	~Level();
 
-	void handleInput(float dt);
-	void update(float dt);
-	void render();
+	void loadLevel();
+	GameObject getGameObj(int n);
+
 
 private:
 	sf::View view;
-
-	void beginDraw();
-	void endDraw();
 
 	// Default variables for level class.
 	sf::RenderWindow* window;
 	//Input* input;
 	GameState* gameState;
+	float completion;
+
+	std::vector<GameObject>* objectList;
 };
 

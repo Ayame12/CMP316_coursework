@@ -1,9 +1,10 @@
-﻿  GameState.cpp
-  Input.cpp
-  Level.cpp
-  Menu.cpp
+﻿  Level.cpp
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Level.cpp(15,13): error C2228: left of '.push_back' must have class/struct/union
+  (compiling source file '/Level.cpp')
+      E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Level.cpp(15,13):
+      type is 'std::vector<GameObject,std::allocator<GameObject>> *'
+      E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Level.cpp(15,13):
+      did you intend to use '->' instead?
+  
   Scene.cpp
   Generating Code...
-winmm.lib(WINMM.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
-gdi32.lib(GDI32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
-  Engine.vcxproj -> E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\x64\Debug\Engine.lib

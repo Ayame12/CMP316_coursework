@@ -1,32 +1,23 @@
 #include "pch.h"
 #include "Level.h"
 
-Level::Level(sf::RenderWindow* hwnd, GameState* gs)
+Level::Level()
 {
-	window = hwnd;
-	gameState = gs;
 }
 
 Level::~Level()
 {
 }
 
-void Level::handleInput(float dt)
+void Level::loadLevel()
 {
+	GameObject* n = new GameObject;
+	objectList.push_back(n);
+
 }
 
-void Level::update(float dt)
+GameObject Level::getGameObj(int n)
 {
+	return GameObject();
 }
 
-void Level::render()
-{
-}
-
-void Level::beginDraw()
-{
-}
-
-void Level::endDraw()
-{
-}

@@ -1,5 +1,11 @@
 #include "pch.h"
 #include "Engine.h"
+#include "Scene.h"
+#include "GameState.h"
+Engine::Engine() : 
+	scene{nullptr}
+{
+}
 
 void Engine::Initialize()
 {
@@ -14,6 +20,8 @@ void Engine::Run()
 	// Run the game loop
 	sf::RenderWindow window(sf::VideoMode(1200, 675), "Game Engine");
 	Input input;
+	GameState gState;
+	scene = new Scene(&window, &input, &gState);
 
 	// Initialise objects for delta time
 	sf::Clock clock;
@@ -28,7 +36,7 @@ void Engine::Run()
 		// Call standard game loop functions (input, update and render)
 		HandleInput(deltaTime);
 		Update(deltaTime);
-		Render();
+		Render(&window);
 
 		// Update input class, handle pressed keys
 		// Must be done last.
@@ -38,15 +46,21 @@ void Engine::Run()
 
 void Engine::HandleInput(float dt)
 {
-
+	scene->handleInput(dt);
 }
 
 void Engine::Update(float dt)
 {
+	scene->update(dt);
 }
 
-void Engine::Render()
+void Engine::Render(sf::RenderWindow* window)
 {
+	window->clear(sf::Color(100, 149, 237));
+
+	scene->render();
+
+	window->display();
 }
 
 void Engine::WindowProcess(sf::RenderWindow* window, Input* in)
