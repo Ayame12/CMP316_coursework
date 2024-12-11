@@ -22,7 +22,7 @@ private:
 	GameState* gameState;
 	//AudioManager* audio;
 
-	Level level1;
+	Level level;
 	Level* currentLevel;
 };
 

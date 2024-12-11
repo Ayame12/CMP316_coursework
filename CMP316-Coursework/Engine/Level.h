@@ -1,4 +1,5 @@
 #pragma once
+#include <map>
 
 #include "GameState.h"
 #include "GameObject.h"
@@ -9,10 +10,11 @@ public:
 	Level();
 	~Level();
 
-	void loadLevel();
+	void loadLevel(int lvl);
 	GameObject getGameObj(int n);
 
-
+	//std::vector<GameObject> objList;
+	std::map<std::string, GameObject*> objList;
 private:
 	sf::View view;
 
@@ -22,6 +24,6 @@ private:
 	GameState* gameState;
 	float completion;
 
-	std::vector<GameObject> objectList;
+	std::map<std::string, sf::Texture*> textureMap;
 };
 
