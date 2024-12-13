@@ -11,6 +11,7 @@ public:
     void setUp(int x, int y, int width, int height, int fNo, float s, bool l);
     void animate( float dt);
     void setFlipped(bool f) { isFlipped = f; };
+    void setPlaying(bool p) { isPlaying = p; currentFrame = 0; };
 
     sf::IntRect getCurrentFrame();
 
@@ -41,5 +42,6 @@ private:
     //int animations[9][5];
     Animation animations[9];
     Animation* animation = &animations[0];
-    int currentAnimation = 0;
+    int currentAnimation = 1;
+    int prevAnimation = 0;
 };

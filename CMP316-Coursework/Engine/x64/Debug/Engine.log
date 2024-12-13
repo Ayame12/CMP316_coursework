@@ -1,9 +1,5 @@
 ﻿  AnimationComponent.cpp
-  DCTAttackComponent.cpp
   Level.cpp
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\DCTAttackComponent.cpp(2,10): error C1083: Cannot open include file: 'DCTAttack.h': No such file or directory
-  (compiling source file '/DCTAttackComponent.cpp')
-  
 E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Level.cpp(120,105): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
 E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Level.cpp(120,105): warning C4244:         with
 E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Level.cpp(120,105): warning C4244:         [
@@ -86,29 +82,7 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.3412
               _Ty=PatrolMovementComponent
           ]
   
-  ObjectMaker.cpp
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\ObjectMaker.h(38,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  (compiling source file '/ObjectMaker.cpp')
-  
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\ObjectMaker.h(39,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  (compiling source file '/ObjectMaker.cpp')
-  
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\ObjectMaker.h(40,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  (compiling source file '/ObjectMaker.cpp')
-  
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\ObjectMaker.h(41,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  (compiling source file '/ObjectMaker.cpp')
-  
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\ObjectMaker.h(44,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  (compiling source file '/ObjectMaker.cpp')
-  
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\ObjectMaker.h(45,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  (compiling source file '/ObjectMaker.cpp')
-  
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\ObjectMaker.h(46,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  (compiling source file '/ObjectMaker.cpp')
-  
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\ObjectMaker.h(47,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  (compiling source file '/ObjectMaker.cpp')
-  
   Generating Code...
+winmm.lib(WINMM.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
+gdi32.lib(GDI32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
+  Engine.vcxproj -> E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\x64\Debug\Engine.lib

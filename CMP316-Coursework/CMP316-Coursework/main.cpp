@@ -11,8 +11,8 @@ int main() {
 	o.setSpeed(500);
 	o.setTexture("res/animationTest.png", true);
 	o.setAnimation(ANIMATION_TYPES::IDLE, 0, 0, 4, 4, 4, 0.2, true);
-	o.setAnimation(ANIMATION_TYPES::WALK_VER, 4, 4, 4, 4, 4, 0.2, true);
-	o.setAnimation(ANIMATION_TYPES::WALK_HOR, 8, 8, 4, 4, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::WALK_VER, 0, 4, 4, 4, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::WALK_HOR, 0, 8, 4, 4, 4, 0.2, true);
 	o.setMovementBehaviour(MOVEMENT_TYPES::PLAYER_CONTROL);
 	o.writeObject();
 	o.finishLevel();
