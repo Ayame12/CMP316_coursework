@@ -22,6 +22,9 @@ public:
 	void setVelocity(sf::Vector2f v) { velocity = v; };
 	sf::Vector2f getVelocity() { return velocity; };
 
+	void setFlipped(bool f) { isFlipped = f; };
+	bool getFlipped() { return isFlipped; };
+
 	void setCollisionBox(float x, float y, float width, float height) { collisionBox = sf::FloatRect(x, y, width, height); };
 	void setCollisionBox(sf::FloatRect box) { collisionBox = box; };
 	sf::FloatRect getCollisionBox() { return collisionBox; };
@@ -40,6 +43,7 @@ protected:
 	bool alive;
 	std::string tag;
 	sf::Vector2f velocity;
+	bool isFlipped;
 
 	sf::FloatRect collisionBox;
 	bool collider;

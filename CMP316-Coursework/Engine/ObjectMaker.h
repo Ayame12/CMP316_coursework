@@ -86,7 +86,7 @@ private:
 	bool animated = false;
 	int animations[9][5] = { 0 };//{ {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0} };
 	float aniSpeed[9] = { 200 };
-	bool aniLoop[9] = { false };
+	bool aniLoop[9] = { true };
 
 	float speed = 0;
 	MOVEMENT_TYPES movementType = MOVEMENT_TYPES::STATIONARY;

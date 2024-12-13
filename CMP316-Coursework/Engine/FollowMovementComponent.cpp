@@ -29,6 +29,15 @@ void FollowMovementComponent::update(GameObject* gameObj, float dt)
             movement = target->getPosition() - gameObj->getPosition();
         }
 
+        if (movement.x < 0)
+        {
+            gameObj->setFlipped(true);
+        }
+        else
+        {
+            gameObj->setFlipped(false);
+        }
+
         gameObj->setVelocity(movement);
         gameObj->move(movement);
     }

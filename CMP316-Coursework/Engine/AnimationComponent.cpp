@@ -68,7 +68,7 @@ void AnimationComponent::handleInput(GameObject* gameObj, float dt)
 
 void AnimationComponent::update(GameObject* gameobj, float dt)
 {
-	prevAnimation = currentAnimation;
+	int prevAnimation = currentAnimation;
 	if (gameobj->getVelocity().x == 0 && gameobj->getVelocity().y == 0)
 	{
 		currentAnimation = 0;
@@ -81,13 +81,14 @@ void AnimationComponent::update(GameObject* gameobj, float dt)
 	{
 		currentAnimation = 1;
 	}
-
+	animation->setPlaying(false);	
+	animation = &animations[currentAnimation];
 	if (prevAnimation != currentAnimation)
 	{
-		animation->setPlaying(false);
+		animation->setCurrentFrame(0);
 	}
-
-	animation = &animations[currentAnimation];
+	animation->setPlaying(true);
+	animation->setFlipped(gameobj->getFlipped());
 	animation->animate(dt);
 	gameobj->setTextureRect(animation->getCurrentFrame());
 }

@@ -73,7 +73,7 @@ void Object::writeObject()
 		{
 			out << animations[i][j] << ";";
 		}
-		out << aniSpeed[i] << ";" << aniLoop << ";";
+		out << aniSpeed[i] << ";" << int(aniLoop) << ";";
 	}
 	out << std::endl;
 	//std::string texPath = { "" };
@@ -176,7 +176,7 @@ void Object::resetObject()
 			animations[i][j] = 0;
 		}
 		aniSpeed[i] = 200;
-		aniLoop[i] = false;
+		aniLoop[i] = true;
 	}
 
 	speed = 0;

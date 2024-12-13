@@ -27,6 +27,15 @@ void PlayerMovementComponent::handleInput(GameObject* gameObj, float dt)
         direction /= magnitude; // Normalize to unit vector
     }
 
+    if (direction.x < 0)
+    {
+        gameObj->setFlipped(true);
+    }
+    else
+    {
+        gameObj->setFlipped(false);
+    }
+
     // Scale by speed
     gameObj->setVelocity(direction * speed);
 }
