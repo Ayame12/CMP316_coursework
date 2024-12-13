@@ -49,6 +49,6 @@ protected:
 	sf::RenderWindow* window;
 
 	std::vector<std::shared_ptr<Component>> components;
-
+	std::shared_ptr<Component> aliveComp;
 };
 

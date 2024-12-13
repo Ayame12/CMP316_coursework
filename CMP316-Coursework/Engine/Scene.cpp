@@ -11,6 +11,13 @@ Scene::Scene(sf::RenderWindow* hwnd, Input* in, GameState* gs/*, AudioManager* a
 
 	view = window->getView();
 	level.loadLevel(1);
+	level.switchLevel();
+
+	for (auto const& it : level.playerObjList)
+	{
+		it.second->setWindow(window);
+		it.second->setInput(input);
+	}
 
 	for (auto const& it : level.objList)
 	{
@@ -32,11 +39,19 @@ void Scene::handleInput(float dt)
 	{
 		it.second->handleInput(dt);
 	}
+	for (auto const& it : level.playerObjList)
+	{
+		it.second->handleInput(dt);
+	}
 }
 
 void Scene::update(float dt)
 {
 	for (auto const& it : level.objList)
+	{
+		it.second->update(dt);
+	}
+	for (auto const& it : level.playerObjList)
 	{
 		it.second->update(dt);
 	}
@@ -49,6 +64,13 @@ void Scene::render()
 
 	for (auto const& it : level.objList)
 	{
-		window->draw(it.second);
+		window->draw(*it.second);
 	}
+	for (auto const& it : level.playerObjList)
+	{
+		window->draw(*it.second);
+	}
+
+	//level.objList.at("hand");
+
 }

@@ -51,15 +51,9 @@ void Object::writeObject()
 		out.open(currentlvl, std::ios_base::app);
 	}
 	objInLvl++;
-
-	//outfile << "my text here!" << std::endl;
-	if (isPlayer)
-	{
-		out.close();
-		out.open("../LoadingFiles/level0");
-	}
+	
 	out << "tag:" << objTag << ";" << std::endl;
-	out << "isPlayer:" << isPlayer << ";" << std::endl;
+	//out << "isPlayer:" << isPlayer << ";" << std::endl;
 	out << "triggerType:" << triggerType << ";" << std::endl;
 	//std::string objTag = "";
 	//bool isPlayer = false;
@@ -71,11 +65,29 @@ void Object::writeObject()
 	
 	out << "visual:" << texPath << ";";
 	out << animated << ";" << std::endl;
+
+	out << "animations:";
+	for (int i = 0; i < 9; ++i)
+	{
+		for (int j = 0; j < 5; ++j)
+		{
+			out << animations[i][j] << ";";
+		}
+		out << aniSpeed[i] << ";" << aniLoop << ";";
+	}
+	out << std::endl;
 	//std::string texPath = { "" };
 	//bool animated = false;
 	//int animations[5][5] = { {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0} };
 
 	out << "movement:" << movementType << ";" << speed << ";" << std::endl;
+	out << "followTarget:" << followTarget << ";" << distKept << ";" << std::endl;
+	out << "patrolPoints:" << patPoints.size() << ":";
+	for (int i = 0; i < patPoints.size(); ++i)
+	{
+		out << patPoints[i] << ";";
+	}
+	out << std::endl;
 	out << "controlls:";
 	for (int i = 0; i < controlls.size(); i++)
 	{
@@ -88,6 +100,8 @@ void Object::writeObject()
 
 	out << "attack1:" << attackType[0] << ";" << std::endl;
 	out << "attack2:" << attackType[1] << ";" << std::endl;
+
+	out << "attackDirControll:" << attDirControll[0] << ";" << attDirControll[1] << ";" << std::endl;
 		//ATTACK_TYPES attackType[2] = { ATTACK_TYPES::NONE, ATTACK_TYPES::NONE };
 		//ATTACK_CONDITION_TYPES attackCondition[2] = { ATTACK_CONDITION_TYPES::NO, ATTACK_CONDITION_TYPES::NO };
 		//int attackSize[2][4] = { {0,0,0,0},{0,0,0,0} };
@@ -138,6 +152,7 @@ void Object::finishLevel()
 		out << linesVec[i] << std::endl;
 	}
 	objInLvl = 0;
+	levelsPresent++;
 }
 
 void Object::resetObject()
@@ -156,15 +171,20 @@ void Object::resetObject()
 
 	texPath = { "" };
 	animated = false;
-	for (int i = 0; i < 5; ++i) {
+	for (int i = 0; i < 9; ++i) {
 		for (int j = 0; j < 5; ++j) {
 			animations[i][j] = 0;
 		}
+		aniSpeed[i] = 200;
+		aniLoop[i] = false;
 	}
 
 	speed = 0;
 	movementType = MOVEMENT_TYPES::STATIONARY;
 	controlls = { 22, 18, 0, 3, 4, 16 };
+	followTarget = "";
+	distKept = 0;
+	patPoints.clear();
 
 	attackType[0] = ATTACK_TYPES::NO_ATTACK;
 	attackType[1] = ATTACK_TYPES::NO_ATTACK;

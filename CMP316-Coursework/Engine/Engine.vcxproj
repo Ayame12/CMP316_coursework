@@ -156,10 +156,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ActorObj.h" />
+    <ClInclude Include="AnimationComponent.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="DCTAttackComponent.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="ENUM_TYPES.h" />
+    <ClInclude Include="FollowMovementComponent.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
@@ -167,23 +170,28 @@
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Menu.h" />
-    <ClInclude Include="movementComponent.h" />
+    <ClInclude Include="PatrolMovementComponent.h" />
+    <ClInclude Include="PlayerMovementComponent.h" />
     <ClInclude Include="ObjectMaker.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Scene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActorObj.cpp" />
+    <ClCompile Include="AnimationComponent.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="DCTAttackComponent.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="FollowMovementComponent.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="movementComponent.cpp" />
+    <ClCompile Include="PatrolMovementComponent.cpp" />
+    <ClCompile Include="PlayerMovementComponent.cpp" />
     <ClCompile Include="ObjectMaker.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

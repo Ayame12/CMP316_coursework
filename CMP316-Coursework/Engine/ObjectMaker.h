@@ -11,7 +11,6 @@ public:
 
 	void setTag(std::string tag) { objTag = tag; };
 	void setObjType(OBJECT_TYPE type) { objType = type; };
-	void setIsPlayer(bool p) { isPlayer = p; };
 	void setTriggerAction(TRIGGER_ACTION_TYPE type) { triggerType = type; };
 
 	void setPosition(float x, float y) { xPos = x; yPos = y; };
@@ -20,20 +19,22 @@ public:
 
 	void setSpeed(float s) { speed = s; };
 	void setMovementBehaviour(MOVEMENT_TYPES type) { movementType = type; };
-	void setMovementConrolls(int up, int down, int left, int right) { 
+	void setFollowTarget(std::string tag, float distanceKept) { followTarget = tag; distKept = distanceKept; };
+	void addPatrollPoint(float x, float y) { patPoints.push_back(x); patPoints.push_back(y); };
+	void setMovementConrolls(int up, int down, int left, int right) {
 		controlls[0] = up;
 		controlls[1] = down;
 		controlls[2] = left;
 		controlls[3] = right;
 	};
 
-	void setAttack(int attackNo, ATTACK_TYPES atype, ATTACK_CONDITION_TYPES condType, float xOffset, 
-		float yOffset, float xSize, float ySize, float timer, float xOffsetCollision, float yOffsetCollision, 
+	void setAttack(int attackNo, ATTACK_TYPES atype, ATTACK_CONDITION_TYPES condType, float xOffset,
+		float yOffset, float xSize, float ySize, float timer, float xOffsetCollision, float yOffsetCollision,
 		float xSizeCollision, float ySizeCollision);
 
 	void setAttackType(int attackNo, ATTACK_TYPES type) { attackType[attackNo] = type; };
 	void setAttackCondition(int attackNo, ATTACK_CONDITION_TYPES type) { attackCondition[attackNo] = type; };
-	void setAttackSize(int attackNo, float xOffset, float yOffset, float xSize, float ySize){
+	void setAttackSize(int attackNo, float xOffset, float yOffset, float xSize, float ySize) {
 		attackSize[attackNo][0] = xOffset;
 		attackSize[attackNo][1] = yOffset;
 		attackSize[attackNo][2] = xSize;
@@ -54,12 +55,15 @@ public:
 	void setAttackKey(int attackNo, int key) { controlls[3 + attackNo] = key; };
 
 	void setTexture(std::string filePath, bool isAnimated);
-	void setAnimation(ANIMATION_TYPES type, int xOffset, int yOffset, int width, int height, int frames) {
-		animations[type][0] = xOffset;
-		animations[type][1] = yOffset;
-		animations[type][2] = width;
-		animations[type][3] = height;
-		animations[type][4] = frames;
+	//void setOrigin();
+	void setAnimation(ANIMATION_TYPES type, int xOffset, int yOffset, int width, int height, int frames, float speed, bool loop) {
+		animations[type - 1][0] = xOffset;
+		animations[type - 1][1] = yOffset;
+		animations[type - 1][2] = width;
+		animations[type - 1][3] = height;
+		animations[type - 1][4] = frames;
+		aniSpeed[type - 1] = speed;
+		aniLoop[type - 1] = loop;
 	};
 
 	void writeObject();
@@ -73,18 +77,23 @@ private:
 
 	bool isPlayer = false;
 	TRIGGER_ACTION_TYPE triggerType = TRIGGER_ACTION_TYPE::NO_ACTION;
-	
+
 	float xPos = 0, yPos = 0;
 	float xScale = 1, yScale = 1;
 	float rotation = 0;
 
 	std::string texPath = { "" };
 	bool animated = false;
-	int animations[5][5] = { {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0} };
+	int animations[9][5] = { 0 };//{ {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0} };
+	float aniSpeed[9] = { 200 };
+	bool aniLoop[9] = { false };
 
 	float speed = 0;
 	MOVEMENT_TYPES movementType = MOVEMENT_TYPES::STATIONARY;
 	std::vector<int> controlls = { 22,18,0,3,4,16 };
+	std::string followTarget = "";
+	float distKept = 0;
+	std::vector<float> patPoints;
 
 	ATTACK_TYPES attackType[2] = { ATTACK_TYPES::NO_ATTACK, ATTACK_TYPES::NO_ATTACK };
 	ATTACK_CONDITION_TYPES attackCondition[2] = { ATTACK_CONDITION_TYPES::NO_COND, ATTACK_CONDITION_TYPES::NO_COND };
@@ -92,6 +101,7 @@ private:
 	int attackCollisionBox[2][4] = { {0,0,0,0},{0,0,0,0} };
 	std::string attackTarget[2] = { "","" };
 	float attackDirX[2] = { 0,0 }, attackDirY[2] = { 0,0 };
+	ATTACK_DIRECTION_CONTROLL attDirControll[2] = { ATTACK_DIRECTION_CONTROLL::MOUSE };
 	int projectileNo[2] = { 0,0 };
 	float attacksAngle[2] = { 0,0 };
 	std::string attackTex[2] = { "","" };
@@ -100,6 +110,6 @@ private:
 	float attackTimer[2] = { 0,0 };
 
 	int objInLvl = 0;
-	int levelsPresent = 1;
+	int levelsPresent = 0;
 	std::vector<std::string> allTextures;
 };

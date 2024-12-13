@@ -11,10 +11,12 @@ public:
 	~Level();
 
 	void loadLevel(int lvl);
-	GameObject getGameObj(int n);
+	void switchLevel();
 
 	//std::vector<GameObject> objList;
 	std::map<std::string, GameObject*> objList;
+	std::map<std::string, GameObject*> playerObjList;
+
 private:
 	sf::View view;
 
@@ -24,6 +26,11 @@ private:
 	GameState* gameState;
 	float completion;
 
+	std::map<std::string, GameObject*> nextObjList;
+	std::map<std::string, GameObject*> allObj;
+
 	std::map<std::string, sf::Texture*> textureMap;
+	std::map<std::string, sf::Texture*> nextTextureMap;
+	std::map<std::string, sf::Texture*> playerTextureMap;
 };
 
