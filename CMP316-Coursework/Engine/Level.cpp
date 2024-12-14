@@ -6,9 +6,14 @@
 #include "FollowMovementComponent.h"
 #include "PatrolMovementComponent.h"
 #include "AnimationComponent.h"
+#include "AttackComponent.h"
 
 Level::Level()
 {
+	for (int i = 0; i < 40; i++)
+	{
+		attacks.emplace(i, new AttackObj);
+	}
 	loadLevel(0);
 }
 
@@ -206,18 +211,65 @@ void Level::loadLevel(int lvlNo)
 		}
 
 		//attacks controlls
-		int cA1;
+		int cA[2];
 		std::getline(input, str, ';');
-		cA1 = stoi(str);
-		int cA2;
+		cA[0] = stoi(str);
 		std::getline(input, str, ';');
-		cA2 = stoi(str);
+		cA[1] = stoi(str);
 
-		//attack Types
+		int at[2], ac[2], pn[2];
+		float adx[2], ady[2], proxdis[2], atime[2], aspee[2];
+		std::string atar[2], atex[2], prox[2];
+
+		//attack 
 		std::getline(input, str, ':');
-		std::getline(input, str, ';');
-		std::getline(input, str, ':');
-		std::getline(input, str, ';');
+		for (int i = 0; i < 2; i++)
+		{
+			std::getline(input, str, ':');
+			std::getline(input, str, ';');
+			at[i] = stoi(str);
+			std::getline(input, str, ';');
+			ac[i] = stoi(str);
+			std::getline(input, str, ';');
+			atar[i] = str;
+			std::getline(input, str, ';');
+			adx[i] = stof(str);
+			std::getline(input, str, ';');
+			ady[i] = stof(str);
+			std::getline(input, str, ';');
+			pn[i] = stoi(str);
+			std::getline(input, str, ';');
+			atex[i] = str;
+			atex[i] = "res/animationTest.png";
+			std::getline(input, str, ';');
+			prox[i] = str;
+			std::getline(input, str, ';');
+			proxdis[i] = stof(str);
+			std::getline(input, str, ';');
+			atime[i] = stof(str);
+			std::getline(input, str, ';');
+			aspee[i] = stof(str);
+			//out << attackType[i] << ";";
+			//out << attackCondition[i] << ";";
+			//out << attackTarget[i] << ";
+			//out << attackDirX[i] << ";";
+			//out << attackDirY[i] << ";";
+			//out << projectileNo[i] << ";";
+			//out << attackTex[i] << ";";
+			//out << proxTag[i] << ";";
+			//out << proxDistance[i] << ";";
+			//out << attackTimer[i] << ";";
+			//out << aSpeed[i] << ";";
+
+			if (static_cast<ATTACK_TYPES>(at[i]) != ATTACK_TYPES::NO_ATTACK)
+			{
+				it.second->addComponent(std::make_shared<AttackComponent>(0, 0, 1, 1, 0, static_cast<ATTACK_TYPES>(at[i]), aspee[i],
+					adx[i], ady[i], static_cast<ATTACK_CONDITION_TYPES>(ac[i]), static_cast<ATTACK_DIRECTION_CONTROLL>(0), nullptr, 0.15,
+					0, 2, &attacks, nextTextureMap.at(atex[i]), 0));
+			}
+
+		}
+
 
 		//add animation component after movement so i can check object velocity in animation to flip it if necessary 
 		if (a)

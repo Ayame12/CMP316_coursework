@@ -14,6 +14,11 @@ int main() {
 	o.setAnimation(ANIMATION_TYPES::WALK_VER, 0, 4, 4, 4, 4, 0.2, true);
 	o.setAnimation(ANIMATION_TYPES::WALK_HOR, 0, 8, 4, 4, 4, 0.2, true);
 	o.setMovementBehaviour(MOVEMENT_TYPES::PLAYER_CONTROL);
+	o.setAttackType(1, ATTACK_TYPES::PROJECTILE_STRAIGHT);
+	o.setAttackCondition(1, ATTACK_CONDITION_TYPES::TIMER);
+	o.setAttackKey(1, 2);
+	o.setAttackDirection(1, ATTACK_DIRECTION_CONTROLL::MOUSE);
+	o.setAttackSpeed(1, 2000);
 	o.writeObject();
 	o.finishLevel();
 

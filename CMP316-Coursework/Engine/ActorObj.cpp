@@ -4,7 +4,6 @@
 ActorObj::ActorObj()
 {
 	isPlayer = false;
-	//input = nullptr;
 	controlls.push_back(1);
 }
 

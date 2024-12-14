@@ -3,6 +3,7 @@
 
 #include "GameState.h"
 #include "GameObject.h"
+#include "AttackObj.h"
 
 class Level
 {
@@ -16,6 +17,7 @@ public:
 	//std::vector<GameObject> objList;
 	std::map<std::string, GameObject*> objList;
 	std::map<std::string, GameObject*> playerObjList;
+	std::map<int, AttackObj*> attacks;
 
 private:
 	sf::View view;

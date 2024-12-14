@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClInclude Include="ActorObj.h" />
     <ClInclude Include="AnimationComponent.h" />
+    <ClInclude Include="AttackComponent.h" />
     <ClInclude Include="AttackObj.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Component.h" />
@@ -180,6 +181,7 @@
   <ItemGroup>
     <ClCompile Include="ActorObj.cpp" />
     <ClCompile Include="AnimationComponent.cpp" />
+    <ClCompile Include="AttackComponent.cpp" />
     <ClCompile Include="AttackObj.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Component.cpp" />

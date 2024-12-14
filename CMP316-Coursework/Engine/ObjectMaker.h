@@ -48,11 +48,13 @@ public:
 	};
 	void setAttackTaget(int attackNo, std::string tag) { attackTarget[attackNo] = tag; };
 	void setAttackDirection(int attackNo, float xDir, float yDir) { attackDirX[attackNo] = xDir;	attackDirY[attackNo] = yDir; };
+	void setAttackDirection(int attackNo, ATTACK_DIRECTION_CONTROLL directionControl) { attDirControll[attackNo] = directionControl; };
 	void setProjectileNumber(int attackNo, int projNo, float angle) { projectileNo[attackNo] = projNo; attacksAngle[attackNo] = angle; };
 	void setAttackTexture(int attackNo, std::string filePath) { attackTex[attackNo] = filePath; };
 	void setAttackProximity(int attackNo, std::string tag, float distance) { proxTag[attackNo] = tag; proxDistance[attackNo] = distance; };
 	void setAttackTimer(int attackNo, float timer) { attackTimer[attackNo] = timer; };
 	void setAttackKey(int attackNo, int key) { controlls[3 + attackNo] = key; };
+	void setAttackSpeed(int attackNo, float attackSpeed) { aSpeed[attackNo] = attackSpeed; };
 
 	void setTexture(std::string filePath, bool isAnimated);
 	//void setOrigin();
@@ -101,13 +103,14 @@ private:
 	int attackCollisionBox[2][4] = { {0,0,0,0},{0,0,0,0} };
 	std::string attackTarget[2] = { "","" };
 	float attackDirX[2] = { 0,0 }, attackDirY[2] = { 0,0 };
-	ATTACK_DIRECTION_CONTROLL attDirControll[2] = { ATTACK_DIRECTION_CONTROLL::MOUSE };
+	ATTACK_DIRECTION_CONTROLL attDirControll[2] = { ATTACK_DIRECTION_CONTROLL::NO_CONTROL };
 	int projectileNo[2] = { 0,0 };
 	float attacksAngle[2] = { 0,0 };
 	std::string attackTex[2] = { "","" };
 	std::string proxTag[2] = { "","" };
 	float proxDistance[2] = { 0,0 };
 	float attackTimer[2] = { 0,0 };
+	float aSpeed[2] = { 200 };
 
 	int objInLvl = 0;
 	int levelsPresent = 0;

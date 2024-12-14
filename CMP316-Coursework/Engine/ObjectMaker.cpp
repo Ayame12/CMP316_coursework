@@ -97,23 +97,37 @@ void Object::writeObject()
 	//float xVelocity = 0, yVelocity = 0;
 	//MOVEMENT_TYPES movementType = MOVEMENT_TYPES::STATIONARY;
 	//std::vector<int> controlls = { 22,18,0,3,4,16 };
+	out << "attacks:";
+	for (int i = 0; i < 2; i++)
+	{
+		out << i << ":";
+		out << attackType[i] << ";";
+		out << attackCondition[i] << ";";
+		out << attackTarget[i] << ";";
+		out << attackDirX[i] << ";";
+		out << attackDirY[i] << ";";
+		out << projectileNo[i] << ";";
+		out << attackTex[i] << ";";
+		out << proxTag[i] << ";";
+		out << proxDistance[i] << ";";
+		out << attackTimer[i] << ";";
+		out << aSpeed[i] << ";";
+	}
 
-	out << "attack1:" << attackType[0] << ";" << std::endl;
-	out << "attack2:" << attackType[1] << ";" << std::endl;
-
-	out << "attackDirControll:" << attDirControll[0] << ";" << attDirControll[1] << ";" << std::endl;
-		//ATTACK_TYPES attackType[2] = { ATTACK_TYPES::NONE, ATTACK_TYPES::NONE };
-		//ATTACK_CONDITION_TYPES attackCondition[2] = { ATTACK_CONDITION_TYPES::NO, ATTACK_CONDITION_TYPES::NO };
-		//int attackSize[2][4] = { {0,0,0,0},{0,0,0,0} };
-		//int attackCollisionBox[2][4] = { {0,0,0,0},{0,0,0,0} };
-		//std::string attackTarget[2] = { "","" };
-		//float attackDirX[2] = { 0,0 }, attackDirY[2] = { 0,0 };
-		//int projectileNo[2] = { 0,0 };
-		//float attacksAngle[2] = { 0,0 };
-		//std::string attackTex[2] = { "","" };
-		//std::string proxTag[2] = { "","" };
-		//float proxDistance[2] = { 0,0 };
-		//float attackTimer[2] = { 0,0 };
+	/*ATTACK_TYPES attackType[2] = { ATTACK_TYPES::NO_ATTACK, ATTACK_TYPES::NO_ATTACK };
+	ATTACK_CONDITION_TYPES attackCondition[2] = { ATTACK_CONDITION_TYPES::NO_COND, ATTACK_CONDITION_TYPES::NO_COND };
+	int attackSize[2][4] = { {0,0,0,0},{0,0,0,0} };
+	int attackCollisionBox[2][4] = { {0,0,0,0},{0,0,0,0} };
+	std::string attackTarget[2] = { "","" };
+	float attackDirX[2] = { 0,0 }, attackDirY[2] = { 0,0 };
+	ATTACK_DIRECTION_CONTROLL attDirControll[2] = { ATTACK_DIRECTION_CONTROLL::NO_CONTROL };
+	int projectileNo[2] = { 0,0 };
+	float attacksAngle[2] = { 0,0 };
+	std::string attackTex[2] = { "","" };
+	std::string proxTag[2] = { "","" };
+	float proxDistance[2] = { 0,0 };
+	float attackTimer[2] = { 0,0 };
+	float aSpeed[2] = { 200 };*/
 
 	out.close();
 	resetObject();
@@ -190,8 +204,11 @@ void Object::resetObject()
 	attackType[1] = ATTACK_TYPES::NO_ATTACK;
 	attackCondition[0] = ATTACK_CONDITION_TYPES::NO_COND;
 	attackCondition[1] = ATTACK_CONDITION_TYPES::NO_COND;
+	attDirControll[0] = { ATTACK_DIRECTION_CONTROLL::NO_CONTROL };
+	attDirControll[1] = { ATTACK_DIRECTION_CONTROLL::NO_CONTROL };
 
 	for (int i = 0; i < 2; ++i) {
+
 		for (int j = 0; j < 4; ++j) {
 			attackSize[i][j] = 0;
 			attackCollisionBox[i][j] = 0;

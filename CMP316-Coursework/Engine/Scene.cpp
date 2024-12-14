@@ -24,6 +24,12 @@ Scene::Scene(sf::RenderWindow* hwnd, Input* in, GameState* gs/*, AudioManager* a
 		it.second->setWindow(window);
 		it.second->setInput(input);
 	}
+
+	for (auto const& it : level.attacks)
+	{
+		it.second->setWindow(window);
+		it.second->setInput(input);
+	}
 	/*sf::Texture tex;
 	tex.loadFromFile("res/image.png");
 	level.objList[0].setTexture(&tex);*/
@@ -55,6 +61,10 @@ void Scene::update(float dt)
 	{
 		it.second->update(dt);
 	}
+	for (auto const& it : level.attacks)
+	{
+		it.second->update(dt);
+	}
 }
 
 void Scene::render()
@@ -67,6 +77,10 @@ void Scene::render()
 		window->draw(*it.second);
 	}
 	for (auto const& it : level.playerObjList)
+	{
+		window->draw(*it.second);
+	}
+	for (auto const& it : level.attacks)
 	{
 		window->draw(*it.second);
 	}

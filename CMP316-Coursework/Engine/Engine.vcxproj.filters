@@ -112,7 +112,10 @@
       <Filter>Header Files\components\attacks</Filter>
     </ClInclude>
     <ClInclude Include="AttackObj.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\components\attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackComponent.h">
+      <Filter>Header Files\components\attacks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -170,8 +173,11 @@
     <ClCompile Include="DCTAttackComponent.cpp">
       <Filter>Source Files\components\attacks</Filter>
     </ClCompile>
+    <ClCompile Include="AttackComponent.cpp">
+      <Filter>Source Files\components\attacks</Filter>
+    </ClCompile>
     <ClCompile Include="AttackObj.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\components\attacks</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
