@@ -54,6 +54,28 @@ int main() {
 	o.writeObject();
 
 	o.finishLevel();
+
+	o.setTag("2");
+	o.setPosition(50, 50);
+	o.setObjType(OBJECT_TYPE::TERRAIN);
+	o.setScale(0.2, 0.2);
+	o.setTexture("res/image.png", false);
+	o.writeObject();
+
+	o.setTag("3");
+	o.setPosition(500, 500);
+	o.setHealth(3);
+	o.setObjType(OBJECT_TYPE::ACTOR);
+	o.setScale(50, 50);
+	o.setTexture("res/animationTest.png", false);
+	o.setSpeed(300);
+	o.setMovementBehaviour(MOVEMENT_TYPES::PATROL);
+	o.addPatrollPoint(10, 500);
+	o.addPatrollPoint(100, 500);
+	o.setFollowTarget("hand", 200);
+	o.writeObject();
+
+	o.finishLevel();
 	
 
 	Input input;

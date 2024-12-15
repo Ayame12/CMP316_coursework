@@ -25,9 +25,16 @@ void Level::loadLevel(int lvlNo)
 {
 	nextObjList.clear();
 	nextTextureMap.clear();
+	nextCollidingObj.clear();
+
 	if (lvlNo != 0)
 	{
 		allObj = playerObjList;
+		nextTextureMap = playerTextureMap;
+		for (auto const& plOb : playerObjList)
+		{
+			nextCollidingObj.push_back(plOb.second);
+		}
 	}
 
 	std::string lvl = "../LoadingFiles/level" + std::to_string(lvlNo);
@@ -95,7 +102,7 @@ void Level::loadLevel(int lvlNo)
 			{
 				it.second->setPlayer(true);
 			}
-			collidingObj.push_back(it.second);
+			nextCollidingObj.push_back(it.second);
 			break;
 		}
 		case BACKGROUND:
@@ -103,7 +110,7 @@ void Level::loadLevel(int lvlNo)
 		case TERRAIN:
 		{
 			it.second->setBarrier(true);
-			collidingObj.push_back(it.second);
+			nextCollidingObj.push_back(it.second);
 			break;
 		}
 		case UI:
@@ -380,4 +387,5 @@ void Level::switchLevel()
 {
 	objList = nextObjList;
 	textureMap = nextTextureMap;
+	collidingObj = nextCollidingObj;
 }

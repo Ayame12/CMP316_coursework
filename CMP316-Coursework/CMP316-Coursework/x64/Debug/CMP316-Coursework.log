@@ -1,8 +1,10 @@
 ﻿  main.cpp
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\CMP316-Coursework\main.cpp(14,55): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\CMP316-Coursework\main.cpp(15,59): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\CMP316-Coursework\main.cpp(16,59): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\CMP316-Coursework\main.cpp(24,25): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\CMP316-Coursework\main.cpp(47,19): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\CMP316-Coursework\main.cpp(47,13): warning C4305: 'argument': truncation from 'double' to 'float'
-  CMP316-Coursework.vcxproj -> E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\x64\Debug\CMP316-Coursework.exe
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(14,55): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(15,59): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(16,59): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(24,25): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(47,19): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(47,13): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(61,18): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(61,13): warning C4305: 'argument': truncation from 'double' to 'float'
+  CMP316-Coursework.vcxproj -> E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\x64\Debug\CMP316-Coursework.exe

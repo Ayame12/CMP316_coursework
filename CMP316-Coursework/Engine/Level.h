@@ -31,6 +31,7 @@ private:
 
 	std::map<std::string, GameObject*> nextObjList;
 	std::map<std::string, GameObject*> allObj;
+	std::vector< GameObject*> nextCollidingObj;
 
 	std::map<std::string, sf::Texture*> textureMap;
 	std::map<std::string, sf::Texture*> nextTextureMap;

@@ -42,6 +42,17 @@ Scene::~Scene()
 
 void Scene::handleInput(float dt)
 {
+
+	if (input->isPressed(sf::Keyboard::Key::P) && !loaded2 && !loadingLevel) {
+		loadLevelInBackground(2);
+		loaded2 = true; // Flag to prevent duplicate loads
+	}
+
+	if (input->isPressed(sf::Keyboard::Key::U) && !showNextLvl && loaded2 && !loadingLevel) {
+		level.switchLevel();
+		showNextLvl = true;
+	}
+
 	for (auto const& it : level.objList)
 	{
 		if (it.second->isAlive())
@@ -255,4 +266,26 @@ bool Scene::checkBoundingBox(GameObject* s1, GameObject* s2)
 		return false;
 
 	return true;
+}
+
+void Scene::loadLevelInBackground(int levelNumber) {
+	// If already loading, don't start a new thread
+	if (loadingLevel) return;
+
+	loadingLevel = true; // Set the flag
+
+	// Launch a background thread
+	levelLoadingThread = std::thread([this, levelNumber]() {
+		// Load the level
+		level.loadLevel(levelNumber);
+
+		// Switch the level once loading is complete
+		//level.switchLevel();
+
+		// Mark loading as complete
+		loadingLevel = false;
+		});
+
+	// Detach the thread so it runs independently
+	levelLoadingThread.detach();
 }

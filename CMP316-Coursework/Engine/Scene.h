@@ -2,6 +2,8 @@
 #include "GameState.h"
 #include "Input.h"
 #include "Level.h"
+#include <thread>
+#include <atomic>
 
 class Scene
 {
@@ -28,5 +30,14 @@ private:
 
 	Level level;
 	Level* currentLevel;
+
+	void loadLevelInBackground(int levelNumber);
+	bool isLevelLoading() const { return loadingLevel; }
+
+private:
+	bool loaded2 = false;
+	bool showNextLvl = false;
+	std::thread levelLoadingThread;
+	std::atomic<bool> loadingLevel{ false };
 };
 
