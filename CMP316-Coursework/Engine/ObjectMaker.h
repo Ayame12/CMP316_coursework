@@ -28,33 +28,27 @@ public:
 		controlls[3] = right;
 	};
 
-	void setAttack(int attackNo, ATTACK_TYPES atype, ATTACK_CONDITION_TYPES condType, float xOffset,
-		float yOffset, float xSize, float ySize, float timer, float xOffsetCollision, float yOffsetCollision,
-		float xSizeCollision, float ySizeCollision);
-
 	void setAttackType(int attackNo, ATTACK_TYPES type) { attackType[attackNo] = type; };
 	void setAttackCondition(int attackNo, ATTACK_CONDITION_TYPES type) { attackCondition[attackNo] = type; };
-	void setAttackSize(int attackNo, float xOffset, float yOffset, float xSize, float ySize) {
-		attackSize[attackNo][0] = xOffset;
-		attackSize[attackNo][1] = yOffset;
-		attackSize[attackNo][2] = xSize;
-		attackSize[attackNo][3] = ySize;
-	};
 	void setAttackCollisionBox(int attackNo, float xOffset, float yOffset, float xSize, float ySize) {
 		attackCollisionBox[attackNo][0] = xOffset;
 		attackCollisionBox[attackNo][1] = yOffset;
 		attackCollisionBox[attackNo][2] = xSize;
 		attackCollisionBox[attackNo][3] = ySize;
 	};
-	void setAttackTaget(int attackNo, std::string tag) { attackTarget[attackNo] = tag; };
-	void setAttackDirection(int attackNo, float xDir, float yDir) { attackDirX[attackNo] = xDir;	attackDirY[attackNo] = yDir; };
+	void setAttackTaget(int attackNo, std::string tag, float minDist) { attackTarget[attackNo] = tag; targetMinDist[attackNo] = minDist; };
+	void setAttackDirection(int attackNo, float xDir, float yDir) { attackDirX[attackNo] = xDir; attackDirY[attackNo] = yDir; };
 	void setAttackDirection(int attackNo, ATTACK_DIRECTION_CONTROLL directionControl) { attDirControll[attackNo] = directionControl; };
 	void setProjectileNumber(int attackNo, int projNo, float angle) { projectileNo[attackNo] = projNo; attacksAngle[attackNo] = angle; };
 	void setAttackTexture(int attackNo, std::string filePath) { attackTex[attackNo] = filePath; };
 	void setAttackProximity(int attackNo, std::string tag, float distance) { proxTag[attackNo] = tag; proxDistance[attackNo] = distance; };
-	void setAttackTimer(int attackNo, float timer) { attackTimer[attackNo] = timer; };
-	void setAttackKey(int attackNo, int key) { controlls[3 + attackNo] = key; };
+	void setAttackMeleTimer(int attackNo, float timer) { meleTimer[attackNo] = timer; };
+	void setAttackKey(int attackNo, int key) { controlls[4 + attackNo] = key; };
 	void setAttackSpeed(int attackNo, float attackSpeed) { aSpeed[attackNo] = attackSpeed; };
+	void setAttackScale(int attackNo, float xSc, float ySc) { aScaleX[attackNo] = xSc; aScaleY[attackNo] = ySc; };
+	void setAttackOffset(int attackNo, float x, float y) { aOffsetX[attackNo] = x; aOffsetY[attackNo] = y; };
+	void setAttackRotation(int attackNo, float r) { aRot[attackNo] = r; };
+	void setAttackCoolDown(int attackNo, float  coolDown) { aCoolDown[attackNo] = coolDown; };
 
 	void setTexture(std::string filePath, bool isAnimated);
 	//void setOrigin();
@@ -99,8 +93,9 @@ private:
 
 	ATTACK_TYPES attackType[2] = { ATTACK_TYPES::NO_ATTACK, ATTACK_TYPES::NO_ATTACK };
 	ATTACK_CONDITION_TYPES attackCondition[2] = { ATTACK_CONDITION_TYPES::NO_COND, ATTACK_CONDITION_TYPES::NO_COND };
-	int attackSize[2][4] = { {0,0,0,0},{0,0,0,0} };
-	int attackCollisionBox[2][4] = { {0,0,0,0},{0,0,0,0} };
+	float aScaleX[2] = { 1 };
+	float aScaleY[2] = { 1 };
+	float attackCollisionBox[2][4] = { {0,0,0,0},{0,0,0,0} };
 	std::string attackTarget[2] = { "","" };
 	float attackDirX[2] = { 0,0 }, attackDirY[2] = { 0,0 };
 	ATTACK_DIRECTION_CONTROLL attDirControll[2] = { ATTACK_DIRECTION_CONTROLL::NO_CONTROL };
@@ -109,8 +104,13 @@ private:
 	std::string attackTex[2] = { "","" };
 	std::string proxTag[2] = { "","" };
 	float proxDistance[2] = { 0,0 };
-	float attackTimer[2] = { 0,0 };
+	float meleTimer[2] = { 0,0 };
 	float aSpeed[2] = { 200 };
+	float aOffsetX[2] = { 0 };
+	float aOffsetY[2] = { 0 };
+	float aRot[2] = { 0 };
+	float aCoolDown[2] = { 0 };
+	float targetMinDist[2] = { 0 };
 
 	int objInLvl = 0;
 	int levelsPresent = 0;

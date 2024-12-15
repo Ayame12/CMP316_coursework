@@ -2,15 +2,6 @@
 #include "ObjectMaker.h"
 #include <fstream>
 
-void Object::setAttack(int no, ATTACK_TYPES atype, ATTACK_CONDITION_TYPES condType, float xOffset, float yOffset, float xSize, float ySize, float timer, float xOffsetCollision, float yOffsetCollision, float xSizeCollision, float ySizeCollision)
-{
-	setAttackType(no, atype);
-	setAttackCondition(no, condType);
-	setAttackSize(no, xOffset, yOffset, xSize, ySize);
-	setAttackTimer(no, timer);
-	setAttackCollisionBox(no, xOffsetCollision, yOffsetCollision, xSizeCollision, ySizeCollision);
-}
-
 void Object::setTexture(std::string filePath, bool isAnimated)
 {
 	animated = isAnimated;
@@ -103,31 +94,28 @@ void Object::writeObject()
 		out << i << ":";
 		out << attackType[i] << ";";
 		out << attackCondition[i] << ";";
+		out << aScaleX[i] << ";";
+		out << aScaleY[i] << ";";
+		for (int j = 0; j < 4; j++) {
+			out << attackCollisionBox[i][j] << ";";
+		}
 		out << attackTarget[i] << ";";
 		out << attackDirX[i] << ";";
 		out << attackDirY[i] << ";";
+		out << attDirControll[i] << ";";
 		out << projectileNo[i] << ";";
+		out << attacksAngle[i] << ";";
 		out << attackTex[i] << ";";
 		out << proxTag[i] << ";";
 		out << proxDistance[i] << ";";
-		out << attackTimer[i] << ";";
+		out << meleTimer[i] << ";";
 		out << aSpeed[i] << ";";
+		out << aOffsetX[i] << ";";
+		out << aOffsetY[i] << ";";
+		out << aRot[i] << ";";
+		out << aCoolDown[i] << ";";
+		out << targetMinDist[i] << ";";
 	}
-
-	/*ATTACK_TYPES attackType[2] = { ATTACK_TYPES::NO_ATTACK, ATTACK_TYPES::NO_ATTACK };
-	ATTACK_CONDITION_TYPES attackCondition[2] = { ATTACK_CONDITION_TYPES::NO_COND, ATTACK_CONDITION_TYPES::NO_COND };
-	int attackSize[2][4] = { {0,0,0,0},{0,0,0,0} };
-	int attackCollisionBox[2][4] = { {0,0,0,0},{0,0,0,0} };
-	std::string attackTarget[2] = { "","" };
-	float attackDirX[2] = { 0,0 }, attackDirY[2] = { 0,0 };
-	ATTACK_DIRECTION_CONTROLL attDirControll[2] = { ATTACK_DIRECTION_CONTROLL::NO_CONTROL };
-	int projectileNo[2] = { 0,0 };
-	float attacksAngle[2] = { 0,0 };
-	std::string attackTex[2] = { "","" };
-	std::string proxTag[2] = { "","" };
-	float proxDistance[2] = { 0,0 };
-	float attackTimer[2] = { 0,0 };
-	float aSpeed[2] = { 200 };*/
 
 	out.close();
 	resetObject();
@@ -200,27 +188,31 @@ void Object::resetObject()
 	distKept = 0;
 	patPoints.clear();
 
-	attackType[0] = ATTACK_TYPES::NO_ATTACK;
-	attackType[1] = ATTACK_TYPES::NO_ATTACK;
-	attackCondition[0] = ATTACK_CONDITION_TYPES::NO_COND;
-	attackCondition[1] = ATTACK_CONDITION_TYPES::NO_COND;
-	attDirControll[0] = { ATTACK_DIRECTION_CONTROLL::NO_CONTROL };
-	attDirControll[1] = { ATTACK_DIRECTION_CONTROLL::NO_CONTROL };
+	for (int i = 0; i < 2; i++) {
+		attackType[i] = ATTACK_TYPES::NO_ATTACK;
+		attackCondition[i] = ATTACK_CONDITION_TYPES::NO_COND;
+		aScaleX[i] = 1;
+		aScaleY[i] = 1;
 
-	for (int i = 0; i < 2; ++i) {
-
-		for (int j = 0; j < 4; ++j) {
-			attackSize[i][j] = 0;
+		for (int j = 0; j < 4; j++) {
 			attackCollisionBox[i][j] = 0;
 		}
+
 		attackTarget[i] = "";
 		attackDirX[i] = 0;
 		attackDirY[i] = 0;
+		attDirControll[i] = ATTACK_DIRECTION_CONTROLL::NO_CONTROL;
 		projectileNo[i] = 0;
 		attacksAngle[i] = 0;
 		attackTex[i] = "";
 		proxTag[i] = "";
 		proxDistance[i] = 0;
-		attackTimer[i] = 0;
+		meleTimer[i] = 0;
+		aSpeed[i] = 200;
+		aOffsetX[i] = 0;
+		aOffsetY[i] = 0;
+		aRot[i] = 0;
+		aCoolDown[i] = 0;
+		targetMinDist[i] = 0;
 	}
 }

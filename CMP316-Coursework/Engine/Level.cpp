@@ -217,57 +217,100 @@ void Level::loadLevel(int lvlNo)
 		std::getline(input, str, ';');
 		cA[1] = stoi(str);
 
-		int at[2], ac[2], pn[2];
-		float adx[2], ady[2], proxdis[2], atime[2], aspee[2];
+		int at[2], ac[2], pn[2], adirCon[2];
+		float adx[2], ady[2], proxdis[2], aspee[2], aScalX[2], aScalY[2], aAng[2], amt[2], aOffX[2], aOffY[2], aRot[2], acd[2], atarMinDis[2];
 		std::string atar[2], atex[2], prox[2];
+		float acolBox[2][4];
+
+		GameObject* atarget[2] = { nullptr };
+		GameObject* proxiObj[2] = { nullptr };
 
 		//attack 
 		std::getline(input, str, ':');
 		for (int i = 0; i < 2; i++)
 		{
 			std::getline(input, str, ':');
+			//type
 			std::getline(input, str, ';');
 			at[i] = stoi(str);
+			//condition
 			std::getline(input, str, ';');
 			ac[i] = stoi(str);
+			//scale
+			std::getline(input, str, ';');
+			aScalX[i] = stof(str);
+			std::getline(input, str, ';');
+			aScalY[i] = stof(str);
+			//collisions
+			for (int j = 0; j < 4; j++)
+			{
+				std::getline(input, str, ';');
+				acolBox[i][j] = stof(str);
+			}
+			//target
 			std::getline(input, str, ';');
 			atar[i] = str;
+			if (str != "")
+			{
+				atarget[i] = allObj.at(atar[i]);
+			}			
+			//direction
 			std::getline(input, str, ';');
 			adx[i] = stof(str);
 			std::getline(input, str, ';');
 			ady[i] = stof(str);
+			//direction controll
+			std::getline(input, str, ';');
+			adirCon[i] = stoi(str);
+			//projectile no
 			std::getline(input, str, ';');
 			pn[i] = stoi(str);
+			//attacks angle
 			std::getline(input, str, ';');
-			atex[i] = str;
+			aAng[i] = stof(str);
+			//attack texture
+			std::getline(input, str, ';');
+			//atex[i] = str;
 			atex[i] = "res/animationTest.png";
+			//proximity target tag
 			std::getline(input, str, ';');
 			prox[i] = str;
+			if (str != "")
+			{
+				proxiObj[i] = allObj.at(str);
+			}
+			//proximity target distance
 			std::getline(input, str, ';');
 			proxdis[i] = stof(str);
+			//mele timer
 			std::getline(input, str, ';');
-			atime[i] = stof(str);
+			amt[i] = stof(str);
 			std::getline(input, str, ';');
+			//speed
 			aspee[i] = stof(str);
-			//out << attackType[i] << ";";
-			//out << attackCondition[i] << ";";
-			//out << attackTarget[i] << ";
-			//out << attackDirX[i] << ";";
-			//out << attackDirY[i] << ";";
-			//out << projectileNo[i] << ";";
-			//out << attackTex[i] << ";";
-			//out << proxTag[i] << ";";
-			//out << proxDistance[i] << ";";
-			//out << attackTimer[i] << ";";
-			//out << aSpeed[i] << ";";
+			//position offset
+			std::getline(input, str, ';');
+			aOffX[i] = stof(str);
+			std::getline(input, str, ';');
+			aOffY[i] = stof(str);
+			//roatation
+			std::getline(input, str, ';');
+			aRot[i] = stof(str);
+			//cool down
+			std::getline(input, str, ';');
+			acd[i] = stof(str);
+			//min target distance
+			std::getline(input, str, ';');
+			atarMinDis[i] = stof(str);
 
 			if (static_cast<ATTACK_TYPES>(at[i]) != ATTACK_TYPES::NO_ATTACK)
 			{
-				it.second->addComponent(std::make_shared<AttackComponent>(0, 0, 1, 1, 0, static_cast<ATTACK_TYPES>(at[i]), aspee[i],
-					adx[i], ady[i], static_cast<ATTACK_CONDITION_TYPES>(ac[i]), static_cast<ATTACK_DIRECTION_CONTROLL>(0), nullptr, 0.15,
-					0, 2, &attacks, nextTextureMap.at(atex[i]), 0));
+				it.second->addComponent(std::make_shared<AttackComponent>(&attacks, nextTextureMap.at(atex[i]), adx[i],
+					ady[i], aspee[i], aScalX[i], aScalY[i], cA[i], static_cast<ATTACK_TYPES>(at[i]),
+					static_cast<ATTACK_CONDITION_TYPES>(ac[i]), acolBox[i], atarget[i],
+					static_cast<ATTACK_DIRECTION_CONTROLL>(adirCon[i]), pn[i], aAng[i], proxdis[i], amt[i],
+					aOffX[i], aOffY[i], aRot[i], acd[i], atarMinDis[i], proxiObj[i]));
 			}
-
 		}
 
 

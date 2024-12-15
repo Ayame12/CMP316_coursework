@@ -36,10 +36,14 @@ public:
 
 	void addComponent(std::shared_ptr<Component> component) { components.push_back(component); };
 	//std::shared_ptr<Component> getComponent();
+	bool IsPlayer() { return isPlayer; };
+	void setPlayer(bool p) { isPlayer = p; };
 
 	Input* input;
+	sf::RenderWindow* window;
 
 protected:
+	bool isPlayer;
 	bool alive;
 	std::string tag;
 	sf::Vector2f velocity;
@@ -49,8 +53,6 @@ protected:
 	bool collider;
 
 	sf::Texture texture;
-
-	sf::RenderWindow* window;
 
 	std::vector<std::shared_ptr<Component>> components;
 	std::shared_ptr<Component> aliveComp;

@@ -8,16 +8,16 @@ void PlayerMovementComponent::handleInput(GameObject* gameObj, float dt)
     sf::Vector2f direction = { 0, 0 };
 
     // Determine direction based on input
-    if (gameObj->input->isKeyDown(sf::Keyboard::W)) {
+    if (gameObj->input->isKeyDown(controlls[0])) {
         direction.y -= 1.0f;
     }
-    if (gameObj->input->isKeyDown(sf::Keyboard::S)) {
+    if (gameObj->input->isKeyDown(controlls[1])) {
         direction.y += 1.0f;
     }
-    if (gameObj->input->isKeyDown(sf::Keyboard::A)) {
+    if (gameObj->input->isKeyDown(controlls[2])) {
         direction.x -= 1.0f;
     }
-    if (gameObj->input->isKeyDown(sf::Keyboard::D)) {
+    if (gameObj->input->isKeyDown(controlls[3])) {
         direction.x += 1.0f;
     }
 

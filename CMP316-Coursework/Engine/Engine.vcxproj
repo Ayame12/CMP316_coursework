@@ -159,7 +159,7 @@
     <ClInclude Include="AnimationComponent.h" />
     <ClInclude Include="AttackComponent.h" />
     <ClInclude Include="AttackObj.h" />
-    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CollisionsComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="DCTAttackComponent.h" />
     <ClInclude Include="Engine.h" />
@@ -183,7 +183,7 @@
     <ClCompile Include="AnimationComponent.cpp" />
     <ClCompile Include="AttackComponent.cpp" />
     <ClCompile Include="AttackObj.cpp" />
-    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CollisionsComponent.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="DCTAttackComponent.cpp" />
     <ClCompile Include="Engine.cpp" />

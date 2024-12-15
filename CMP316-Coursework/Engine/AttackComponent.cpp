@@ -19,7 +19,7 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 	{
 		timePassed == 0;
 		position = sf::Vector2f(gameObj->getPosition().x + xOffset, gameObj->getPosition().y + yOffset);
-
+		sf::Vector2f testvec = gameObj->getPosition();
 		switch (cond)
 		{
 		case OBJ_PROXIMITY:
@@ -88,8 +88,10 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 				{
 				case MOUSE:
 				{
-					direction = sf::Vector2f(gameObj->input->getMouseX() - gameObj->getPosition().x, gameObj->input->getMouseY() - gameObj->getPosition().y);
-
+					auto siz = gameObj->window->getView().getSize();
+					auto mx = gameObj->input->getMouseX();
+					auto my = gameObj->input->getMouseY();
+					direction = sf::Vector2f(mx - siz.x / 2, my - siz.y / 2);
 					float distance = std::sqrt(direction.x * direction.x + direction.y * direction.y);
 					direction /= distance;
 
@@ -97,8 +99,29 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 					break;
 				}
 				case KEYBOARD:
-					//in progress
+				{
+					direction = sf::Vector2f(0, 0);
+					// Determine direction based on input
+					if (gameObj->input->isKeyDown(sf::Keyboard::Up)) {
+						direction.y -= 1.0f;
+					}
+					if (gameObj->input->isKeyDown(sf::Keyboard::Down)) {
+						direction.y += 1.0f;
+					}
+					if (gameObj->input->isKeyDown(sf::Keyboard::Left)) {
+						direction.x -= 1.0f;
+					}
+					if (gameObj->input->isKeyDown(sf::Keyboard::Right)) {
+						direction.x += 1.0f;
+					}
+
+					// Normalize direction to prevent faster diagonal movement
+					float magnitude = std::sqrt(direction.x * direction.x + direction.y * direction.y);
+					if (magnitude > 0.0f) {
+						direction /= magnitude; // Normalize to unit vector
+					}
 					break;
+				}
 				case NO_CONTROL:
 					break;
 				default:
@@ -113,7 +136,8 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 				float distance = std::sqrt((direction.x - position.x) * (direction.x - position.x) + (direction.y - position.y) * (direction.y - position.y));
 				direction /= distance;
 
-				rotation += 180 * direction.x + 180 * direction.y;
+				rotation = 180 * direction.x + 180 * direction.y + initRotation;
+
 			}
 				break;
 			case MELE:
@@ -129,8 +153,9 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 			}
 		}
 		allattacks->at(index)->setTexture(texture);
-		allattacks->at(index)->setSize(sf::Vector2f(20,20));
-		allattacks->at(index)->initialize(position, scale, direction, rotation, speed, meleMaxTimer, isMele);
+		allattacks->at(index)->setSize(sf::Vector2f(texture->getSize()));
+		allattacks->at(index)->initialize(position, scale, direction, rotation, speed, meleMaxTimer, isMele, gameObj->IsPlayer());
+		allattacks->at(index)->setCollisionBox(sf::FloatRect(attackCollisionBox[0], attackCollisionBox[1], attackCollisionBox[2], attackCollisionBox[3]));
 		isMele = false;
 	}		
 }

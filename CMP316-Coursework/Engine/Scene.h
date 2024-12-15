@@ -14,6 +14,8 @@ public:
 	void render();
 
 private:
+	bool checkBoundingBox(GameObject* s1, GameObject* s2);
+
 	sf::View view;
 
 	// Default variables for level class.

@@ -53,6 +53,7 @@ void Scene::handleInput(float dt)
 
 void Scene::update(float dt)
 {
+	sf::Vector2f viewCen = { 0,0 };
 	for (auto const& it : level.objList)
 	{
 		it.second->update(dt);
@@ -60,18 +61,24 @@ void Scene::update(float dt)
 	for (auto const& it : level.playerObjList)
 	{
 		it.second->update(dt);
+		viewCen += it.second->getPosition();
 	}
 	for (auto const& it : level.attacks)
 	{
-		it.second->update(dt);
+		if (it.second->isAlive())
+		{
+			it.second->update(dt);
+		}
 	}
+	int x = viewCen.x / level.playerObjList.size();
+	int y = viewCen.y / level.playerObjList.size();
+	view.setCenter(sf::Vector2f(x, y));
+	
 }
 
 void Scene::render()
 {
-	//this is how i used to call draw when objects were in a vector
-	//window->draw(level.objList[0]);
-
+	window->setView(view);
 	for (auto const& it : level.objList)
 	{
 		window->draw(*it.second);
@@ -82,9 +89,26 @@ void Scene::render()
 	}
 	for (auto const& it : level.attacks)
 	{
-		window->draw(*it.second);
+		if (it.second->isAlive())
+		{
+			window->draw(*it.second);
+		}
 	}
 
 	//level.objList.at("hand");
 
+}
+
+bool checkBoundingBox(GameObject* s1, GameObject* s2)
+{
+	if (s1->getCollisionBox().left + s1->getCollisionBox().width < s2->getCollisionBox().left)
+		return false;
+	if (s1->getCollisionBox().left > s2->getCollisionBox().left + s2->getCollisionBox().width)
+		return false;
+	if (s1->getCollisionBox().top + s1->getCollisionBox().height < s2->getCollisionBox().top)
+		return false;
+	if (s1->getCollisionBox().top > s2->getCollisionBox().top + s2->getCollisionBox().height)
+		return false;
+
+	return true;
 }

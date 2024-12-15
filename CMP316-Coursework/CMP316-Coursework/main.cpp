@@ -18,7 +18,9 @@ int main() {
 	o.setAttackCondition(1, ATTACK_CONDITION_TYPES::TIMER);
 	o.setAttackKey(1, 2);
 	o.setAttackDirection(1, ATTACK_DIRECTION_CONTROLL::MOUSE);
-	o.setAttackSpeed(1, 2000);
+	o.setAttackScale(1, 1, 1);
+	o.setAttackSpeed(1, 2500);
+	o.setAttackCoolDown(1, 0.1);
 	o.writeObject();
 	o.finishLevel();
 

@@ -7,14 +7,38 @@ class AttackObj;
 class AttackComponent : public Component
 {
 public:
-	AttackComponent(float xo, float yo, float sx, float sy, float r, ATTACK_TYPES at,
-		float s, float xDir,float yDir, ATTACK_CONDITION_TYPES ac, ATTACK_DIRECTION_CONTROLL adc, GameObject* t,
-		float cd, float tDist, int c, std::map<int, AttackObj*>* map, sf::Texture* tex, float mt)
+	AttackComponent(std::map<int, AttackObj*>* allAtc, sf::Texture* tex, float dirX, float dirY, float spee, float scaleX,
+		float scaleY, int cont, ATTACK_TYPES at, ATTACK_CONDITION_TYPES condition, float colBOx[4], GameObject* tar,
+		ATTACK_DIRECTION_CONTROLL directionContro, int projNo, float angle, float proxDist, float meleTim, float xOff,
+		float yOff, float rot, float cd, float targetDistance, GameObject* prox)
 	{
-		xOffset = xo; yOffset = yo; scale = sf::Vector2f(sx, sy); rotation = r; 
-		type = at; speed = s; cond = ac; dirCon = adc; target = t; coolDown = cd;
-		targetMinDist = tDist; control = c; allattacks = map; direction = sf::Vector2f(xDir, yDir);
-		texture = tex; meleMaxTimer = mt;
+		allattacks = allAtc;
+		texture = tex;
+
+		direction = sf::Vector2f(dirX, dirY);
+
+		speed = spee;
+		scale = sf::Vector2f(scaleX, scaleY);
+
+		control = cont;
+		type = at;
+		cond = condition;
+		attackCollisionBox[0] = colBOx[0];
+		attackCollisionBox[1] = colBOx[1];
+		attackCollisionBox[2] = colBOx[2];
+		attackCollisionBox[3] = colBOx[3];
+		target = tar;
+		dirCon = directionContro;
+		projectileNo = projNo;
+		attacksAngle = angle;
+		proximityDistance = proxDist;
+		meleMaxTimer = meleTim;
+		xOffset = xOff;
+		yOffset = yOff;
+		initRotation = rot;
+		coolDown = cd;
+		targetMinDist = targetDistance;
+		proxiObj = prox;
 	};
 
 	void handleInput(GameObject* gameObject, float dt) override;
@@ -26,25 +50,31 @@ private:
 	bool canSpawn = true;
 	bool isMele = false;
 	bool fired = false;
-	float xOffset = 0, yOffset = 0;
-	sf::Vector2f scale = sf::Vector2f(1, 1);
-	sf::Vector2f position = sf::Vector2f(0, 0);
-	float rotation = 0;
-	float coolDown = 0.5;
-	float timePassed = 0;
-	float targetMinDist = 0;
-	int control = 100;
-	float meleMaxTimer = 100;
 
 	std::map<int, AttackObj*>* allattacks = nullptr;
 	sf::Texture* texture = nullptr;
-
-	ATTACK_TYPES type = ATTACK_TYPES::NO_ATTACK;
-	float speed = 0;
-	ATTACK_CONDITION_TYPES cond = ATTACK_CONDITION_TYPES::NO_COND;
-	ATTACK_DIRECTION_CONTROLL dirCon = ATTACK_DIRECTION_CONTROLL::MOUSE;
-	GameObject* target = nullptr;
-
+	float timePassed = 0;
 	sf::Vector2f direction = sf::Vector2f(0, 0);
+	sf::Vector2f position = sf::Vector2f(0, 0);
+	float speed = 2000;
+	sf::Vector2f scale = sf::Vector2f(0, 0);
+	float initRotation;
+	int control = 2;
+	ATTACK_TYPES type = ATTACK_TYPES::NO_ATTACK;
+	ATTACK_CONDITION_TYPES cond = ATTACK_CONDITION_TYPES::NO_COND;
+	float attackCollisionBox[4] = { 0,0,0,0 };
+	GameObject* target = nullptr;
+	GameObject* proxiObj = nullptr;
+	ATTACK_DIRECTION_CONTROLL dirCon = ATTACK_DIRECTION_CONTROLL::NO_CONTROL;
+	int projectileNo = 0;
+	float attacksAngle = 0;
+	std::string attackTex = "";
+	float proximityDistance = 0;
+	float meleMaxTimer = 0;
+	float xOffset = 0;
+	float yOffset = 0;
+	float rotation = 0;
+	float coolDown = 0;
+	float targetMinDist = 0;
 };
 
