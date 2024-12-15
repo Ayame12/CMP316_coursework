@@ -1,3 +1,35 @@
-﻿winmm.lib(WINMM.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
+﻿  Scene.cpp
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(86,8): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(86,8): warning C4244:         with
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(86,8): warning C4244:         [
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(86,8): warning C4244:             T=float
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(86,8): warning C4244:         ]
+  (compiling source file '/Scene.cpp')
+  
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(87,8): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(87,8): warning C4244:         with
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(87,8): warning C4244:         [
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(87,8): warning C4244:             T=float
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(87,8): warning C4244:         ]
+  (compiling source file '/Scene.cpp')
+  
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(88,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(88,33): warning C4244:         with
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(88,33): warning C4244:         [
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(88,33): warning C4244:             T=float
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(88,33): warning C4244:         ]
+  (compiling source file '/Scene.cpp')
+  
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(88,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(88,30): warning C4244:         with
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(88,30): warning C4244:         [
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(88,30): warning C4244:             T=float
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(88,30): warning C4244:         ]
+  (compiling source file '/Scene.cpp')
+  
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Scene.cpp(194,20): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file '/Scene.cpp')
+  
+winmm.lib(WINMM.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
 gdi32.lib(GDI32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
   Engine.vcxproj -> E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\x64\Debug\Engine.lib

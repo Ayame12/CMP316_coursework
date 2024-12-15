@@ -10,7 +10,7 @@ public:
 	AttackComponent(std::map<int, AttackObj*>* allAtc, sf::Texture* tex, float dirX, float dirY, float spee, float scaleX,
 		float scaleY, int cont, ATTACK_TYPES at, ATTACK_CONDITION_TYPES condition, float colBOx[4], GameObject* tar,
 		ATTACK_DIRECTION_CONTROLL directionContro, int projNo, float angle, float proxDist, float meleTim, float xOff,
-		float yOff, float rot, float cd, float targetDistance, GameObject* prox)
+		float yOff, float rot, float cd, float targetDistance, GameObject* prox, int dmg)
 	{
 		allattacks = allAtc;
 		texture = tex;
@@ -39,6 +39,7 @@ public:
 		coolDown = cd;
 		targetMinDist = targetDistance;
 		proxiObj = prox;
+		damage = dmg;
 	};
 
 	void handleInput(GameObject* gameObject, float dt) override;
@@ -50,6 +51,7 @@ private:
 	bool canSpawn = true;
 	bool isMele = false;
 	bool fired = false;
+	int damage = 1;
 
 	std::map<int, AttackObj*>* allattacks = nullptr;
 	sf::Texture* texture = nullptr;

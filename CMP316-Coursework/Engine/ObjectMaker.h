@@ -11,6 +11,7 @@ public:
 
 	void setTag(std::string tag) { objTag = tag; };
 	void setObjType(OBJECT_TYPE type) { objType = type; };
+	void setHealth(int hp) { health = hp; };
 	void setTriggerAction(TRIGGER_ACTION_TYPE type) { triggerType = type; };
 
 	void setPosition(float x, float y) { xPos = x; yPos = y; };
@@ -49,6 +50,7 @@ public:
 	void setAttackOffset(int attackNo, float x, float y) { aOffsetX[attackNo] = x; aOffsetY[attackNo] = y; };
 	void setAttackRotation(int attackNo, float r) { aRot[attackNo] = r; };
 	void setAttackCoolDown(int attackNo, float  coolDown) { aCoolDown[attackNo] = coolDown; };
+	void setAttackDamage(int attackNo, int dmg) { aDmg[attackNo] = dmg; };
 
 	void setTexture(std::string filePath, bool isAnimated);
 	//void setOrigin();
@@ -84,6 +86,7 @@ private:
 	float aniSpeed[9] = { 200 };
 	bool aniLoop[9] = { true };
 
+	int health = 5;
 	float speed = 0;
 	MOVEMENT_TYPES movementType = MOVEMENT_TYPES::STATIONARY;
 	std::vector<int> controlls = { 22,18,0,3,4,16 };
@@ -93,6 +96,7 @@ private:
 
 	ATTACK_TYPES attackType[2] = { ATTACK_TYPES::NO_ATTACK, ATTACK_TYPES::NO_ATTACK };
 	ATTACK_CONDITION_TYPES attackCondition[2] = { ATTACK_CONDITION_TYPES::NO_COND, ATTACK_CONDITION_TYPES::NO_COND };
+	int aDmg[2] = { 1 };
 	float aScaleX[2] = { 1 };
 	float aScaleY[2] = { 1 };
 	float attackCollisionBox[2][4] = { {0,0,0,0},{0,0,0,0} };

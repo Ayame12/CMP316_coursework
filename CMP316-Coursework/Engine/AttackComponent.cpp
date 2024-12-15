@@ -154,8 +154,9 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 		}
 		allattacks->at(index)->setTexture(texture);
 		allattacks->at(index)->setSize(sf::Vector2f(texture->getSize()));
-		allattacks->at(index)->initialize(position, scale, direction, rotation, speed, meleMaxTimer, isMele, gameObj->IsPlayer());
-		allattacks->at(index)->setCollisionBox(sf::FloatRect(attackCollisionBox[0], attackCollisionBox[1], attackCollisionBox[2], attackCollisionBox[3]));
+		allattacks->at(index)->initialize(position, scale, direction, rotation, speed, meleMaxTimer, isMele, gameObj->IsPlayer(), damage);
+		allattacks->at(index)->setCollisionBox(0, 0, allattacks->at(index)->getSize().x, allattacks->at(index)->getSize().y);
+		//allattacks->at(index)->setCollisionBox(sf::FloatRect(attackCollisionBox[0], attackCollisionBox[1], attackCollisionBox[2]*scale.x, attackCollisionBox[3]*scale.y));
 		isMele = false;
 	}		
 }

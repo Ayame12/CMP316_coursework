@@ -27,7 +27,7 @@ public:
 
 	void setCollisionBox(float x, float y, float width, float height) { collisionBox = sf::FloatRect(x, y, width, height); };
 	void setCollisionBox(sf::FloatRect box) { collisionBox = box; };
-	sf::FloatRect getCollisionBox() { return collisionBox; };
+	sf::FloatRect getCollisionBox();
 	void setCollider(bool c) { collider = c; };
 	bool getCollider() { return collider; };
 
@@ -39,12 +39,25 @@ public:
 	bool IsPlayer() { return isPlayer; };
 	void setPlayer(bool p) { isPlayer = p; };
 
+	bool IsCharacter() { return isChar; };
+	void setCharacter(bool c) { isChar = c; };
+
+	bool IsBarrier() { return isBar; };
+	void setBarrier(bool b) { isBar = b; };
+
+	void setHealth(int hp) { health = hp; };
+	void takeDamage(int dmg);
+
 	Input* input;
 	sf::RenderWindow* window;
 
 protected:
-	bool isPlayer;
-	bool alive;
+	bool isPlayer = false;
+	bool isChar = false;
+	bool isBar = false;
+	bool alive = false;
+	bool hurt = false;
+	int health = 3;
 	std::string tag;
 	sf::Vector2f velocity;
 	bool isFlipped;

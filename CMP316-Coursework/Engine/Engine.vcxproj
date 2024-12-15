@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -155,7 +155,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ActorObj.h" />
     <ClInclude Include="AnimationComponent.h" />
     <ClInclude Include="AttackComponent.h" />
     <ClInclude Include="AttackObj.h" />
@@ -173,13 +172,13 @@
     <ClInclude Include="Level.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="PatrolMovementComponent.h" />
+    <ClInclude Include="PlayerComponent.h" />
     <ClInclude Include="PlayerMovementComponent.h" />
     <ClInclude Include="ObjectMaker.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Scene.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ActorObj.cpp" />
     <ClCompile Include="AnimationComponent.cpp" />
     <ClCompile Include="AttackComponent.cpp" />
     <ClCompile Include="AttackObj.cpp" />
@@ -195,6 +194,7 @@
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="PatrolMovementComponent.cpp" />
+    <ClCompile Include="PlayerComponent.cpp" />
     <ClCompile Include="PlayerMovementComponent.cpp" />
     <ClCompile Include="ObjectMaker.cpp" />
     <ClCompile Include="pch.cpp">

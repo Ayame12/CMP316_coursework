@@ -82,6 +82,44 @@ void Level::loadLevel(int lvlNo)
 		//skip tag
 		input >> str;
 
+		//Object type
+		std::getline(input, str, ':');
+		std::getline(input, str, ';');
+		OBJECT_TYPE objType = static_cast<OBJECT_TYPE>(stoi(str));
+		switch (objType)
+		{
+		case ACTOR:
+		{
+			it.second->setCharacter(true);
+			if (lvlNo == 0)
+			{
+				it.second->setPlayer(true);
+			}
+			collidingObj.push_back(it.second);
+			break;
+		}
+		case BACKGROUND:
+			break;
+		case TERRAIN:
+		{
+			it.second->setBarrier(true);
+			collidingObj.push_back(it.second);
+			break;
+		}
+		case UI:
+			break;
+		case TRIGGER:
+			break;
+		case NONE:
+			break;
+		default:
+			break;
+		}
+
+		//health
+		std::getline(input, str, ';');
+		it.second->setHealth(stoi(str));
+
 		//trigger action
 		std::getline(input, str, ':');
 		std::getline(input, str, ';');
@@ -123,7 +161,8 @@ void Level::loadLevel(int lvlNo)
 		std::getline(input, str, ';');
 		it.second->setTexture(nextTextureMap.at(str));
 		it.second->setSize(sf::Vector2f(nextTextureMap.at(str)->getSize().x, nextTextureMap.at(str)->getSize().y));
-		it.second->setOrigin(sf::Vector2f(nextTextureMap.at(str)->getSize().x / 2, nextTextureMap.at(str)->getSize().y / 2));
+		it.second->setCollisionBox(0, 0, it.second->getSize().x* it.second->getScale().x, it.second->getSize().y* it.second->getScale().y);
+		//it.second->setOrigin(sf::Vector2f(nextTextureMap.at(str)->getSize().x / 2, nextTextureMap.at(str)->getSize().y / 2));
 		//animated
 		std::getline(input, str, ';');
 		bool a = stoi(str);
@@ -217,7 +256,7 @@ void Level::loadLevel(int lvlNo)
 		std::getline(input, str, ';');
 		cA[1] = stoi(str);
 
-		int at[2], ac[2], pn[2], adirCon[2];
+		int at[2], ac[2], pn[2], adirCon[2], aDmg[2];
 		float adx[2], ady[2], proxdis[2], aspee[2], aScalX[2], aScalY[2], aAng[2], amt[2], aOffX[2], aOffY[2], aRot[2], acd[2], atarMinDis[2];
 		std::string atar[2], atex[2], prox[2];
 		float acolBox[2][4];
@@ -233,6 +272,9 @@ void Level::loadLevel(int lvlNo)
 			//type
 			std::getline(input, str, ';');
 			at[i] = stoi(str);
+			//damage
+			std::getline(input, str, ';');
+			aDmg[i] = stoi(str);
 			//condition
 			std::getline(input, str, ';');
 			ac[i] = stoi(str);
@@ -309,7 +351,7 @@ void Level::loadLevel(int lvlNo)
 					ady[i], aspee[i], aScalX[i], aScalY[i], cA[i], static_cast<ATTACK_TYPES>(at[i]),
 					static_cast<ATTACK_CONDITION_TYPES>(ac[i]), acolBox[i], atarget[i],
 					static_cast<ATTACK_DIRECTION_CONTROLL>(adirCon[i]), pn[i], aAng[i], proxdis[i], amt[i],
-					aOffX[i], aOffY[i], aRot[i], acd[i], atarMinDis[i], proxiObj[i]));
+					aOffX[i], aOffY[i], aRot[i], acd[i], atarMinDis[i], proxiObj[i], aDmg[i]));
 			}
 		}
 
@@ -319,7 +361,9 @@ void Level::loadLevel(int lvlNo)
 		{
 			it.second->addComponent(std::make_shared<AnimationComponent>(ani, aSpeed, aLoop));
 			it.second->setSize(sf::Vector2f(ani[0][3], ani[0][4]));
-			it.second->setOrigin(ani[0][3] / 2, ani[0][4] / 2);
+			it.second->setCollisionBox(0, 0, it.second->getSize().x*it.second->getScale().x, it.second->getSize().y * it.second->getScale().y);
+			//it.second->setOrigin(ani[0][3] / 2, ani[0][4] / 2);
+			
 		}
 	}
 

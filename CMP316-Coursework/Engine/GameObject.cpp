@@ -29,3 +29,20 @@ void GameObject::update(float dt)
 		component->update(this, dt);
 	}
 }
+
+sf::FloatRect GameObject::getCollisionBox() 
+{
+	return sf::FloatRect(collisionBox.left + getPosition().x - getOrigin().x, collisionBox.top + getPosition().y - getOrigin().y, collisionBox.width, collisionBox.height);
+}
+
+void GameObject::takeDamage(int dmg)
+{
+	if (isChar)
+	{
+		health -= dmg;
+	}
+	if (health <= 0)
+	{
+		alive = false;
+	}
+}

@@ -1,4 +1,3 @@
-E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\ActorObj.cpp;E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\x64\Debug\ActorObj.obj
 E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\AnimationComponent.cpp;E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\x64\Debug\AnimationComponent.obj
 E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\AttackComponent.cpp;E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\x64\Debug\AttackComponent.obj
 E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\AttackObj.cpp;E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\x64\Debug\AttackObj.obj
@@ -14,6 +13,7 @@ E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\InputC
 E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Level.cpp;E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\x64\Debug\Level.obj
 E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\Menu.cpp;E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\x64\Debug\Menu.obj
 E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\PatrolMovementComponent.cpp;E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\x64\Debug\PatrolMovementComponent.obj
+E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\PlayerComponent.cpp;E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\x64\Debug\PlayerComponent.obj
 E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\PlayerMovementComponent.cpp;E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\x64\Debug\PlayerMovementComponent.obj
 E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\ObjectMaker.cpp;E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\x64\Debug\ObjectMaker.obj
 E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\pch.cpp;E:\Uni\CMP316 - engine development\coursework316\CMP316-Coursework\Engine\x64\Debug\pch.obj

@@ -14,6 +14,8 @@ public:
 	void render();
 
 private:
+	void handleAttackCollisions();
+	void handleCharactersCollisions(float dt);
 	bool checkBoundingBox(GameObject* s1, GameObject* s2);
 
 	sf::View view;

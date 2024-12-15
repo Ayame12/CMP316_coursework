@@ -18,6 +18,7 @@ public:
 	std::map<std::string, GameObject*> objList;
 	std::map<std::string, GameObject*> playerObjList;
 	std::map<int, AttackObj*> attacks;
+	std::vector< GameObject*> collidingObj;
 
 private:
 	sf::View view;

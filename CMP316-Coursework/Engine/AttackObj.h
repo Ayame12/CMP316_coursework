@@ -7,10 +7,12 @@ class AttackObj : public GameObject
 public:
 	AttackObj() { alive = false; };
 
-	void initialize(sf::Vector2f p, sf::Vector2f s, sf::Vector2f dir, float r, float sp, float maxT, bool mele, bool playerAttack);
+	void initialize(sf::Vector2f p, sf::Vector2f s, sf::Vector2f dir, float r, float sp, float maxT, bool mele, bool playerAttack, int dmg);
 	void handleInput(float dt) override;
 	void update(float dt) override;
 	bool getIsPlayer() { return isPlayer; };
+
+	int damage = 1;
 
 private:
 	bool isPlayer = false;

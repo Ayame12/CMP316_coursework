@@ -45,6 +45,7 @@ void Object::writeObject()
 	
 	out << "tag:" << objTag << ";" << std::endl;
 	//out << "isPlayer:" << isPlayer << ";" << std::endl;
+	out << "objectType:" << objType << ";" << health << ";" << std::endl;
 	out << "triggerType:" << triggerType << ";" << std::endl;
 	//std::string objTag = "";
 	//bool isPlayer = false;
@@ -93,6 +94,7 @@ void Object::writeObject()
 	{
 		out << i << ":";
 		out << attackType[i] << ";";
+		out << aDmg[i] << ";";
 		out << attackCondition[i] << ";";
 		out << aScaleX[i] << ";";
 		out << aScaleY[i] << ";";
@@ -170,6 +172,7 @@ void Object::resetObject()
 	xScale = 1;
 	yScale = 1;
 	rotation = 0;
+	health = 5;
 
 	texPath = { "" };
 	animated = false;
@@ -193,6 +196,7 @@ void Object::resetObject()
 		attackCondition[i] = ATTACK_CONDITION_TYPES::NO_COND;
 		aScaleX[i] = 1;
 		aScaleY[i] = 1;
+		aDmg[i] = 1;
 
 		for (int j = 0; j < 4; j++) {
 			attackCollisionBox[i][j] = 0;
