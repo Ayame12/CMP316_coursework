@@ -41,7 +41,29 @@ public:
 	void setAttackDirection(int attackNo, float xDir, float yDir) { attackDirX[attackNo] = xDir; attackDirY[attackNo] = yDir; };
 	void setAttackDirection(int attackNo, ATTACK_DIRECTION_CONTROLL directionControl) { attDirControll[attackNo] = directionControl; };
 	void setProjectileNumber(int attackNo, int projNo, float angle) { projectileNo[attackNo] = projNo; attacksAngle[attackNo] = angle; };
-	void setAttackTexture(int attackNo, std::string filePath) { attackTex[attackNo] = filePath; };
+	void setAttackTexture(int attackNo, std::string filePath) { 
+		attackTex[attackNo] = filePath; 
+		if (allTextures.size() == 0)
+		{
+			allTextures.push_back(filePath);
+		}
+		else
+		{
+			bool alreadyExists = false;
+			for (int i = 0; i < allTextures.size(); ++i)
+			{
+				if (allTextures[i] == filePath)
+				{
+					alreadyExists = true;
+					break;
+				}
+			}
+			if (!alreadyExists)
+			{
+				allTextures.push_back(filePath);
+			}
+		}
+	};
 	void setAttackProximity(int attackNo, std::string tag, float distance) { proxTag[attackNo] = tag; proxDistance[attackNo] = distance; };
 	void setAttackMeleTimer(int attackNo, float timer) { meleTimer[attackNo] = timer; };
 	void setAttackKey(int attackNo, int key) { controlls[4 + attackNo] = key; };

@@ -171,8 +171,9 @@
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuMaker.h" />
+    <ClInclude Include="MenuObject.h" />
     <ClInclude Include="PatrolMovementComponent.h" />
-    <ClInclude Include="PlayerComponent.h" />
     <ClInclude Include="PlayerMovementComponent.h" />
     <ClInclude Include="ObjectMaker.h" />
     <ClInclude Include="pch.h" />
@@ -193,8 +194,9 @@
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuMaker.cpp" />
+    <ClCompile Include="MenuObject.cpp" />
     <ClCompile Include="PatrolMovementComponent.cpp" />
-    <ClCompile Include="PlayerComponent.cpp" />
     <ClCompile Include="PlayerMovementComponent.cpp" />
     <ClCompile Include="ObjectMaker.cpp" />
     <ClCompile Include="pch.cpp">

@@ -114,8 +114,11 @@
     <ClInclude Include="CollisionsComponent.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerComponent.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="MenuMaker.h">
+      <Filter>Header Files\the engine stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuObject.h">
+      <Filter>Header Files\additional functionality</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -176,8 +179,11 @@
     <ClCompile Include="CollisionsComponent.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerComponent.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="MenuMaker.cpp">
+      <Filter>Source Files\the engine stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuObject.cpp">
+      <Filter>Source Files\additional functionality</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

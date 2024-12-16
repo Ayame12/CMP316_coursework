@@ -12,8 +12,9 @@ E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Input.c
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\InputComponent.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Debug\InputComponent.obj
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Level.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Debug\Level.obj
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Menu.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Debug\Menu.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuMaker.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Debug\MenuMaker.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuObject.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Debug\MenuObject.obj
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\PatrolMovementComponent.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Debug\PatrolMovementComponent.obj
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\PlayerComponent.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Debug\PlayerComponent.obj
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\PlayerMovementComponent.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Debug\PlayerMovementComponent.obj
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\ObjectMaker.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Debug\ObjectMaker.obj
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\pch.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Debug\pch.obj
