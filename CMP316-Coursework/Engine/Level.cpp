@@ -44,7 +44,7 @@ void Level::loadLevel(int lvlNo)
 
 	if (!input.is_open())
 	{
-		std::cout << "err" << std::endl;
+		std::cout << "err oppening " << lvl << std::endl;
 		return;
 	}
 	

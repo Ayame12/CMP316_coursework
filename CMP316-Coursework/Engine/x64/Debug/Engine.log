@@ -5,7 +5,7 @@ E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuObj
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.h(36,24): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file '/Scene.cpp')
   
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(410,20): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(429,20): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file '/Scene.cpp')
   
 winmm.lib(WINMM.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored

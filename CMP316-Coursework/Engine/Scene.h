@@ -41,13 +41,14 @@ private:
 	bool isLevelLoading() const { return loadingLevel; }
 
 private:
-	bool loaded2 = false;
-	bool showNextLvl = false;
+	//bool loaded2 = false;
+	//bool showNextLvl = false;
 	std::thread levelLoadingThread;
 	std::atomic<bool> loadingLevel{ false };
 	std::atomic<bool> levelLoaded{ false };
 
 	int currentLevel = 1;
+	int loadedLevelNo = 1;
 	int maxLevel;
 	int enemiesAlive = 0;
 	void countEnemies();

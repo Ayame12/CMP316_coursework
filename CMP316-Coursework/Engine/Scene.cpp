@@ -170,32 +170,31 @@ void Scene::update(float dt)
 	case LEVEL:
 	{
 		countEnemies();
+		int prevLLev = currentLevel;
 
-		if (enemiesAlive <= 3 && !loadingLevel && !levelLoaded)
-		{
+		if (enemiesAlive <= 2 && !loadingLevel && !levelLoaded) {
 			// Load the next level if not already loading
-			loadLevelInBackground(currentLevel + 1);
+			if (currentLevel != maxLevel)
+			{
+				loadLevelInBackground(currentLevel + 1);
+			}
+			else 
+			{
+				loadLevelInBackground(1);
+			}
 		}
 
-		//if (enemiesAlive == 0)
-		//{
-		//	if (levelLoaded)
-		//	{
-		//		level.switchLevel();
-		//		currentLevel++;
-		//		//std::cout << currentLevel;
-		//	}
-		//}
 		if (enemiesAlive == 0) {
 			if (currentLevel != maxLevel) {
 				// If not the last level and the next level is ready, switch to it
 				if (!isLevelLoading() && levelLoaded) {
 					level.switchLevel();
-					//countEnemies();
 					currentLevel++;
+					levelLoaded = false;
 				}
 			}
-			else {
+			else 
+			{
 				// If on the last level, return to menu and prepare for level 1
 				gameState = GAME_STATE::MENU;
 				currentLevel = 1;
@@ -208,10 +207,17 @@ void Scene::update(float dt)
 				// Once loading is complete, switch to level 1
 				if (!isLevelLoading() && levelLoaded) {
 					level.switchLevel();
-					//countEnemies();
+					levelLoaded = false;
 				}
 			}
+			
 		}
+
+		if (prevLLev != currentLevel)
+		{
+			std::cout << currentLevel << std::endl;
+		}
+
 
 		viewCen = { 0,0 };
 		for (auto const& it : level.objList)
