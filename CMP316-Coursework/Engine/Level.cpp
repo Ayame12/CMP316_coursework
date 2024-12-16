@@ -163,6 +163,28 @@ void Level::loadLevel(int lvlNo)
 		fx = stof(str);
 		it.second->setRotation(fx);
 
+		//health visuals
+		std::getline(input, str, ':');
+		std::getline(input, str, ';');
+		std::string hpTex = str;
+		if (str == "")
+		{
+			hpTex = "res/animationTest.png";
+		}
+		float hppx, hppy, hpsx, hpsy, hpr;
+		std::getline(input, str, ';');
+		hppx = stof(str);
+		std::getline(input, str, ';');
+		hppy = stof(str);
+		std::getline(input, str, ';');
+		hpsx = stof(str);
+		std::getline(input, str, ';');
+		hpsy = stof(str);
+		std::getline(input, str, ';');
+		hpr = stof(str);
+
+		it.second->setHPVisuals(nextTextureMap.at(hpTex), hppx, hppy, hpsx, hpsy, hpr);
+
 		//texture
 		std::getline(input, str, ':');
 		std::getline(input, str, ';');
@@ -319,8 +341,11 @@ void Level::loadLevel(int lvlNo)
 			aAng[i] = stof(str);
 			//attack texture
 			std::getline(input, str, ';');
-			//atex[i] = str;
-			atex[i] = "res/animationTest.png";
+			atex[i] = str;
+			if (str == "")
+			{
+				atex[i] = "res/animationTest.png";
+			}
 			//proximity target tag
 			std::getline(input, str, ';');
 			prox[i] = str;
@@ -385,6 +410,7 @@ void Level::loadLevel(int lvlNo)
 
 void Level::switchLevel()
 {
+	//std::cout << "Switched level";
 	objList = nextObjList;
 	textureMap = nextTextureMap;
 	collidingObj = nextCollidingObj;

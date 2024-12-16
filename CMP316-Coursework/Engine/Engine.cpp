@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Engine.h"
 #include "Scene.h"
-#include "GameState.h"
 Engine::Engine() : 
 	scene{nullptr}
 {
@@ -20,8 +19,7 @@ void Engine::Run()
 	// Run the game loop
 	sf::RenderWindow window(sf::VideoMode(1200, 675), "Game Engine");
 	Input input;
-	GameState gState;
-	scene = new Scene(&window, &input, &gState);
+	scene = new Scene(&window, &input);
 
 	// Initialise objects for delta time
 	sf::Clock clock;

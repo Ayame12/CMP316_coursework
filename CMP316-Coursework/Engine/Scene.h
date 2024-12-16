@@ -1,14 +1,15 @@
 #pragma once
-#include "GameState.h"
 #include "Input.h"
 #include "Level.h"
+#include "Menu.h"
 #include <thread>
 #include <atomic>
+#include "GAME_STATES_ENUM.h"
 
 class Scene
 {
 public:
-	Scene(sf::RenderWindow* hwnd, Input* in, GameState* gs/*, AudioManager* aud*/);
+	Scene(sf::RenderWindow* hwnd, Input* in);
 	~Scene();
 
 	void handleInput(float dt);
@@ -25,11 +26,16 @@ private:
 	// Default variables for level class.
 	sf::RenderWindow* window;
 	Input* input;
-	GameState* gameState;
+	GAME_STATE gameState;
+
 	//AudioManager* audio;
 
 	Level level;
-	Level* currentLevel;
+	Menu menu;
+
+	float maxPauseTimer = 0.2;
+	float pauseTimer = 0;
+	bool pausePressed = false;
 
 	void loadLevelInBackground(int levelNumber);
 	bool isLevelLoading() const { return loadingLevel; }
@@ -39,5 +45,11 @@ private:
 	bool showNextLvl = false;
 	std::thread levelLoadingThread;
 	std::atomic<bool> loadingLevel{ false };
+	std::atomic<bool> levelLoaded{ false };
+
+	int currentLevel = 1;
+	int maxLevel;
+	int enemiesAlive = 0;
+	void countEnemies();
 };
 

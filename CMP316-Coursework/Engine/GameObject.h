@@ -45,11 +45,23 @@ public:
 	bool IsBarrier() { return isBar; };
 	void setBarrier(bool b) { isBar = b; };
 
+	int getHealth() { return health; };
 	void setHealth(int hp) { health = hp; };
 	void takeDamage(int dmg);
+	void setHPVisuals(sf::Texture* tex, float px, float py, float sx, float sy, float r)
+	{
+		hpTexture = tex;
+		hpPos = sf::Vector2f(px, py);
+		hpSca = sf::Vector2f(sx, sy);
+		hpRotat = r;
+	};
 
 	Input* input;
 	sf::RenderWindow* window;
+
+	sf::Texture* hpTexture;
+	sf::Vector2f hpPos, hpSca;
+	float hpRotat;
 
 protected:
 	bool isPlayer = false;
@@ -68,6 +80,5 @@ protected:
 	sf::Texture texture;
 
 	std::vector<std::shared_ptr<Component>> components;
-	std::shared_ptr<Component> aliveComp;
 };
 

@@ -54,6 +54,8 @@ void Object::writeObject()
 	//float xPos = 0, yPos = 0;
 	//float xScale = 1, yScale = 1;
 	//float rotation = 0;
+
+	out << "health:" << healthTex << ";" << healthPosX << ";" << healthPosY << ";" << healthScaleX << ";" << healthScaleY << ";" << healthRot << ";" << std::endl;
 	
 	out << "visual:" << texPath << ";";
 	out << animated << ";" << std::endl;
@@ -157,6 +159,15 @@ void Object::finishLevel()
 	}
 	objInLvl = 0;
 	levelsPresent++;
+}
+
+void Object::finished()
+{
+	std::string str = "../LoadingFiles/fin";
+	std::ofstream out;
+	out.open(str);
+	out << levelsPresent - 1;
+	out.close();
 }
 
 void Object::resetObject()

@@ -1,18 +1,40 @@
 #include "pch.h"
 #include "Scene.h"
 #include <math.h>
+#include <fstream>
 //#include "Input.h"
 
-Scene::Scene(sf::RenderWindow* hwnd, Input* in, GameState* gs/*, AudioManager* aud*/) 
+Scene::Scene(sf::RenderWindow* hwnd, Input* in) 
 {
 	window = hwnd;
 	input = in;
-	gameState = gs;
+	gameState = GAME_STATE::MENU;
 	//audio = aud;
 
 	view = window->getView();
 	level.loadLevel(1);
 	level.switchLevel();
+
+	std::ifstream inn;
+	inn.open("../LoadingFiles/fin");
+	std::string str;
+	inn >> str;
+	inn.close();
+	maxLevel = stoi(str);
+
+	for (int i = 0; i < menu.mainMenuObj.size(); i++)
+	{
+		menu.mainMenuObj[i]->setWindow(window);
+		menu.mainMenuObj[i]->setInput(input);
+		menu.mainMenuObj[i]->setLevelAndGS(&level, &gameState);
+	}
+
+	for (int i = 0; i < menu.pauseMenuObj.size(); i++)
+	{
+		menu.pauseMenuObj[i]->setWindow(window);
+		menu.pauseMenuObj[i]->setInput(input);
+		menu.pauseMenuObj[i]->setLevelAndGS(&level, &gameState);
+	}
 
 	for (auto const& it : level.playerObjList)
 	{
@@ -42,110 +64,289 @@ Scene::~Scene()
 
 void Scene::handleInput(float dt)
 {
+	//if (input->isPressed(sf::Keyboard::Key::P) && !loaded2 && !loadingLevel) {
+	//	loadLevelInBackground(2);
+	//	loaded2 = true; // Flag to prevent duplicate loads
+	//}
 
-	if (input->isPressed(sf::Keyboard::Key::P) && !loaded2 && !loadingLevel) {
-		loadLevelInBackground(2);
-		loaded2 = true; // Flag to prevent duplicate loads
-	}
+	//if (input->isPressed(sf::Keyboard::Key::U) && !showNextLvl && loaded2 && !loadingLevel) {
+	//	level.switchLevel();
+	//	showNextLvl = true;
+	//}
 
-	if (input->isPressed(sf::Keyboard::Key::U) && !showNextLvl && loaded2 && !loadingLevel) {
-		level.switchLevel();
-		showNextLvl = true;
-	}
-
-	for (auto const& it : level.objList)
+	if (pausePressed)
 	{
-		if (it.second->isAlive())
-		{
-			it.second->handleInput(dt);
-		}
+		pauseTimer += dt;
 	}
-	for (auto const& it : level.playerObjList)
+	if (pauseTimer >= maxPauseTimer)
 	{
-		if (it.second->isAlive())
+		pauseTimer = 0;
+	}
+	if (pauseTimer == 0)
+	{
+		pausePressed = false;
+	}
+
+	switch (gameState)
+	{
+	case MENU:
+	{
+		for (int i = 0; i < menu.mainMenuObj.size(); i++)
 		{
-			it.second->handleInput(dt);
+			menu.mainMenuObj[i]->handleInput(dt);
 		}
+		break;
+	}
+	case PAUSE:
+	{
+		if (input->isPressed(sf::Keyboard::Key::Escape) && !pausePressed)
+		{
+			gameState = GAME_STATE::LEVEL;
+			pausePressed = true;
+			//break;
+		}
+		for (int i = 0; i < menu.mainMenuObj.size(); i++)
+		{
+			menu.mainMenuObj[i]->handleInput(dt);
+		}
+		break;
+	}
+	case LEVEL:
+	{
+		//std::cout << std::endl << currentLevel << std::endl;
+		if (input->isPressed(sf::Keyboard::Key::Escape) && !pausePressed)
+		{
+			gameState = GAME_STATE::PAUSE;
+			pausePressed = true;
+			//break;
+		}
+		for (auto const& it : level.objList)
+		{
+			if (it.second->isAlive())
+			{
+				it.second->handleInput(dt);
+			}
+		}
+		for (auto const& it : level.playerObjList)
+		{
+			if (it.second->isAlive())
+			{
+				it.second->handleInput(dt);
+			}
+		}
+		break;
+	}
+	default:
+		break;
 	}
 }
 
 void Scene::update(float dt)
 {
+	//std::cout << currentLevel;
+	
+		
 	sf::Vector2f viewCen = { 0,0 };
-	for (auto const& it : level.objList)
+	switch (gameState)
 	{
-		if (it.second->isAlive())
-		{
-			it.second->update(dt);
-		}
-	}
-	for (auto const& it : level.playerObjList)
+	case MENU:
 	{
-		if (it.second->isAlive())
+		viewCen = menu.menuBg->getOrigin();
+		for (int i = 0; i < menu.mainMenuObj.size(); i++)
 		{
-			it.second->update(dt);
-			viewCen += it.second->getPosition();
+			menu.mainMenuObj[i]->update(dt);
 		}
+		break;
 	}
-	for (auto const& it : level.attacks)
+	case PAUSE:
 	{
-		if (it.second->isAlive())
+		viewCen = menu.pauseBg->getOrigin();
+		for (int i = 0; i < menu.pauseMenuObj.size(); i++)
 		{
-			it.second->update(dt);
+			menu.pauseMenuObj[i]->update(dt);
 		}
+		break;
 	}
-	int x = viewCen.x / level.playerObjList.size();
-	int y = viewCen.y / level.playerObjList.size();
-	view.setCenter(sf::Vector2f(x, y));
+	case LEVEL:
+	{
+		countEnemies();
 
-	handleCharactersCollisions(dt);
-	handleAttackCollisions();
+		if (enemiesAlive <= 3 && !loadingLevel && !levelLoaded)
+		{
+			// Load the next level if not already loading
+			loadLevelInBackground(currentLevel + 1);
+		}
+
+		//if (enemiesAlive == 0)
+		//{
+		//	if (levelLoaded)
+		//	{
+		//		level.switchLevel();
+		//		currentLevel++;
+		//		//std::cout << currentLevel;
+		//	}
+		//}
+		if (enemiesAlive == 0) {
+			if (currentLevel != maxLevel) {
+				// If not the last level and the next level is ready, switch to it
+				if (!isLevelLoading() && levelLoaded) {
+					level.switchLevel();
+					//countEnemies();
+					currentLevel++;
+				}
+			}
+			else {
+				// If on the last level, return to menu and prepare for level 1
+				gameState = GAME_STATE::MENU;
+				currentLevel = 1;
+
+				// Start loading level 1 if not already loading
+				if (!loadingLevel && !levelLoaded) {
+					loadLevelInBackground(1);
+				}
+
+				// Once loading is complete, switch to level 1
+				if (!isLevelLoading() && levelLoaded) {
+					level.switchLevel();
+					//countEnemies();
+				}
+			}
+		}
+
+		viewCen = { 0,0 };
+		for (auto const& it : level.objList)
+		{
+			if (it.second->isAlive())
+			{
+				it.second->update(dt);
+			}
+		}
+		for (auto const& it : level.playerObjList)
+		{
+			if (it.second->isAlive())
+			{
+				it.second->update(dt);
+				viewCen += it.second->getPosition();
+			}
+		}
+		for (auto const& it : level.attacks)
+		{
+			if (it.second->isAlive())
+			{
+				it.second->update(dt);
+			}
+		}
+		handleCharactersCollisions(dt);
+		handleAttackCollisions();
+
+		viewCen.x = viewCen.x / level.playerObjList.size();
+		viewCen.y = viewCen.y / level.playerObjList.size();
+
+		break;
+	}
+	default:
+		break;
+	}	
+	view.setCenter(viewCen);
 	
 }
 
 void Scene::render()
 {
 	window->setView(view);
-	for (auto const& it : level.objList)
-	{
-		if (it.second->isAlive())
-		{
-			window->draw(*it.second);
-			/*sf::RectangleShape rectangle;
-			rectangle.setFillColor(sf::Color::Blue);
-			rectangle.setPosition(sf::Vector2f(it.second->getCollisionBox().left, it.second->getCollisionBox().top));
-			rectangle.setSize(sf::Vector2f(it.second->getCollisionBox().width, it.second->getCollisionBox().height));
-			window->draw(rectangle);*/
-		}
-	}
-	for (auto const& it : level.playerObjList)
-	{
-		if (it.second->isAlive())
-		{
-			window->draw(*it.second);
-			/*sf::RectangleShape rectangle;
-			rectangle.setFillColor(sf::Color::Blue);
-			rectangle.setPosition(sf::Vector2f(it.second->getCollisionBox().left, it.second->getCollisionBox().top));
-			rectangle.setSize(sf::Vector2f(it.second->getCollisionBox().width, it.second->getCollisionBox().height));
-			window->draw(rectangle);*/
-		}
-	}
-	for (auto const& it : level.attacks)
-	{
-		if (it.second->isAlive())
-		{
-			window->draw(*it.second);
-			/*sf::RectangleShape rectangle;
-			rectangle.setFillColor(sf::Color::Blue);
-			rectangle.setPosition(sf::Vector2f(it.second->getCollisionBox().left, it.second->getCollisionBox().top));
-			rectangle.setSize(sf::Vector2f(it.second->getCollisionBox().width, it.second->getCollisionBox().height));
-			window->draw(rectangle);*/
-		}
-		
-	}
 
-	//level.objList.at("hand");
+	switch (gameState)
+	{
+	case MENU:
+	{
+		//window->draw(*menu.menuBg);
+		window->draw(menu.menuBg->text);
+		for (int i = 0; i < menu.mainMenuObj.size(); i++)
+		{
+			window->draw(*menu.mainMenuObj[i]);
+			window->draw(menu.mainMenuObj[i]->text);
+		}
+		break;
+	}
+	case PAUSE:
+	{
+		window->draw(*menu.pauseBg);
+		window->draw(menu.pauseBg->text);
+		for (int i = 0; i < menu.pauseMenuObj.size(); i++)
+		{
+			window->draw(*menu.pauseMenuObj[i]);
+			window->draw(menu.pauseMenuObj[i]->text);
+		}
+		break;
+	}
+	case LEVEL:
+	{
+		for (auto const& it : level.objList)
+		{
+			if (it.second->isAlive())
+			{
+				window->draw(*it.second);
+				/*sf::RectangleShape rectangle;
+				rectangle.setFillColor(sf::Color::Blue);
+				rectangle.setPosition(sf::Vector2f(it.second->getCollisionBox().left, it.second->getCollisionBox().top));
+				rectangle.setSize(sf::Vector2f(it.second->getCollisionBox().width, it.second->getCollisionBox().height));
+				window->draw(rectangle);*/
+			}
+		}
+		for (auto const& it : level.playerObjList)
+		{
+			if (it.second->isAlive())
+			{
+				window->draw(*it.second);
+				/*sf::RectangleShape rectangle;
+				rectangle.setFillColor(sf::Color::Green);
+				rectangle.setPosition(sf::Vector2f(it.second->getCollisionBox().left, it.second->getCollisionBox().top));
+				rectangle.setSize(sf::Vector2f(it.second->getCollisionBox().width, it.second->getCollisionBox().height));
+				window->draw(rectangle);*/
+			}
+		}
+		for (auto const& it : level.attacks)
+		{
+			if (it.second->isAlive())
+			{
+				window->draw(*it.second);
+				/*sf::RectangleShape rectangle;
+				rectangle.setFillColor(sf::Color::Blue);
+				rectangle.setPosition(sf::Vector2f(it.second->getCollisionBox().left, it.second->getCollisionBox().top));
+				rectangle.setSize(sf::Vector2f(it.second->getCollisionBox().width, it.second->getCollisionBox().height));
+				window->draw(rectangle);*/
+			}
 
+		}
+		for (auto const& it : level.playerObjList)
+		{
+			if (it.second->isAlive())
+			{
+				for (int j = 0; j < it.second->getHealth(); j++)
+				{
+					//sf::RectangleShape rectangle;
+					//rectangle.setPosition(sf::Vector2f(view.getCenter().x/* - view.getSize().x/2*/ + it.second->hpPos.x + j*it.second->hpSca.x, view.getCenter().y /*- view.getSize().y / 2*/ + it.second->hpPos.y));
+					//rectangle.setSize(sf::Vector2f(it.second->hpTexture->getSize()));
+					//rectangle.setTexture(it.second->hpTexture);
+					//rectangle.setScale(it.second->hpSca);
+					//window->draw(rectangle);
+
+					sf::RectangleShape rectangle;
+					//rectangle.setFillColor(sf::Color::Red);
+					rectangle.setPosition(sf::Vector2f(view.getCenter().x - it.second->hpPos.x + (it.second->hpTexture->getSize().x * it.second->hpSca.x * j * 6), view.getCenter().y - it.second->hpPos.y));
+					rectangle.setSize(sf::Vector2f(it.second->getCollisionBox().width, it.second->getCollisionBox().height));
+					rectangle.setTexture(it.second->hpTexture);
+					rectangle.setScale(it.second->hpSca);
+					window->draw(rectangle);
+				}
+			}
+		}
+
+		break;
+	}
+	default:
+		break;
+	}
 }
 
 void Scene::handleAttackCollisions()
@@ -175,6 +376,10 @@ void Scene::handleAttackCollisions()
 								if (level.attacks.at(j)->getIsPlayer())
 								{
 									level.collidingObj[i]->takeDamage(level.attacks.at(j)->damage);
+									if (!level.collidingObj[i]->isAlive())
+									{
+										enemiesAlive--;
+									}
 									level.attacks.at(j)->setAlive(false);
 								}
 							}
@@ -283,9 +488,23 @@ void Scene::loadLevelInBackground(int levelNumber) {
 		//level.switchLevel();
 
 		// Mark loading as complete
+		levelLoaded = true;
 		loadingLevel = false;
 		});
 
 	// Detach the thread so it runs independently
 	levelLoadingThread.detach();
+}
+
+void Scene::countEnemies()
+{
+	enemiesAlive = 0;
+	for (int i = 0; i < level.collidingObj.size(); i++)
+	{
+		if (level.collidingObj[i]->IsCharacter() && !level.collidingObj[i]->IsPlayer() && !level.collidingObj[i]->IsBarrier() && level.collidingObj[i]->isAlive())
+		{
+			enemiesAlive++;
+		}
+	}
+	//std::cout << std::endl << enemiesAlive << std::endl;
 }

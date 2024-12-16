@@ -48,6 +48,8 @@ void MenuMaker::writeMenus()
 			out << levelTarget[i][j] << ";";
 			out << buttonXScale[i][j] << ";";
 			out << buttonYScale[i][j] << ";";
+			out << buttonTextXScale[i][j] << ";";
+			out << buttonTextYScale[i][j] << ";";
 		}
 	}
 

@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <map>
+#include "MenuObject.h"
 
 class MenuObject;
 
@@ -10,6 +11,8 @@ public:
 	Menu();
 	~Menu();
 
+	MenuObject* menuBg;
+	MenuObject* pauseBg;
 	std::vector<MenuObject*> mainMenuObj;
 	std::vector<MenuObject*> pauseMenuObj;
 

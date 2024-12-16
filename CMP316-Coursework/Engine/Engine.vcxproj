@@ -166,7 +166,7 @@
     <ClInclude Include="FollowMovementComponent.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameState.h" />
+    <ClInclude Include="GAME_STATES_ENUM.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="Level.h" />
@@ -189,7 +189,6 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="FollowMovementComponent.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="Level.cpp" />

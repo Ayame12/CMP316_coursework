@@ -6,7 +6,7 @@ GameObject::GameObject()
 	alive = true;
 	input = nullptr;
 
-	setOrigin(0.5, 0.5);
+	setOrigin(0, 0);
 	setSize(sf::Vector2f(1, 1));
 }
 

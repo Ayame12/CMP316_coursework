@@ -1,7 +1,5 @@
 #pragma once
 #include <map>
-
-#include "GameState.h"
 #include "GameObject.h"
 #include "AttackObj.h"
 
@@ -21,12 +19,6 @@ public:
 	std::vector< GameObject*> collidingObj;
 
 private:
-	sf::View view;
-
-	// Default variables for level class.
-	sf::RenderWindow* window;
-	//Input* input;
-	GameState* gameState;
 	float completion;
 
 	std::map<std::string, GameObject*> nextObjList;

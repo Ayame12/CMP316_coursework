@@ -14,8 +14,8 @@ public:
 	void setTitleYPos(float y) { titleYPos[cm] = y; };
 	void setBGXScale(float x) { bgXScale[cm] = x; };
 	void setBGYScale(float y) { bgYScale[cm] = y; };
-	void setTextXSize(float x) { textXSize[cm] = x; };
-	void setTextYSize(float y) { textYSize[cm] = y; };
+	void setFontSize(float x) { textXSize[cm] = x; };
+	void setTextScale(float y) { textYSize[cm] = y; };
 
 	void setButtonXPos(float x) { buttonXPos[cm].push_back(x); };
 	void setButtonYPos(float y) { buttonYPos[cm].push_back(y); };
@@ -23,8 +23,10 @@ public:
 	void setButtonNormalTexture(string text) { buttonNormTxt[cm].push_back(text); };
 	void setButtonHighlightTexture(string text) { buttonHighTxt[cm].push_back(text); };
 	void setLevelToTarget(int lvl) { levelTarget[cm].push_back(lvl); };
-	void setButtonXScale(float x) { buttonXScale[cm].push_back(x); };
-	void setButtonYScale(float y) { buttonYScale[cm].push_back(y); };
+	void setButtonFontSize(float x) { buttonTextXScale[cm].push_back(x); };
+	void setButtonTextScale(float y) { buttonTextYScale[cm].push_back(y); };
+	void setButonXScale(float x) { buttonXScale[cm].push_back(x); };
+	void setButonYScale(float y) { buttonYScale[cm].push_back(y); };
 	void writeMenus();
 
 private:
@@ -52,5 +54,7 @@ private:
 	vector<int> levelTarget[2];
 	vector<float> buttonXScale[2];
 	vector<float> buttonYScale[2];
+	vector<float> buttonTextXScale[2];
+	vector<float> buttonTextYScale[2];
 };
 

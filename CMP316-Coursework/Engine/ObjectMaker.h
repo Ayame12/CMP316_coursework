@@ -17,6 +17,35 @@ public:
 	void setPosition(float x, float y) { xPos = x; yPos = y; };
 	void setScale(float x, float y) { xScale = x; yScale = y; };
 	void setRotation(float r) { rotation = r; };
+	void setHealth(std::string filepath, float xpos, float ypos, float xsc, float ysc, float r)
+	{
+		if (allTextures.size() == 0)
+		{
+			allTextures.push_back(filepath);
+		}
+		else
+		{
+			bool alreadyExists = false;
+			for (int i = 0; i < allTextures.size(); ++i)
+			{
+				if (allTextures[i] == filepath)
+				{
+					alreadyExists = true;
+					break;
+				}
+			}
+			if (!alreadyExists)
+			{
+				allTextures.push_back(filepath);
+			}
+		}
+		healthTex = filepath;
+		healthPosX = xpos;
+		healthPosY = ypos;
+		healthScaleX = xsc;
+		healthScaleY = ysc;
+		healthRot = r;
+	};
 
 	void setSpeed(float s) { speed = s; };
 	void setMovementBehaviour(MOVEMENT_TYPES type) { movementType = type; };
@@ -88,6 +117,7 @@ public:
 
 	void writeObject();
 	void finishLevel();
+	void finished();
 
 private:
 	void resetObject();
@@ -103,6 +133,12 @@ private:
 	float rotation = 0;
 
 	std::string texPath = { "" };
+	std::string healthTex = { "" };
+	float healthPosX = 0;
+	float healthPosY = 0;
+	float healthScaleX = 0;
+	float healthScaleY = 0;
+	float healthRot = 0;
 	bool animated = false;
 	int animations[9][5] = { 0 };//{ {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0} };
 	float aniSpeed[9] = { 200 };
