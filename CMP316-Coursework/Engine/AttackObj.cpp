@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "AttackObj.h"
 
+
 void AttackObj::initialize(sf::Vector2f p, sf::Vector2f s, sf::Vector2f dir, float r, float sp, float mt, bool mele, bool isPl, int dmg)
 {
 	setOrigin(getSize().x / 2, getSize().y / 2);
@@ -20,6 +21,9 @@ void AttackObj::initialize(sf::Vector2f p, sf::Vector2f s, sf::Vector2f dir, flo
 void AttackObj::handleInput(float dt)
 {
 }
+
+
+//object follows a set trajectory and dissapeares a distance from the side of the screen or after a timer
 
 void AttackObj::update(float dt)
 {

@@ -1,16 +1,15 @@
 ﻿  AnimationComponent.cpp
   AttackComponent.cpp
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\AttackComponent.cpp(20,14): warning C4553: '==': result of expression not used; did you intend '='?
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\AttackComponent.cpp(23,14): warning C4553: '==': result of expression not used; did you intend '='?
   (compiling source file '/AttackComponent.cpp')
   
   AttackObj.cpp
   Component.cpp
-  DCTAttackComponent.cpp
   Engine.cpp
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuObject.h(33,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuObject.h(35,19): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file '/Engine.cpp')
   
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.h(33,24): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.h(36,24): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file '/Engine.cpp')
   
   FollowMovementComponent.cpp
@@ -72,7 +71,7 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.3412
           ]
   
   Menu.cpp
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuObject.h(33,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuObject.h(35,19): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file '/Menu.cpp')
   
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Menu.cpp(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
@@ -190,8 +189,9 @@ E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Menu.cp
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Menu.cpp(157,34): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
   (compiling source file '/Menu.cpp')
   
+  MenuMaker.cpp
   MenuObject.cpp
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuObject.h(33,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuObject.h(35,19): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file '/MenuObject.cpp')
   
   ObjectMaker.cpp
@@ -204,10 +204,10 @@ E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\ObjectM
   PatrolMovementComponent.cpp
   PlayerMovementComponent.cpp
   Scene.cpp
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuObject.h(33,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuObject.h(35,19): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file '/Scene.cpp')
   
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.h(33,24): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.h(36,24): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file '/Scene.cpp')
   
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(318,81): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data

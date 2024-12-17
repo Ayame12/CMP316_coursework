@@ -3,6 +3,13 @@
 #include <string>
 #include "ENUM_TYPES.h"
 
+//this class allows the user to set all the parameters they need for their menus without making any contact with the actual game 
+//objects in the engine and stores them all in txt files to be loaded in later
+
+//same as the menu maker they both just have a series of predefined functins that allow the user to set parameters of some 
+// hipothetical objects and stores them i na notepad
+
+
 class Object
 {
 public:
@@ -69,7 +76,11 @@ public:
 	void setAttackTaget(int attackNo, std::string tag, float minDist) { attackTarget[attackNo] = tag; targetMinDist[attackNo] = minDist; };
 	void setAttackDirection(int attackNo, float xDir, float yDir) { attackDirX[attackNo] = xDir; attackDirY[attackNo] = yDir; };
 	void setAttackDirection(int attackNo, ATTACK_DIRECTION_CONTROLL directionControl) { attDirControll[attackNo] = directionControl; };
-	void setProjectileNumber(int attackNo, int projNo, float angle) { projectileNo[attackNo] = projNo; attacksAngle[attackNo] = angle; };
+	
+	//wanted this function to make an attack with multiple parts (projectiles or hitboxes)
+	// definetly duable but didnt fit in the time i had
+	//void setProjectileNumber(int attackNo, int projNo, float angle) { projectileNo[attackNo] = projNo; attacksAngle[attackNo] = angle; };
+	
 	void setAttackTexture(int attackNo, std::string filePath) { 
 		attackTex[attackNo] = filePath; 
 		if (allTextures.size() == 0)

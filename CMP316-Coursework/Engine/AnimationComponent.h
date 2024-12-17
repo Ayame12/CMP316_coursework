@@ -3,6 +3,8 @@
 
 class GameObject;
 
+//object that holds the series of frames that can be used as textures for a game object
+
 class Animation
 {
 public:
@@ -29,6 +31,8 @@ private:
     sf::IntRect frame;
     std::vector<sf::IntRect>frames;
 };
+
+//component that changes the texture of an object based on the frames in the animation and the state of the object
 
 class AnimationComponent : public Component
 {

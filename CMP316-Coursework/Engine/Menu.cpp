@@ -11,6 +11,7 @@ Menu::~Menu()
 {
 }
 
+//parses through menu file to create the main and pause menus
 void Menu::loadMenus()
 {
 	sf::Font* font;

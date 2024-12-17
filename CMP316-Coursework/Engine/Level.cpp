@@ -10,6 +10,11 @@
 
 Level::Level()
 {
+	//sets up the poo of attack objects
+	//there is a maximum of 500 attacks that can be alive at once
+	//theoreticaly this should not be reached, 
+	//but if it does happen the only effect it will have on the game is that it will look like objects are lagging a bit
+	//since they are waiting for an attack to be freed up
 	for (int i = 0; i < 500; i++)
 	{
 		attacks.emplace(i, new AttackObj);
@@ -21,6 +26,7 @@ Level::~Level()
 {
 }
 
+//parse through the txt file and set up the objects adding components as necessary
 void Level::loadLevel(int lvlNo)
 {
 	nextObjList.clear();
@@ -397,6 +403,8 @@ void Level::loadLevel(int lvlNo)
 
 	input.close();
 
+	//player characters are stored in level 0, they get passed from level to level so that parameters dont get lost 
+	//or values dont het reset, like hp
 	if (lvlNo == 0)
 	{
 		playerObjList = nextObjList;
@@ -404,6 +412,7 @@ void Level::loadLevel(int lvlNo)
 	}
 }
 
+//swap current level to the loaded level
 void Level::switchLevel()
 {
 	//std::cout << "Switched level";

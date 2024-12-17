@@ -8,6 +8,7 @@ Animation::Animation()
 
 }
 
+//based on the parameters store the frames in a vector to be accessed in a sequence later
 void Animation::setUp(int x, int y, int width, int height, int fNo, float s, bool isLooping)
 {
 	speed = s;
@@ -20,24 +21,31 @@ void Animation::setUp(int x, int y, int width, int height, int fNo, float s, boo
 
 void Animation::animate(float dt)
 {
+	//check animation is not stopped
 	if (isPlaying)
 	{
+		//check enough time passed between frames
 		timePassed += dt;
 		if (timePassed >= speed)
 		{
+			//check the frames vector doesnt go out of scope
 			currentFrame++;
 			if (currentFrame >= frames.size())
 			{
+				//if it does go out of scope
+				//if it loops reset to 0
 				if (loop)
 				{
 					currentFrame = 0;
 				}
+				//if it doesnt set playing to false
 				else
 				{
 					currentFrame--;
 					isPlaying = false;
 				}
 			}
+			//reset timer
 			timePassed = 0;
 		}
 	}
@@ -45,7 +53,9 @@ void Animation::animate(float dt)
 
 sf::IntRect Animation::getCurrentFrame()
 {
+	//return the current drame from the vector 
 	frame = frames[currentFrame];
+	//if the object is flipped flip the frame to math animation to movement
 	if (isFlipped)
 	{
 
@@ -68,17 +78,23 @@ void AnimationComponent::handleInput(GameObject* gameObj, float dt)
 
 void AnimationComponent::update(GameObject* gameobj, float dt)
 {
+	//set appropriate animation based on the state of the object
 	int prevAnimation = currentAnimation;
+
+	//if it is not moving
 	if (gameobj->getVelocity().x == 0 && gameobj->getVelocity().y == 0)
 	{
 		currentAnimation = 0;
 	}
+	//if it is moving mainly horisontaly
 	else if (gameobj->getVelocity().x * gameobj->getVelocity().x > gameobj->getVelocity().y * gameobj->getVelocity().y)
 	{
 		currentAnimation = 3;
 	}
+	//if it is moving mainly verticaly
 	else if (gameobj->getVelocity().x * gameobj->getVelocity().x < gameobj->getVelocity().y * gameobj->getVelocity().y)
 	{
+		//different animations for walking up or doen (front of the character and back)
 		if (gameobj->getVelocity().y < 0)
 		{
 			currentAnimation = 1;
@@ -88,6 +104,7 @@ void AnimationComponent::update(GameObject* gameobj, float dt)
 			currentAnimation = 2;
 		}
 	}
+	//separate animation if the character is hurt
 	if (gameobj->hurt)
 	{
 		hurtTimer += dt;
@@ -98,14 +115,19 @@ void AnimationComponent::update(GameObject* gameobj, float dt)
 		}
 		currentAnimation = 4;
 	}
+	//change previous animation to is not playing
 	animation->setPlaying(false);	
+	//change animation ponter to current one
 	animation = &animations[currentAnimation];
+	//if the animation has been changed, reset the frames so that animation doesnt start in the middle
 	if (prevAnimation != currentAnimation)
 	{
 		animation->setCurrentFrame(0);
 	}
+	//play current animayion
 	animation->setPlaying(true);
 	animation->setFlipped(gameobj->getFlipped());
 	animation->animate(dt);
+	//set texture of the obj to the current frame
 	gameobj->setTextureRect(animation->getCurrentFrame());
 }

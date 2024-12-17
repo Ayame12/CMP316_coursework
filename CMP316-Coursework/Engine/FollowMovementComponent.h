@@ -3,6 +3,8 @@
 
 class GameObject;
 
+//component that movest he game object towards a set target object upo to a certain distance
+
 class FollowMovementComponent : public Component {
 public:
 

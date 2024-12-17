@@ -14,6 +14,8 @@ GameObject::~GameObject()
 {
 }
 
+//each game object handles input and updates the components, code inside the components alter the object accordingly
+
 void GameObject::handleInput(float dt)
 {
 	for (const auto& component : components) {
@@ -23,8 +25,6 @@ void GameObject::handleInput(float dt)
 
 void GameObject::update(float dt)
 {
-	/*velocity = speed;
-	move(velocity * dt);*/
 	for (const auto& component : components) {
 		component->update(this, dt);
 	}

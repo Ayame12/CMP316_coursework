@@ -4,6 +4,8 @@
 #include <memory>
 #include "Component.h"
 
+//general purpose object that in combination with components will be the base for any 'thing' present in the scene
+
 class GameObject : public sf::RectangleShape
 {
 public:
@@ -13,6 +15,7 @@ public:
 	virtual void handleInput(float dt);
 	virtual void update(float dt);
 
+	//alive variable allows the scene to know which objects to update or draw and which not to
 	void setAlive(bool s) { alive = s; };
 	bool isAlive() { return alive; };
 
@@ -21,6 +24,7 @@ public:
 	void setVelocity(sf::Vector2f v) { velocity = v; };
 	sf::Vector2f getVelocity() { return velocity; };
 
+	//for animation component
 	void setFlipped(bool f){isFlipped = f;}
 	bool getFlipped() { return isFlipped; };
 
@@ -34,15 +38,16 @@ public:
 	void setWindow(sf::RenderWindow* w) { window = w; };
 
 	void addComponent(std::shared_ptr<Component> component) { components.push_back(component); };
+
+	//inportant information for when deciding the result of a collision
 	bool IsPlayer() { return isPlayer; };
 	void setPlayer(bool p) { isPlayer = p; };
-
 	bool IsCharacter() { return isChar; };
 	void setCharacter(bool c) { isChar = c; };
-
 	bool IsBarrier() { return isBar; };
 	void setBarrier(bool b) { isBar = b; };
 
+	//used by actor objects
 	int getHealth() { return health; };
 	void setHealth(int hp) { health = hp; };
 	void takeDamage(int dmg);
@@ -53,6 +58,9 @@ public:
 		hpSca = sf::Vector2f(sx, sy);
 		hpRotat = r;
 	};
+
+	//as this part is not accessed by the user i allowed myself to make a few more variables public than i would normaly deem
+//appropriate as the user is technicaly never going to have the chance to mess anything up 
 
 	Input* input;
 	sf::RenderWindow* window;

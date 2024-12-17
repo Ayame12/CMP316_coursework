@@ -159,7 +159,6 @@
     <ClInclude Include="AttackComponent.h" />
     <ClInclude Include="AttackObj.h" />
     <ClInclude Include="Component.h" />
-    <ClInclude Include="DCTAttackComponent.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="ENUM_TYPES.h" />
     <ClInclude Include="FollowMovementComponent.h" />
@@ -182,7 +181,6 @@
     <ClCompile Include="AttackComponent.cpp" />
     <ClCompile Include="AttackObj.cpp" />
     <ClCompile Include="Component.cpp" />
-    <ClCompile Include="DCTAttackComponent.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="FollowMovementComponent.cpp" />
     <ClCompile Include="GameObject.cpp" />

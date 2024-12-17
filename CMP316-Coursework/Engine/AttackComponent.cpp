@@ -3,6 +3,9 @@
 #include "GameObject.h"
 #include "AttackObj.h"
 
+
+//using the attack enums the appropriate variables from the long list of initialised variables are used to 
+//determine the direction, speed, rotation, and general behaviour of an attack
 void AttackComponent::handleInput(GameObject* gameObj, float dt)
 {
 	if (!canSpawn)
@@ -21,6 +24,7 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 		position = sf::Vector2f(gameObj->getPosition().x + xOffset, gameObj->getPosition().y + yOffset);
 		switch (cond)
 		{
+			//an attack that will be triggered by a specific object entering its proximity
 		case OBJ_PROXIMITY:
 		{
 			sf::Vector2f targetPos = proxiObj->getPosition();
@@ -36,6 +40,7 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 			}
 			break;
 		}
+		//attack triggered based on a set timer
 		case TIMER:
 		{
 			if (!fired)
@@ -45,6 +50,7 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 			canSpawn = false;
 			break;
 		}
+		//attack triggered by player input
 		case PLAYER:
 		{
 			if (gameObj->input->GetSFKey(control))
@@ -63,9 +69,10 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 			break;
 		}
 	}
-
+	//after the attack has been trigered propperties of the attack are calculated
 	if (fired)
 	{
+		//the components searhes for an available attack object in the pool
 		fired = false;
 		for (int i = 0; i < allattacks->size(); i++)
 		{
@@ -81,10 +88,12 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 		{
 			switch (type)
 			{
+				//a straight projectile will just follow a straight tragectory, either predetermined or controlled by the player
 			case PROJECTILE_STRAIGHT:
 			{
 				switch (dirCon)
 				{
+					//attack is initialised in the direction of the mouse
 				case MOUSE:
 				{
 					auto siz = gameObj->window->getView().getSize();
@@ -97,6 +106,7 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 					rotation += 180 * direction.x + 180 * direction.y;
 					break;
 				}
+				//attack direction is based on the arraw keys (like binding of isaac)
 				case KEYBOARD:
 				{
 					direction = sf::Vector2f(0, 0);
@@ -126,6 +136,7 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 				}
 				break;
 			}
+			//projectile will be initialised with the direction of a target (another game object)
 			case PROJECTILE_TARGETED:
 			{
 				direction = target->getPosition();
@@ -139,6 +150,9 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 
 			}
 				break;
+				//mele attack will just appear and then dissapear after a timer
+				//not goig to lie, i have not done it jutice
+				//somehow projectiles are just a lot better
 			case MELE:
 			{
 				speed = 0;
@@ -153,6 +167,7 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 		}
 		if (!gameObj->hurt)
 		{
+			//attack is initialised with the calculated variables
 			allattacks->at(index)->setTexture(texture);
 			allattacks->at(index)->setSize(sf::Vector2f(texture->getSize()));
 			allattacks->at(index)->initialize(position, scale, direction, rotation, speed, meleMaxTimer, isMele, gameObj->IsPlayer(), damage);

@@ -4,9 +4,14 @@
 
 class AttackObj;
 
+//component that checks when an attack should be initialised
+//finds an available attack object from the pool
+//initialises the attack and sets it to alive so it can be updated by teh engine
+
 class AttackComponent : public Component
 {
 public:
+	//initialisation that covers all types of attacks the user could choose from
 	AttackComponent(std::map<int, AttackObj*>* allAtc, sf::Texture* tex, float dirX, float dirY, float spee, float scaleX,
 		float scaleY, int cont, ATTACK_TYPES at, ATTACK_CONDITION_TYPES condition, float colBOx[4], GameObject* tar,
 		ATTACK_DIRECTION_CONTROLL directionContro, int projNo, float angle, float proxDist, float meleTim, float xOff,

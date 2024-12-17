@@ -3,6 +3,8 @@
 #include "GameObject.h"
 #include "AttackObj.h"
 
+//holds all of the objects present in a level and is able to load them from a txt file
+
 class Level
 {
 public:

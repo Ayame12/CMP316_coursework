@@ -2,6 +2,7 @@
 #include "ObjectMaker.h"
 #include <fstream>
 
+//adds all the textures for the level in one vector so that they are only loaded once
 void Object::setTexture(std::string filePath, bool isAnimated)
 {
 	animated = isAnimated;
@@ -29,16 +30,19 @@ void Object::setTexture(std::string filePath, bool isAnimated)
 	
 }
 
+//writes an object to the level file
 void Object::writeObject()
 {
 	std::string currentlvl = "../LoadingFiles/level" + std::to_string(levelsPresent);
 	std::ofstream out;
+
 	if (objInLvl == 0)
 	{
 		out.open(currentlvl);
 	}
 	else
 	{
+		//appens the file in 'edit' mode if there is already another object written
 		out.open(currentlvl, std::ios_base::app);
 	}
 	objInLvl++;
@@ -113,12 +117,14 @@ void Object::writeObject()
 	resetObject();
 }
 
+//rewrites the whole file placing inportant information at the top
 void Object::finishLevel()
 {
 	std::string currentlvl = "../LoadingFiles/level" + std::to_string(levelsPresent);
 	std::ifstream input;
 	input.open(currentlvl);
 
+	//copies file before rewriting
 	std::vector<std::string> linesVec;
 	std::string line;
 	while (std::getline(input, line))
@@ -132,6 +138,7 @@ void Object::finishLevel()
 	out.open(currentlvl);
 	out << objInLvl << std::endl;
 	
+	//writes all the textures at the top, for loading in a map and the number of objects inside the level
 	out << "allTextures:";
 	out << allTextures.size() << ":";
 	for (int i = 0; i < allTextures.size(); ++i)
@@ -158,6 +165,7 @@ void Object::finished()
 	out.close();
 }
 
+//reset parameters
 void Object::resetObject()
 {
 	objTag = "";

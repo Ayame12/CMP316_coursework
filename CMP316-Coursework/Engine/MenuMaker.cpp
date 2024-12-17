@@ -2,6 +2,7 @@
 #include "MenuMaker.h"
 #include <fstream>
 
+//writes menus parameters to a txt
 void MenuMaker::writeMenus()
 {	
 	for (int i = 0; i < 2; i++)

@@ -5,6 +5,8 @@
 
 class MenuObject;
 
+//holds all of the objects present in a menu and is able to load them from a txt file
+
 class Menu
 {
 public:

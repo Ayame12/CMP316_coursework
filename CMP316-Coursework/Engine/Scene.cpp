@@ -20,6 +20,7 @@ Scene::Scene(sf::RenderWindow* hwnd, Input* in)
 	inn.close();
 	maxLevel = stoi(str);
 
+	//sets up window and input for all objects
 	for (int i = 0; i < menu.mainMenuObj.size(); i++)
 	{
 		menu.mainMenuObj[i]->setWindow(window);
@@ -148,6 +149,7 @@ void Scene::update(float dt)
 	}
 	case LEVEL:
 	{
+		//gased on the number of evemies a new level will be loaded
 		countEnemies();
 		int prevLLev = currentLevel;
 
@@ -161,7 +163,7 @@ void Scene::update(float dt)
 				loadLevelInBackground(1);
 			}
 		}
-
+		//if the number of enemies is 0 the level will be swapped with the loaded level YEEEEEY
 		if (enemiesAlive == 0) {
 			if (currentLevel != maxLevel) {
 				if (!isLevelLoading() && levelLoaded) {
@@ -175,6 +177,8 @@ void Scene::update(float dt)
 					levelLoaded = false;
 				}
 			}
+			//if the game is on the last level written in the files the ame state will be
+			//set back to main menu and level 1 will be loaded so the game can be played again
 			else 
 			{
 				gameState = GAME_STATE::MENU;
@@ -197,12 +201,8 @@ void Scene::update(float dt)
 			
 		}
 
-		if (prevLLev != currentLevel)
-		{
-			std::cout << currentLevel << std::endl;
-		}
-
-
+		//view of the window will also be locked on the player or the middle of the distance between them if there is
+		//more than one active player
 		viewCen = { 0,0 };
 		for (auto const& it : level.objList)
 		{
@@ -218,6 +218,7 @@ void Scene::update(float dt)
 			{
 				playersAlive++;
 				it.second->update(dt);
+				//adding the position of the player onto the view centre
 				viewCen += it.second->getPosition();
 			}
 		}
@@ -240,9 +241,12 @@ void Scene::update(float dt)
 				it.second->update(dt);
 			}
 		}
+
+		//collisions are handled right after update so any errors in movement can be corected
 		handleCharactersCollisions(dt);
 		handleAttackCollisions();
 
+		//taking the avrage on the player positions
 		viewCen.x = viewCen.x / level.playerObjList.size();
 		viewCen.y = viewCen.y / level.playerObjList.size();
 
@@ -251,6 +255,7 @@ void Scene::update(float dt)
 	default:
 		break;
 	}	
+	//setting the view centre
 	view.setCenter(viewCen);
 	
 }
@@ -313,7 +318,9 @@ void Scene::render()
 			{
 				for (int j = 0; j < it.second->getHealth(); j++)
 				{
-
+					//player health is displayed directly by the scene
+					//probably would have been a smarter choice to make a separate component for it
+					//but it is a minor thing considering the limited scope of the engine
 					sf::RectangleShape rectangle;
 					rectangle.setPosition(sf::Vector2f(view.getCenter().x - it.second->hpPos.x + (it.second->hpTexture->getSize().x * it.second->hpSca.x * j * 1.5), view.getCenter().y - it.second->hpPos.y));
 					rectangle.setSize(sf::Vector2f(it.second->hpTexture->getSize().x, it.second->hpTexture->getSize().y));
@@ -331,24 +338,32 @@ void Scene::render()
 	}
 }
 
+//function checks collisions of attacks with any other object
 void Scene::handleAttackCollisions()
 {
 	for (int j = 0; j <level.attacks.size(); ++j)
 	{
+		//chec attack is active
 		if (level.attacks.at(j)->isAlive())
 		{
 			for (int i = 0; i < level.collidingObj.size(); ++i)
 			{
+				//check object is active (alive)
 				if (level.collidingObj.at(i)->isAlive())
 				{
+					//checkcollision
 					if (checkBoundingBox(level.attacks.at(j), level.collidingObj[i]))
 					{
+						//series of if determining if the attack and the object it colided with
+						//are on "different teams"
 						if (level.collidingObj[i]->IsCharacter())
 						{
 							if (level.collidingObj[i]->IsPlayer())
 							{
 								if (!(level.attacks.at(j)->getIsPlayer()))
 								{
+									//if they are are on "different teams" the attack is set to inactive  
+									//and the object takes damage 
 									level.collidingObj[i]->takeDamage(level.attacks.at(j)->damage);
 									level.attacks.at(j)->setAlive(false);
 								}
@@ -366,6 +381,7 @@ void Scene::handleAttackCollisions()
 								}
 							}
 						}
+						//if the object was a barrier the attack is just destryed
 						else if (level.collidingObj[i]->IsBarrier())
 						{
 							level.attacks.at(j)->setAlive(false);
@@ -377,18 +393,23 @@ void Scene::handleAttackCollisions()
 	}
 }
 
+//collisions between actors and actors and barriers
 void Scene::handleCharactersCollisions(float dt)
 {
 	for (int i = 0; i < level.collidingObj.size(); ++i)
 	{
+		//checks object 1 is alive
 		if (level.collidingObj[i]->isAlive())
 		{
 			for (int j = i+1; j < level.collidingObj.size(); ++j)
 			{
+				//check object 2 is alive
 				if (level.collidingObj[j]->isAlive())
 				{
+					//checks collision
 					if (checkBoundingBox(level.collidingObj[i], level.collidingObj[j]))
 					{
+						//moves both of them just a little bit
 						float moveBy = 0.2;
 						if (!level.collidingObj[i]->IsBarrier())
 						{
@@ -410,6 +431,7 @@ void Scene::handleCharactersCollisions(float dt)
 								level.collidingObj[i]->move(0, moveBy);
 							}
 						}
+						// if one object is a barrier only the other object gets moved
 						if (!level.collidingObj[j]->IsBarrier())
 						{
 							sf::Vector2f dir = level.collidingObj[j]->getPosition() - level.collidingObj[i]->getPosition();
@@ -451,6 +473,7 @@ bool Scene::checkBoundingBox(GameObject* s1, GameObject* s2)
 	return true;
 }
 
+//loads a level on a different thread so there is no interuption in the current level
 void Scene::loadLevelInBackground(int levelNumber) {
 	if (loadingLevel) return;
 	loadingLevel = true;
@@ -464,6 +487,7 @@ void Scene::loadLevelInBackground(int levelNumber) {
 	levelLoadingThread.detach();
 }
 
+//counts how many enemies are currently in the scene
 void Scene::countEnemies()
 {
 	enemiesAlive = 0;

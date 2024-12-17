@@ -1,5 +1,7 @@
 #pragma once
 
+//enums that help remember all the types of attacks and objects that can be made by the user
+
 enum OBJECT_TYPE { ACTOR, BACKGROUND, TERRAIN, UI, TRIGGER, NONE };
 enum TRIGGER_ACTION_TYPE { LOAD_NEXT_LVL, ENTER_NEXT_LVL, NO_ACTION };
 enum MOVEMENT_TYPES { STATIONARY, PATROL, FOLLOW, PLAYER_CONTROL };

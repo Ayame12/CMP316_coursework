@@ -6,6 +6,9 @@
 #include <atomic>
 #include "GAME_STATES_ENUM.h"
 
+//my scene is responsible with changing the game state and level and loading new levels in the backround
+//scene is also responsible with checking all collisions in the level 
+
 class Scene
 {
 public:

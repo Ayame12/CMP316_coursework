@@ -1,6 +1,9 @@
 #pragma once
 #include <vector>
 
+//this class allows the user to set all the parameters they need for their menus without making any contact with the actual menu 
+//objects in the engine and stores them all in txt files to be loaded in later
+
 enum MENU_TYPE { MAIN, PAUSE };
 using namespace std;
 

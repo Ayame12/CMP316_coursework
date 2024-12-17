@@ -1,5 +1,8 @@
 #pragma once
 #include "Component.h"
+
+//compmoemt that moves the object between a series of coordinates
+
 class PatrolMovementComponent : public Component
 {
 public:

@@ -1,6 +1,8 @@
 #pragma once
 #include "Component.h"
 
+//component that takes in user input to move the object
+
 class PlayerMovementComponent : public Component {
 public:
     PlayerMovementComponent(int up, int down, int left, int right, float s) {

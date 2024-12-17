@@ -7,6 +7,8 @@
 
 class Level;
 
+//general purpose object that will contain all information abaut the menus
+
 class MenuObject : public sf::RectangleShape
 {
 public:

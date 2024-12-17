@@ -2,6 +2,9 @@
 #include "MenuObject.h"
 #include "Level.h"
 
+//based on the target a menu object (button) has it will change the game state accordingly
+//there is a small timer to prevent the spamming of commands that happens due to the input from the keyboard
+//lasting several ticks
 void MenuObject::handleInput(float dt)
 {
 	if (swappedIn)
@@ -25,6 +28,7 @@ void MenuObject::handleInput(float dt)
 	}
 }
 
+//after button was pressed the game state is altered
 void MenuObject::update(float dt)
 {
 	if (isSelected)

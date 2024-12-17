@@ -3,6 +3,7 @@
 #include <iostream>
 #include "MenuMaker.h"
 
+
 Object o;
 
 //function i made to just quickly set up more enemies with less function calls
@@ -131,7 +132,6 @@ int main() {
 	o.setMovementBehaviour(MOVEMENT_TYPES::PATROL);
 	o.setAttackType(1, ATTACK_TYPES::PROJECTILE_STRAIGHT);
 	o.setAttackSpeed(1, 500);
-	o.setProjectileNumber(1, 4, 90);
 	o.setAttackDirection(1, 0, 0);
 	o.setAttackCondition(1, ATTACK_CONDITION_TYPES::TIMER);
 	o.setAttackProximity(1, "player", 300);
