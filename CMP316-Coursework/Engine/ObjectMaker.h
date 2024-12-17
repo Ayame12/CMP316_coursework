@@ -140,9 +140,9 @@ private:
 	float healthScaleY = 0;
 	float healthRot = 0;
 	bool animated = false;
-	int animations[9][5] = { 0 };//{ {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0} };
-	float aniSpeed[9] = { 200 };
-	bool aniLoop[9] = { true };
+	int animations[5][5] = { 0 };//{ {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0} };
+	float aniSpeed[5] = { 200 };
+	bool aniLoop[5] = { true };
 
 	int health = 5;
 	float speed = 0;

@@ -1,12 +1,6 @@
-﻿  Scene.cpp
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuObject.h(33,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-  (compiling source file '/Scene.cpp')
-  
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.h(36,24): warning C4305: 'initializing': truncation from 'double' to 'float'
-  (compiling source file '/Scene.cpp')
-  
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(429,20): warning C4305: 'initializing': truncation from 'double' to 'float'
-  (compiling source file '/Scene.cpp')
+﻿  AttackComponent.cpp
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\AttackComponent.cpp(20,14): warning C4553: '==': result of expression not used; did you intend '='?
+  (compiling source file '/AttackComponent.cpp')
   
 winmm.lib(WINMM.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
 gdi32.lib(GDI32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored

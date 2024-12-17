@@ -50,7 +50,9 @@ void MenuMaker::writeMenus()
 			out << buttonYScale[i][j] << ";";
 			out << buttonTextXScale[i][j] << ";";
 			out << buttonTextYScale[i][j] << ";";
-		}
+			out << buttonTextXPos[i][j] << ";";
+			out << buttonTextYPos[i][j] << ";";
+		}		   
 	}
 
 	out.close();

@@ -39,6 +39,7 @@ void GameObject::takeDamage(int dmg)
 {
 	if (isChar)
 	{
+		hurt = true;
 		health -= dmg;
 	}
 	if (health <= 0)

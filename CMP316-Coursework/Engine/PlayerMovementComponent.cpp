@@ -37,10 +37,16 @@ void PlayerMovementComponent::handleInput(GameObject* gameObj, float dt)
     }
 
     // Scale by speed
-    gameObj->setVelocity(direction * speed);
+    if (!gameObj->hurt)
+    {
+        gameObj->setVelocity(direction * speed);
+    }    
 }
 
 void PlayerMovementComponent::update(GameObject* gameObj, float dt)
 {
-    gameObj->move(gameObj->getVelocity() * dt);
+    if (!gameObj->hurt)
+    {
+        gameObj->move(gameObj->getVelocity() * dt);
+    }    
 }

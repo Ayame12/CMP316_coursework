@@ -10,7 +10,7 @@
 
 Level::Level()
 {
-	for (int i = 0; i < 40; i++)
+	for (int i = 0; i < 500; i++)
 	{
 		attacks.emplace(i, new AttackObj);
 	}
@@ -167,10 +167,6 @@ void Level::loadLevel(int lvlNo)
 		std::getline(input, str, ':');
 		std::getline(input, str, ';');
 		std::string hpTex = str;
-		if (str == "")
-		{
-			hpTex = "res/animationTest.png";
-		}
 		float hppx, hppy, hpsx, hpsy, hpr;
 		std::getline(input, str, ';');
 		hppx = stof(str);
@@ -198,10 +194,10 @@ void Level::loadLevel(int lvlNo)
 
 		//animations
 		std::getline(input, str, ':');
-		int ani[9][5] = { {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0} };
-		float aSpeed[9];
-		bool aLoop[9];
-		for (int i = 0; i < 9; ++i)
+		int ani[5][5] = { {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0} };
+		float aSpeed[5];
+		bool aLoop[5];
+		for (int i = 0; i < 5; ++i)
 		{
 			for (int j = 0; j < 5; ++j)
 			{
@@ -392,7 +388,7 @@ void Level::loadLevel(int lvlNo)
 		if (a)
 		{
 			it.second->addComponent(std::make_shared<AnimationComponent>(ani, aSpeed, aLoop));
-			it.second->setSize(sf::Vector2f(ani[0][3], ani[0][4]));
+			it.second->setSize(sf::Vector2f(ani[0][2], ani[0][3]));
 			it.second->setCollisionBox(0, 0, it.second->getSize().x*it.second->getScale().x, it.second->getSize().y * it.second->getScale().y);
 			//it.second->setOrigin(ani[0][3] / 2, ani[0][4] / 2);
 			

@@ -155,6 +155,14 @@ void Menu::loadMenus()
 			yp = stoi(str);
 			vec[i]->text.setScale(yp, yp);
 			vec[i]->text.setCharacterSize(xp);
+
+			//text pos
+			std::getline(input, str, ';');
+			xp = stof(str);
+			std::getline(input, str, ';');
+			yp = stof(str);
+			vec[i]->text.setPosition(xp, yp);
+
 			vec[i]->text.setFont(*font);
 		}
 

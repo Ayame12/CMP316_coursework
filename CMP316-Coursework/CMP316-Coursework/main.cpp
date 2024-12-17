@@ -3,25 +3,87 @@
 #include <iostream>
 #include "MenuMaker.h"
 
+Object o;
+
+void makeFollowEnemy(float x, float y, std::string tag)
+{
+	o.setTag(tag);
+	o.setPosition(x, y);
+	o.setHealth(3);
+	o.setObjType(OBJECT_TYPE::ACTOR);
+	o.setScale(2.5, 2.5);
+	o.setTexture("res/playerAnimationDemo.png", true);
+	o.setAnimation(ANIMATION_TYPES::IDLE, 0, 0, 48, 48, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::WALK_DOWN, 0, 48 * 3, 48, 48, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::WALK_UP, 0, 48 * 2, 48, 48, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::WALK_HOR, 0, 48, 48, 48, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::HURT, 0, 48 * 4, 48, 48, 4, 0.2, true);
+	o.setSpeed(300);
+	o.setMovementBehaviour(MOVEMENT_TYPES::FOLLOW);
+	o.setAttackType(1, ATTACK_TYPES::PROJECTILE_TARGETED);
+	o.setAttackCondition(1, ATTACK_CONDITION_TYPES::TIMER);
+	o.setAttackMeleTimer(1, 0.5);
+	//o.setAttackOffset(1, 300, 0);
+	o.setAttackTexture(1, "res/redAttack.png");
+	o.setAttackTaget(1, "player", 0);
+	o.setAttackScale(1, 5, 5);
+	o.setAttackSpeed(1, 1000);
+	o.setAttackCoolDown(1, 0.2);
+	o.setAttackDamage(1, 1);
+	o.setFollowTarget("player", 200);
+	o.writeObject();
+
+
+	/*o.setSpeed(300);
+	o.setMovementBehaviour(MOVEMENT_TYPES::PATROL);
+	o.setAttackType(1, ATTACK_TYPES::MELE);
+	o.setAttackCondition(1, ATTACK_CONDITION_TYPES::OBJ_PROXIMITY);
+	o.setAttackProximity(1, "player", 300);
+	o.setAttackMeleTimer(1, 0.2);
+	o.setAttackTexture(1, "res/redBeam.png");
+	o.setAttackScale(1, 5, 5);
+	o.setAttackCoolDown(1, 0.2);
+	o.setAttackDamage(1, 1);
+	o.addPatrollPoint(100, 400);
+	o.addPatrollPoint(300, 400);*/
+
+	//o.setSpeed(300);
+	//o.setMovementBehaviour(MOVEMENT_TYPES::FOLLOW);
+	//o.setAttackType(1, ATTACK_TYPES::MELE);
+	//o.setAttackCondition(1, ATTACK_CONDITION_TYPES::OBJ_PROXIMITY);
+	//o.setAttackMeleTimer(1, 0.5);
+	////o.setAttackOffset(1, 300, 0);
+	//o.setAttackProximity(1, "player", 300);
+	//o.setAttackTexture(1, "res/redBeam.png");
+	//o.setAttackTaget(1, "player", 0);
+	//o.setAttackScale(1, 5, 5);
+	//o.setAttackSpeed(1, 1000);
+	//o.setAttackCoolDown(1, 0.2);
+	//o.setAttackDamage(1, 1);
+	//o.setFollowTarget("player", 200);
+	//o.writeObject();
+}
+
 int main() {
 
-	Object o;
-	o.setTag("hand");
+	o.setTag("player");
 	o.setObjType(OBJECT_TYPE::ACTOR);
-	o.setPosition(1, 1) ;
-	o.setScale(20, 20);
-	o.setSpeed(500);
-	o.setTexture("res/animationTest.png", true);
-	o.setHealth("res/animationTest.png", 550, 300, 0.5, 0.5, 0);
-	o.setAnimation(ANIMATION_TYPES::IDLE, 0, 0, 4, 4, 4, 0.2, true);
-	o.setAnimation(ANIMATION_TYPES::WALK_VER, 0, 4, 4, 4, 4, 0.2, true);
-	o.setAnimation(ANIMATION_TYPES::WALK_HOR, 0, 8, 4, 4, 4, 0.2, true);
+	o.setPosition(20, 20);
+	o.setScale(2, 2);
+	o.setSpeed(700);
+	o.setTexture("res/enemyAnimationDemo.png", true);
+	o.setAnimation(ANIMATION_TYPES::IDLE, 0, 0, 48, 48, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::WALK_DOWN, 0, 48*3, 48, 48, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::WALK_UP, 0, 48*2, 48, 48, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::WALK_HOR, 0, 48, 48, 48, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::HURT, 0, 48*4, 48, 48, 4, 0.2, true);
+	o.setHealth("res/heart.png", 550, 300, 1, 1, 0);
 	o.setMovementBehaviour(MOVEMENT_TYPES::PLAYER_CONTROL);
 	o.setAttackType(1, ATTACK_TYPES::PROJECTILE_STRAIGHT);
+	o.setAttackTexture(1, "res/playerProjectile.png");
 	o.setAttackCondition(1, ATTACK_CONDITION_TYPES::TIMER);
-	o.setAttackKey(1, 2);
 	o.setAttackDirection(1, ATTACK_DIRECTION_CONTROLL::MOUSE);
-	o.setAttackScale(1, 1, 1);
+	o.setAttackScale(1, 5, 5);
 	o.setAttackSpeed(1, 1000);
 	o.setAttackCoolDown(1, 0.2);
 	o.setAttackDamage(1, 1);
@@ -29,71 +91,87 @@ int main() {
 	o.finishLevel();
 
 	o.setTag("bg");
-	o.setPosition(0, 0);
+	o.setPosition(-2000, -1000);
 	o.setObjType(OBJECT_TYPE::BACKGROUND);
-	o.setScale(2, 2);
-	o.setTexture("res/image.png", false);
+	o.setScale(10, 10);
+	o.setTexture("res/levelBG.png", false);
 	o.writeObject();
 
-	o.setTag("bg");
+	o.setTag("barrier");
 	o.setPosition(50, 50);
 	o.setObjType(OBJECT_TYPE::TERRAIN);
 	o.setScale(10, 10);
-	o.setTexture("res/animationTest.png", false);
+	o.setTexture("res/barrier.png", false);
 	o.writeObject();
 
-	o.setTag("test");
-	o.setPosition(500, 500);
-	o.setHealth(3);
-	o.setObjType(OBJECT_TYPE::ACTOR);
-	o.setScale(0.04, 0.04);
-	o.setTexture("res/facelessvoid.png", false);
-	o.setSpeed(300);
-	o.setMovementBehaviour(MOVEMENT_TYPES::PATROL);
-	o.addPatrollPoint(10, 500);
-	o.addPatrollPoint(100, 500);
-	o.setFollowTarget("hand", 200);
-	o.writeObject();
+	float xPos[5] = { 200,300,250,300,150 };
+	float yPos[5] = { 200,300,300,250,200 };
+
+	for (int i = 0; i < 5; i++)
+	{
+		makeFollowEnemy(xPos[i], yPos[i], "followEnemy" + std::to_string(i));
+	}
 
 	o.finishLevel();
 
-	o.setTag("test");
-	o.setPosition(500, 500);
-	o.setHealth(3);
-	o.setObjType(OBJECT_TYPE::ACTOR);
-	o.setScale(0.04, 0.04);
-	o.setTexture("res/facelessvoid.png", false);
-	o.setSpeed(300);
-	o.setMovementBehaviour(MOVEMENT_TYPES::PATROL);
-	o.addPatrollPoint(10, 500);
-	o.addPatrollPoint(100, 500);
-	o.setFollowTarget("hand", 200);
+	o.setTag("bg");
+	o.setPosition(-2000, -1000);
+	o.setObjType(OBJECT_TYPE::BACKGROUND);
+	o.setScale(10, 10);
+	o.setTexture("res/controlsBGss.png", false);
 	o.writeObject();
 
-	o.setTag("test2");
-	o.setPosition(700, 700);
-	o.setHealth(3);
-	o.setObjType(OBJECT_TYPE::ACTOR);
-	o.setScale(0.04, 0.04);
-	o.setTexture("res/facelessvoid.png", false);
-	o.setSpeed(300);
-	o.setMovementBehaviour(MOVEMENT_TYPES::PATROL);
-	o.addPatrollPoint(10, 500);
-	o.addPatrollPoint(100, 500);
-	//o.setFollowTarget("hand", 200);
+	o.setTag("barrier");
+	o.setPosition(100, 0);
+	o.setObjType(OBJECT_TYPE::TERRAIN);
+	o.setScale(10, 10);
+	o.setTexture("res/barrier.png", false);
 	o.writeObject();
 
-	o.setTag("test3");
-	o.setPosition(900, 900);
-	o.setHealth(3);
+	o.setTag("barrier2");
+	o.setPosition(300, 0);
+	o.setObjType(OBJECT_TYPE::TERRAIN);
+	o.setScale(10, 10);
+	o.setTexture("res/barrier.png", false);
+	o.writeObject();
+
+	o.setTag("barrier3");
+	o.setPosition(500, 0);
+	o.setObjType(OBJECT_TYPE::TERRAIN);
+	o.setScale(10, 10);
+	o.setTexture("res/barrier.png", false);
+	o.writeObject();
+
+	o.setTag("turretish");
+	o.setPosition(200, 400);
+	o.setHealth(5);
 	o.setObjType(OBJECT_TYPE::ACTOR);
-	o.setScale(0.04, 0.04);
-	o.setTexture("res/facelessvoid.png", false);
+	o.setScale(2.5, 2.5);
+	o.setTexture("res/playerAnimationDemo.png", true);
+	o.setAnimation(ANIMATION_TYPES::IDLE, 0, 0, 48, 48, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::WALK_DOWN, 0, 48 * 3, 48, 48, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::WALK_UP, 0, 48 * 2, 48, 48, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::WALK_HOR, 0, 48, 48, 48, 4, 0.2, true);
+	o.setAnimation(ANIMATION_TYPES::HURT, 0, 48 * 4, 48, 48, 4, 0.2, true);
 	o.setSpeed(300);
 	o.setMovementBehaviour(MOVEMENT_TYPES::PATROL);
-	o.addPatrollPoint(10, 500);
-	o.addPatrollPoint(100, 500);
-	//o.setFollowTarget("hand", 200);
+	o.setAttackType(1, ATTACK_TYPES::PROJECTILE_STRAIGHT);
+	o.setAttackSpeed(1, 500);
+	o.setProjectileNumber(1, 4, 90);
+	o.setAttackDirection(1, 0, 0);
+	o.setAttackCondition(1, ATTACK_CONDITION_TYPES::TIMER);
+	o.setAttackProximity(1, "player", 300);
+	o.setAttackMeleTimer(1, 0.2);
+	o.setAttackTexture(1, "res/redBeam.png");
+	o.setAttackScale(1, 5, 5);
+	o.setAttackCoolDown(1, 0.2);
+	o.setAttackDamage(1, 1);
+	o.addPatrollPoint(100, 400);
+	o.addPatrollPoint(200, 300);
+	o.addPatrollPoint(300, 200);
+	o.addPatrollPoint(400, 300);
+	o.addPatrollPoint(500, 400);
+
 	o.writeObject();
 
 	o.finishLevel();
@@ -102,75 +180,80 @@ int main() {
 
 	MenuMaker m;
 	
-	// Create the Main Menu
-	m.setMenuType(MENU_TYPE::MAIN);            // Set type to MAIN
-	m.setBgTexture("res/background2.0.png");        // Set background texture
-	m.setTitleText("Main Menu");               // Set title text
-	m.setTitleXPos(50);                    // Set title X position
-	m.setTitleYPos(50.0f);                     // Set title Y position
-	m.setBGXScale(20);                       // Set background X scale
-	m.setBGYScale(20);                       // Set background Y scale
-	m.setFontSize(72);                     // Set title text X size
-	m.setTextScale(1);                     // Set title text Y size
+	m.setMenuType(MENU_TYPE::MAIN);
+	m.setBgTexture("res/background2.0.png");
+	m.setTitleText("Main Menu");
+	m.setTitleXPos(-90);
+	m.setTitleYPos(-50);
+	m.setBGXScale(10);
+	m.setBGYScale(10);
+	m.setFontSize(60);
+	m.setTextScale(1);
+	m.setBGXPos(50);
+	m.setBGYPos(20);
 
-	// Add buttons for the Main Menu
-	m.setButtonXPos(200.0f);                   // Button 1 X position
-	m.setButtonYPos(200);                   // Button 1 Y position
-	m.setButtonText("Start Game");             // Button 1 text
-	m.setButtonNormalTexture("res/ABbutton.png");  // Button 1 normal texture
-	m.setButtonHighlightTexture("res/AWbutton.png"); // Button 1 highlight texture
-	m.setLevelToTarget(1);                     // Button 1 level target
-	m.setButtonFontSize(10);                   // Button 1 X scale
-	m.setButtonTextScale(10);   
-	m.setButonXScale(5);
-	m.setButonYScale(5);
+	m.setButtonXPos(60);
+	m.setButtonYPos(100);
+	m.setButtonText("Start Game");
+	m.setButtonNormalTexture("res/buttonHigh.png");
+	m.setButtonHighlightTexture("res/nuttonNor.png");
+	m.setLevelToTarget(1);
+	m.setButtonFontSize(35);
+	m.setButtonTextScale(1);
+	m.setButonXScale(3);
+	m.setButonYScale(3);
+	m.setbutoonTextPos(-30, 80);
 
-	m.setButtonXPos(200.0f);                   // Button 2 X position
-	m.setButtonYPos(300);                   // Button 2 Y position
-	m.setButtonText("Exit Game");              // Button 2 text
-	m.setButtonNormalTexture("res/ABbutton.png");  // Button 2 normal texture
-	m.setButtonHighlightTexture("res/AWbutton.png"); // Button 2 highlight texture
-	m.setLevelToTarget(1);                    // Button 2 level target (exit)
-	m.setButtonFontSize(10);                   // Button 2 X scale
-	m.setButtonTextScale(10);                   // Button 2 Y scale
-	m.setButonXScale(5);
-	m.setButonYScale(5);
+	m.setButtonXPos(60);
+	m.setButtonYPos(220);
+	m.setButtonText("Exit Game");
+	m.setButtonNormalTexture("res/buttonHigh.png");
+	m.setButtonHighlightTexture("res/nuttonNor.png");
+	m.setLevelToTarget(-2);
+	m.setButtonFontSize(38);
+	m.setButtonTextScale(1);
+	m.setButonXScale(3);
+	m.setButonYScale(3);
+	m.setbutoonTextPos(-30, 195);
 
-	// Create the Pause Menu
-	m.setMenuType(MENU_TYPE::PAUSE);           // Set type to PAUSE
-	m.setBgTexture("res/menuBackground.png");       // Set background texture
-	m.setTitleText("Pause Menu");              // Set title text
-	m.setTitleXPos(150.0f);                    // Set title X position
-	m.setTitleYPos(80.0f);                     // Set title Y position
-	m.setBGXScale(1.2f);                       // Set background X scale
-	m.setBGYScale(1.2f);                       // Set background Y scale
-	m.setFontSize(20.0f);                     // Set title text X size
-	m.setTextScale(20.0f);                     // Set title text Y size
+	m.setMenuType(MENU_TYPE::PAUSE);
+	m.setBgTexture("res/controlsBG.png");
+	m.setTitleText("Pause Menu");
+	m.setTitleXPos(-100);
+	m.setTitleYPos(-190);
+	m.setBGXScale(10);
+	m.setBGYScale(10);
+	m.setFontSize(60);
+	m.setTextScale(1);
+	m.setBGXPos(50);
+	m.setBGYPos(20);
 
-	// Add buttons for the Pause Menu
-	m.setButtonXPos(250.0f);                   // Button 1 X position
-	m.setButtonYPos(300.0f);                   // Button 1 Y position
-	m.setButtonText("Resume Game");            // Button 1 text
-	m.setButtonNormalTexture("res/AWbutton.png");  // Button 1 normal texture
-	m.setButtonHighlightTexture("res/AWbutton.png"); // Button 1 highlight texture
-	m.setLevelToTarget(1);                     // Button 1 level target (resume current level)
-	m.setButtonFontSize(1.0f);                   // Button 1 X scale
-	m.setButtonTextScale(1.0f);                   // Button 1 Y scale
-	m.setButonXScale(5);
-	m.setButonYScale(5);
+	m.setButtonXPos(60);
+	m.setButtonYPos(50);
+	m.setButtonText("Resume Game");
+	m.setButtonNormalTexture("res/buttonHigh.png");
+	m.setButtonHighlightTexture("res/nuttonNor.png");
+	m.setLevelToTarget(-1);
+	m.setButtonFontSize(27);
+	m.setButtonTextScale(1);
+	m.setButonXScale(3);
+	m.setButonYScale(3);
+	m.setbutoonTextPos(-30, 30);
 
-	m.setButtonXPos(250.0f);                   // Button 2 X position
-	m.setButtonYPos(400.0f);                   // Button 2 Y position
-	m.setButtonText("Main Menu");              // Button 2 text
-	m.setButtonNormalTexture("res/AWbutton.png");  // Button 2 normal texture
-	m.setButtonHighlightTexture("res/AWbutton.png"); // Button 2 highlight texture
-	m.setLevelToTarget(1);                     // Button 2 level target (go back to main menu)
-	m.setButtonFontSize(1.0f);                   // Button 2 X scale
-	m.setButtonTextScale(1.0f);                   // Button 2 Y scale
-	m.setButonXScale(5);
-	m.setButonYScale(5);
+	m.setButtonXPos(20000);
+	m.setButtonYPos(20000);
+	m.setButtonText("filler");
+	m.setButtonNormalTexture("res/buttonHigh.png");
+	m.setButtonHighlightTexture("res/nuttonNor.png");
+	m.setLevelToTarget(0);
+	m.setButtonFontSize(38);
+	m.setButtonTextScale(1);
+	m.setButonXScale(3);
+	m.setButonYScale(3);
+	m.setbutoonTextPos(20000, 20000);
 
 	m.writeMenus();
+
 
 
 	Input input;

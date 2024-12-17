@@ -33,16 +33,17 @@ private:
 class AnimationComponent : public Component
 {
 public:
-    AnimationComponent(int ani[9][5], float s[9], bool isLooping[9]);
+    AnimationComponent(int ani[5][5], float s[5], bool isLooping[5]);
 
     void handleInput(GameObject* gameObject, float dt) override;
     void update(GameObject* gameObject, float dt) override;
 
 private:
 
-    //int animations[9][5];
-    Animation animations[9];
+    Animation animations[5];
     Animation* animation = &animations[0];
     int currentAnimation = 1;
     int prevAnimation = 0;
+    float maxHurtTimer = 0.5;
+    float hurtTimer = 0;
 };

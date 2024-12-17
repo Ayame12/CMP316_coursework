@@ -105,9 +105,9 @@ void Scene::handleInput(float dt)
 			pausePressed = true;
 			//break;
 		}
-		for (int i = 0; i < menu.mainMenuObj.size(); i++)
+		for (int i = 0; i < menu.pauseMenuObj.size(); i++)
 		{
-			menu.mainMenuObj[i]->handleInput(dt);
+			menu.pauseMenuObj[i]->handleInput(dt);
 		}
 		break;
 	}
@@ -185,10 +185,20 @@ void Scene::update(float dt)
 		}
 
 		if (enemiesAlive == 0) {
+			/*sf::Text instructions;
+			instructions.setFont(font);
+			instructions.setPosition(80, 540);
+			instructions.setString("");
+			instructions.setCharacterSize(20);*/
 			if (currentLevel != maxLevel) {
 				// If not the last level and the next level is ready, switch to it
 				if (!isLevelLoading() && levelLoaded) {
 					level.switchLevel();
+					for (auto const& it : level.objList)
+					{
+						it.second->setWindow(window);
+						it.second->setInput(input);
+					}
 					currentLevel++;
 					levelLoaded = false;
 				}
@@ -208,6 +218,11 @@ void Scene::update(float dt)
 				if (!isLevelLoading() && levelLoaded) {
 					level.switchLevel();
 					levelLoaded = false;
+					for (auto const& it : level.objList)
+					{
+						it.second->setWindow(window);
+						it.second->setInput(input);
+					}
 				}
 			}
 			
@@ -227,12 +242,26 @@ void Scene::update(float dt)
 				it.second->update(dt);
 			}
 		}
+		int playersAlive = 0;
 		for (auto const& it : level.playerObjList)
 		{
 			if (it.second->isAlive())
 			{
+				playersAlive++;
 				it.second->update(dt);
 				viewCen += it.second->getPosition();
+			}
+		}
+		if (playersAlive == 0)
+		{
+			if (!loadingLevel)
+			{
+				gameState = GAME_STATE::MENU;
+				currentLevel = 1;
+				loadedLevelNo = false;
+				loadingLevel = false;
+				loadLevelInBackground(1);
+				break;
 			}
 		}
 		for (auto const& it : level.attacks)
@@ -265,7 +294,7 @@ void Scene::render()
 	{
 	case MENU:
 	{
-		//window->draw(*menu.menuBg);
+		window->draw(*menu.menuBg);
 		window->draw(menu.menuBg->text);
 		for (int i = 0; i < menu.mainMenuObj.size(); i++)
 		{
@@ -339,8 +368,8 @@ void Scene::render()
 
 					sf::RectangleShape rectangle;
 					//rectangle.setFillColor(sf::Color::Red);
-					rectangle.setPosition(sf::Vector2f(view.getCenter().x - it.second->hpPos.x + (it.second->hpTexture->getSize().x * it.second->hpSca.x * j * 6), view.getCenter().y - it.second->hpPos.y));
-					rectangle.setSize(sf::Vector2f(it.second->getCollisionBox().width, it.second->getCollisionBox().height));
+					rectangle.setPosition(sf::Vector2f(view.getCenter().x - it.second->hpPos.x + (it.second->hpTexture->getSize().x * it.second->hpSca.x * j * 1.5), view.getCenter().y - it.second->hpPos.y));
+					rectangle.setSize(sf::Vector2f(it.second->hpTexture->getSize().x, it.second->hpTexture->getSize().y));
 					rectangle.setTexture(it.second->hpTexture);
 					rectangle.setScale(it.second->hpSca);
 					window->draw(rectangle);

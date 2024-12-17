@@ -38,8 +38,11 @@ void FollowMovementComponent::update(GameObject* gameObj, float dt)
             gameObj->setFlipped(false);
         }
 
-        gameObj->setVelocity(movement);
-        gameObj->move(movement);
+        if (!gameObj->hurt)
+        {
+            gameObj->setVelocity(movement);
+            gameObj->move(movement);
+        }
     }
     else
     {

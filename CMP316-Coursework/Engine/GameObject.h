@@ -63,12 +63,14 @@ public:
 	sf::Vector2f hpPos, hpSca;
 	float hpRotat;
 
+
+	bool hurt = false;
+
 protected:
 	bool isPlayer = false;
 	bool isChar = false;
 	bool isBar = false;
 	bool alive = false;
-	bool hurt = false;
 	int health = 3;
 	std::string tag;
 	sf::Vector2f velocity;

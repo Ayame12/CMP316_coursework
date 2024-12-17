@@ -54,9 +54,9 @@ sf::IntRect Animation::getCurrentFrame()
 	return frame;
 }
 
-AnimationComponent::AnimationComponent(int ani[9][5], float s[9], bool l[9])
+AnimationComponent::AnimationComponent(int ani[5][5], float s[5], bool l[5])
 {
-	for (int i = 0; i < 9; ++i)
+	for (int i = 0; i < 5; ++i)
 	{
 		animations[i].setUp(ani[i][0], ani[i][1], ani[i][2], ani[i][3], ani[i][4], s[i], l[i]);
 	}
@@ -73,13 +73,30 @@ void AnimationComponent::update(GameObject* gameobj, float dt)
 	{
 		currentAnimation = 0;
 	}
-	else if (gameobj->getVelocity().x != 0 && gameobj->getVelocity().y == 0)
+	else if (gameobj->getVelocity().x * gameobj->getVelocity().x > gameobj->getVelocity().y * gameobj->getVelocity().y)
 	{
-		currentAnimation = 2;
+		currentAnimation = 3;
 	}
-	else if (gameobj->getVelocity().x == 0 && gameobj->getVelocity().y != 0)
+	else if (gameobj->getVelocity().x * gameobj->getVelocity().x < gameobj->getVelocity().y * gameobj->getVelocity().y)
 	{
-		currentAnimation = 1;
+		if (gameobj->getVelocity().y < 0)
+		{
+			currentAnimation = 1;
+		}
+		else
+		{
+			currentAnimation = 2;
+		}
+	}
+	if (gameobj->hurt)
+	{
+		hurtTimer += dt;
+		if (hurtTimer >= maxHurtTimer)
+		{
+			hurtTimer = 0;
+			gameobj->hurt = false;
+		}
+		currentAnimation = 4;
 	}
 	animation->setPlaying(false);	
 	animation = &animations[currentAnimation];

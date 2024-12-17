@@ -16,6 +16,8 @@ public:
 	void setBGYScale(float y) { bgYScale[cm] = y; };
 	void setFontSize(float x) { textXSize[cm] = x; };
 	void setTextScale(float y) { textYSize[cm] = y; };
+	void setBGXPos(float x) { bgXPos[cm] = x; };
+	void setBGYPos(float x) { bgYPos[cm] = x; };
 
 	void setButtonXPos(float x) { buttonXPos[cm].push_back(x); };
 	void setButtonYPos(float y) { buttonYPos[cm].push_back(y); };
@@ -27,6 +29,7 @@ public:
 	void setButtonTextScale(float y) { buttonTextYScale[cm].push_back(y); };
 	void setButonXScale(float x) { buttonXScale[cm].push_back(x); };
 	void setButonYScale(float y) { buttonYScale[cm].push_back(y); };
+	void setbutoonTextPos(float x, float y) { buttonTextXPos[cm].push_back(x);  buttonTextYPos[cm].push_back(y); };
 	void writeMenus();
 
 private:
@@ -56,5 +59,7 @@ private:
 	vector<float> buttonYScale[2];
 	vector<float> buttonTextXScale[2];
 	vector<float> buttonTextYScale[2];
+	vector<float> buttonTextXPos[2];
+	vector<float> buttonTextYPos[2];
 };
 
