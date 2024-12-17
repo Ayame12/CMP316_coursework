@@ -7,7 +7,6 @@ void PlayerMovementComponent::handleInput(GameObject* gameObj, float dt)
 {
     sf::Vector2f direction = { 0, 0 };
 
-    // Determine direction based on input
     if (gameObj->input->isKeyDown(controlls[0])) {
         direction.y -= 1.0f;
     }
@@ -21,10 +20,9 @@ void PlayerMovementComponent::handleInput(GameObject* gameObj, float dt)
         direction.x += 1.0f;
     }
 
-    // Normalize direction to prevent faster diagonal movement
     float magnitude = std::sqrt(direction.x * direction.x + direction.y * direction.y);
     if (magnitude > 0.0f) {
-        direction /= magnitude; // Normalize to unit vector
+        direction /= magnitude;
     }
 
     if (direction.x < 0)
@@ -36,7 +34,6 @@ void PlayerMovementComponent::handleInput(GameObject* gameObj, float dt)
         gameObj->setFlipped(false);
     }
 
-    // Scale by speed
     if (!gameObj->hurt)
     {
         gameObj->setVelocity(direction * speed);

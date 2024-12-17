@@ -100,7 +100,6 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 				case KEYBOARD:
 				{
 					direction = sf::Vector2f(0, 0);
-					// Determine direction based on input
 					if (gameObj->input->isKeyDown(sf::Keyboard::Up)) {
 						direction.y -= 1.0f;
 					}
@@ -114,10 +113,9 @@ void AttackComponent::handleInput(GameObject* gameObj, float dt)
 						direction.x += 1.0f;
 					}
 
-					// Normalize direction to prevent faster diagonal movement
 					float magnitude = std::sqrt(direction.x * direction.x + direction.y * direction.y);
 					if (magnitude > 0.0f) {
-						direction /= magnitude; // Normalize to unit vector
+						direction /= magnitude;
 					}
 					break;
 				}

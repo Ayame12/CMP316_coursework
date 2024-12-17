@@ -12,7 +12,6 @@ public:
 
 	virtual void handleInput(float dt);
 	virtual void update(float dt);
-	//virtual void render();
 
 	void setAlive(bool s) { alive = s; };
 	bool isAlive() { return alive; };
@@ -35,7 +34,6 @@ public:
 	void setWindow(sf::RenderWindow* w) { window = w; };
 
 	void addComponent(std::shared_ptr<Component> component) { components.push_back(component); };
-	//std::shared_ptr<Component> getComponent();
 	bool IsPlayer() { return isPlayer; };
 	void setPlayer(bool p) { isPlayer = p; };
 

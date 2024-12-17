@@ -12,7 +12,6 @@ public:
 	void loadLevel(int lvl);
 	void switchLevel();
 
-	//std::vector<GameObject> objList;
 	std::map<std::string, GameObject*> objList;
 	std::map<std::string, GameObject*> playerObjList;
 	std::map<int, AttackObj*> attacks;

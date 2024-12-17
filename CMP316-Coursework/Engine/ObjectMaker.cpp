@@ -44,16 +44,10 @@ void Object::writeObject()
 	objInLvl++;
 	
 	out << "tag:" << objTag << ";" << std::endl;
-	//out << "isPlayer:" << isPlayer << ";" << std::endl;
 	out << "objectType:" << objType << ";" << health << ";" << std::endl;
 	out << "triggerType:" << triggerType << ";" << std::endl;
-	//std::string objTag = "";
-	//bool isPlayer = false;
 
 	out << "transforms:" << xPos << ";" << yPos << ";" << xScale << ";" << yScale << ";" << rotation << ";" << std::endl;
-	//float xPos = 0, yPos = 0;
-	//float xScale = 1, yScale = 1;
-	//float rotation = 0;
 
 	out << "health:" << healthTex << ";" << healthPosX << ";" << healthPosY << ";" << healthScaleX << ";" << healthScaleY << ";" << healthRot << ";" << std::endl;
 	
@@ -70,9 +64,6 @@ void Object::writeObject()
 		out << aniSpeed[i] << ";" << int(aniLoop) << ";";
 	}
 	out << std::endl;
-	//std::string texPath = { "" };
-	//bool animated = false;
-	//int animations[5][5] = { {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0}, {0,0,0,0,0} };
 
 	out << "movement:" << movementType << ";" << speed << ";" << std::endl;
 	out << "followTarget:" << followTarget << ";" << distKept << ";" << std::endl;
@@ -88,9 +79,6 @@ void Object::writeObject()
 		out << controlls[i] << ";";
 	}
 	out << std::endl;
-	//float xVelocity = 0, yVelocity = 0;
-	//MOVEMENT_TYPES movementType = MOVEMENT_TYPES::STATIONARY;
-	//std::vector<int> controlls = { 22,18,0,3,4,16 };
 	out << "attacks:";
 	for (int i = 0; i < 2; i++)
 	{

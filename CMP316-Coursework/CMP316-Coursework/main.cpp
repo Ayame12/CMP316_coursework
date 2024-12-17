@@ -5,6 +5,7 @@
 
 Object o;
 
+//function i made to just quickly set up more enemies with less function calls
 void makeFollowEnemy(float x, float y, std::string tag)
 {
 	o.setTag(tag);
@@ -33,36 +34,9 @@ void makeFollowEnemy(float x, float y, std::string tag)
 	o.setFollowTarget("player", 200);
 	o.writeObject();
 
-
-	/*o.setSpeed(300);
-	o.setMovementBehaviour(MOVEMENT_TYPES::PATROL);
-	o.setAttackType(1, ATTACK_TYPES::MELE);
-	o.setAttackCondition(1, ATTACK_CONDITION_TYPES::OBJ_PROXIMITY);
-	o.setAttackProximity(1, "player", 300);
-	o.setAttackMeleTimer(1, 0.2);
-	o.setAttackTexture(1, "res/redBeam.png");
-	o.setAttackScale(1, 5, 5);
-	o.setAttackCoolDown(1, 0.2);
-	o.setAttackDamage(1, 1);
-	o.addPatrollPoint(100, 400);
-	o.addPatrollPoint(300, 400);*/
-
-	//o.setSpeed(300);
-	//o.setMovementBehaviour(MOVEMENT_TYPES::FOLLOW);
-	//o.setAttackType(1, ATTACK_TYPES::MELE);
-	//o.setAttackCondition(1, ATTACK_CONDITION_TYPES::OBJ_PROXIMITY);
-	//o.setAttackMeleTimer(1, 0.5);
-	////o.setAttackOffset(1, 300, 0);
-	//o.setAttackProximity(1, "player", 300);
-	//o.setAttackTexture(1, "res/redBeam.png");
-	//o.setAttackTaget(1, "player", 0);
-	//o.setAttackScale(1, 5, 5);
-	//o.setAttackSpeed(1, 1000);
-	//o.setAttackCoolDown(1, 0.2);
-	//o.setAttackDamage(1, 1);
-	//o.setFollowTarget("player", 200);
-	//o.writeObject();
 }
+
+
 
 int main() {
 
@@ -240,6 +214,7 @@ int main() {
 	m.setButonYScale(3);
 	m.setbutoonTextPos(-30, 30);
 
+	//this is just a filler since because of the way the menus are coded they need to have the same number of buttons
 	m.setButtonXPos(20000);
 	m.setButtonYPos(20000);
 	m.setButtonText("filler");

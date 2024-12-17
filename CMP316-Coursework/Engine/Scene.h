@@ -23,12 +23,9 @@ private:
 
 	sf::View view;
 
-	// Default variables for level class.
 	sf::RenderWindow* window;
 	Input* input;
 	GAME_STATE gameState;
-
-	//AudioManager* audio;
 
 	Level level;
 	Menu menu;
@@ -41,8 +38,6 @@ private:
 	bool isLevelLoading() const { return loadingLevel; }
 
 private:
-	//bool loaded2 = false;
-	//bool showNextLvl = false;
 	std::thread levelLoadingThread;
 	std::atomic<bool> loadingLevel{ false };
 	std::atomic<bool> levelLoaded{ false };

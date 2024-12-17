@@ -11,24 +11,18 @@ void PatrolMovementComponent::update(GameObject* gameObj, float dt)
     {
         if (patrolPoints.empty()) return;
 
-        // Get the current target point
         sf::Vector2f target = patrolPoints[currentTargetIndex];
 
-        // Calculate the direction vector to the target
         sf::Vector2f direction = target - gameObj->getPosition();
 
-        // Compute the distance to the target
         float distance = std::sqrt(direction.x * direction.x + direction.y * direction.y);
 
         if (distance > 0.0f) {
-            // Normalize the direction vector
             direction /= distance;
 
-            // Move towards the target, limited by speed and delta time
             sf::Vector2f velocity = direction * speed;
             sf::Vector2f movement = velocity * dt;
 
-            // Ensure the object doesn't overshoot the target
             if (std::sqrt(movement.x * movement.x + movement.y * movement.y) > distance) {
                 movement = target - gameObj->getPosition();
             }
@@ -53,9 +47,8 @@ void PatrolMovementComponent::update(GameObject* gameObj, float dt)
             gameObj->setVelocity(sf::Vector2f(0, 0));
         }
 
-        // Check if we've reached the target
-        if (distance < 1.0f) { // Threshold for "reaching" a point
-            currentTargetIndex = (currentTargetIndex + 1) % patrolPoints.size(); // Loop to next point
+        if (distance < 1.0f) { 
+            currentTargetIndex = (currentTargetIndex + 1) % patrolPoints.size();
         }
     }
 }

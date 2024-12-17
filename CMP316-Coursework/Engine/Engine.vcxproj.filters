@@ -75,9 +75,6 @@
     <ClInclude Include="Menu.h">
       <Filter>Header Files\the engine stuff\abstractions</Filter>
     </ClInclude>
-    <ClInclude Include="InputComponent.h">
-      <Filter>Header Files\components</Filter>
-    </ClInclude>
     <ClInclude Include="ENUM_TYPES.h">
       <Filter>Header Files\the engine stuff</Filter>
     </ClInclude>
@@ -107,9 +104,6 @@
     </ClInclude>
     <ClInclude Include="AttackComponent.h">
       <Filter>Header Files\components\attacks</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionsComponent.h">
-      <Filter>Header Files\components</Filter>
     </ClInclude>
     <ClInclude Include="MenuMaker.h">
       <Filter>Header Files\the engine stuff</Filter>
@@ -143,9 +137,6 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\additional functionality</Filter>
     </ClCompile>
-    <ClCompile Include="InputComponent.cpp">
-      <Filter>Source Files\components</Filter>
-    </ClCompile>
     <ClCompile Include="ObjectMaker.cpp">
       <Filter>Source Files\the engine stuff</Filter>
     </ClCompile>
@@ -172,9 +163,6 @@
     </ClCompile>
     <ClCompile Include="AttackObj.cpp">
       <Filter>Source Files\components\attacks</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionsComponent.cpp">
-      <Filter>Source Files\components</Filter>
     </ClCompile>
     <ClCompile Include="MenuMaker.cpp">
       <Filter>Source Files\the engine stuff</Filter>

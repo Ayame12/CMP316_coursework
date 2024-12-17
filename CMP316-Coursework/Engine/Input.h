@@ -6,9 +6,6 @@ class Input
 public:
 	enum class MouseState { UP, DOWN, PRESSED };
 private:
-	// Mouse structure, store mouse relevant information
-
-
 	struct Mouse
 	{
 		int x, y;
@@ -18,7 +15,6 @@ private:
 
 public:
 	Input();
-	// Functions for setting key as pressed, released and checking current state.
 	bool GetSFKey(int key);
 	void setKeyDown(int key);
 	void setKeyUp(int key);
@@ -26,7 +22,6 @@ public:
 	bool isPressed(int key);
 	void update();
 
-	// Functions are mouse input, including getting and setting current position and mouse button presses.
 	void setMouseX(int lx);
 	void setMouseY(int ly);
 	void setMousePosition(int lx, int ly);
@@ -40,9 +35,7 @@ public:
 	bool isRightMousePressed();
 
 private:
-	// Array of booleans representing keys (pressed = true, released = false)
 	bool keys[256]{ false };
 	std::vector<int> pressed;
-	// Mouse variable
 	Mouse mouse;
 };

@@ -1,10 +1,8 @@
 #include "pch.h"
 #include "Input.h"
-//#include "SFML/System.hpp"
 
 Input::Input()
 {
-	// set default values
 	mouse.left = MouseState::UP;
 	mouse.right = MouseState::UP;
 	mouse.x = 0;

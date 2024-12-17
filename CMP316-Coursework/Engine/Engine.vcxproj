@@ -158,7 +158,6 @@
     <ClInclude Include="AnimationComponent.h" />
     <ClInclude Include="AttackComponent.h" />
     <ClInclude Include="AttackObj.h" />
-    <ClInclude Include="CollisionsComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="DCTAttackComponent.h" />
     <ClInclude Include="Engine.h" />
@@ -168,7 +167,6 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GAME_STATES_ENUM.h" />
     <ClInclude Include="Input.h" />
-    <ClInclude Include="InputComponent.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuMaker.h" />
@@ -183,14 +181,12 @@
     <ClCompile Include="AnimationComponent.cpp" />
     <ClCompile Include="AttackComponent.cpp" />
     <ClCompile Include="AttackObj.cpp" />
-    <ClCompile Include="CollisionsComponent.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="DCTAttackComponent.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="FollowMovementComponent.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Input.cpp" />
-    <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuMaker.cpp" />

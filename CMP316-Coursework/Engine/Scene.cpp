@@ -2,14 +2,12 @@
 #include "Scene.h"
 #include <math.h>
 #include <fstream>
-//#include "Input.h"
 
 Scene::Scene(sf::RenderWindow* hwnd, Input* in) 
 {
 	window = hwnd;
 	input = in;
 	gameState = GAME_STATE::MENU;
-	//audio = aud;
 
 	view = window->getView();
 	level.loadLevel(1);
@@ -53,9 +51,6 @@ Scene::Scene(sf::RenderWindow* hwnd, Input* in)
 		it.second->setWindow(window);
 		it.second->setInput(input);
 	}
-	/*sf::Texture tex;
-	tex.loadFromFile("res/image.png");
-	level.objList[0].setTexture(&tex);*/
 }
 
 Scene::~Scene()
@@ -64,16 +59,6 @@ Scene::~Scene()
 
 void Scene::handleInput(float dt)
 {
-	//if (input->isPressed(sf::Keyboard::Key::P) && !loaded2 && !loadingLevel) {
-	//	loadLevelInBackground(2);
-	//	loaded2 = true; // Flag to prevent duplicate loads
-	//}
-
-	//if (input->isPressed(sf::Keyboard::Key::U) && !showNextLvl && loaded2 && !loadingLevel) {
-	//	level.switchLevel();
-	//	showNextLvl = true;
-	//}
-
 	if (pausePressed)
 	{
 		pauseTimer += dt;
@@ -103,7 +88,6 @@ void Scene::handleInput(float dt)
 		{
 			gameState = GAME_STATE::LEVEL;
 			pausePressed = true;
-			//break;
 		}
 		for (int i = 0; i < menu.pauseMenuObj.size(); i++)
 		{
@@ -113,12 +97,10 @@ void Scene::handleInput(float dt)
 	}
 	case LEVEL:
 	{
-		//std::cout << std::endl << currentLevel << std::endl;
 		if (input->isPressed(sf::Keyboard::Key::Escape) && !pausePressed)
 		{
 			gameState = GAME_STATE::PAUSE;
 			pausePressed = true;
-			//break;
 		}
 		for (auto const& it : level.objList)
 		{
@@ -143,9 +125,6 @@ void Scene::handleInput(float dt)
 
 void Scene::update(float dt)
 {
-	//std::cout << currentLevel;
-	
-		
 	sf::Vector2f viewCen = { 0,0 };
 	switch (gameState)
 	{
@@ -173,7 +152,6 @@ void Scene::update(float dt)
 		int prevLLev = currentLevel;
 
 		if (enemiesAlive <= 2 && !loadingLevel && !levelLoaded) {
-			// Load the next level if not already loading
 			if (currentLevel != maxLevel)
 			{
 				loadLevelInBackground(currentLevel + 1);
@@ -185,13 +163,7 @@ void Scene::update(float dt)
 		}
 
 		if (enemiesAlive == 0) {
-			/*sf::Text instructions;
-			instructions.setFont(font);
-			instructions.setPosition(80, 540);
-			instructions.setString("");
-			instructions.setCharacterSize(20);*/
 			if (currentLevel != maxLevel) {
-				// If not the last level and the next level is ready, switch to it
 				if (!isLevelLoading() && levelLoaded) {
 					level.switchLevel();
 					for (auto const& it : level.objList)
@@ -205,16 +177,13 @@ void Scene::update(float dt)
 			}
 			else 
 			{
-				// If on the last level, return to menu and prepare for level 1
 				gameState = GAME_STATE::MENU;
 				currentLevel = 1;
 
-				// Start loading level 1 if not already loading
 				if (!loadingLevel && !levelLoaded) {
 					loadLevelInBackground(1);
 				}
 
-				// Once loading is complete, switch to level 1
 				if (!isLevelLoading() && levelLoaded) {
 					level.switchLevel();
 					levelLoaded = false;
@@ -321,11 +290,6 @@ void Scene::render()
 			if (it.second->isAlive())
 			{
 				window->draw(*it.second);
-				/*sf::RectangleShape rectangle;
-				rectangle.setFillColor(sf::Color::Blue);
-				rectangle.setPosition(sf::Vector2f(it.second->getCollisionBox().left, it.second->getCollisionBox().top));
-				rectangle.setSize(sf::Vector2f(it.second->getCollisionBox().width, it.second->getCollisionBox().height));
-				window->draw(rectangle);*/
 			}
 		}
 		for (auto const& it : level.playerObjList)
@@ -333,11 +297,6 @@ void Scene::render()
 			if (it.second->isAlive())
 			{
 				window->draw(*it.second);
-				/*sf::RectangleShape rectangle;
-				rectangle.setFillColor(sf::Color::Green);
-				rectangle.setPosition(sf::Vector2f(it.second->getCollisionBox().left, it.second->getCollisionBox().top));
-				rectangle.setSize(sf::Vector2f(it.second->getCollisionBox().width, it.second->getCollisionBox().height));
-				window->draw(rectangle);*/
 			}
 		}
 		for (auto const& it : level.attacks)
@@ -345,11 +304,6 @@ void Scene::render()
 			if (it.second->isAlive())
 			{
 				window->draw(*it.second);
-				/*sf::RectangleShape rectangle;
-				rectangle.setFillColor(sf::Color::Blue);
-				rectangle.setPosition(sf::Vector2f(it.second->getCollisionBox().left, it.second->getCollisionBox().top));
-				rectangle.setSize(sf::Vector2f(it.second->getCollisionBox().width, it.second->getCollisionBox().height));
-				window->draw(rectangle);*/
 			}
 
 		}
@@ -359,15 +313,8 @@ void Scene::render()
 			{
 				for (int j = 0; j < it.second->getHealth(); j++)
 				{
-					//sf::RectangleShape rectangle;
-					//rectangle.setPosition(sf::Vector2f(view.getCenter().x/* - view.getSize().x/2*/ + it.second->hpPos.x + j*it.second->hpSca.x, view.getCenter().y /*- view.getSize().y / 2*/ + it.second->hpPos.y));
-					//rectangle.setSize(sf::Vector2f(it.second->hpTexture->getSize()));
-					//rectangle.setTexture(it.second->hpTexture);
-					//rectangle.setScale(it.second->hpSca);
-					//window->draw(rectangle);
 
 					sf::RectangleShape rectangle;
-					//rectangle.setFillColor(sf::Color::Red);
 					rectangle.setPosition(sf::Vector2f(view.getCenter().x - it.second->hpPos.x + (it.second->hpTexture->getSize().x * it.second->hpSca.x * j * 1.5), view.getCenter().y - it.second->hpPos.y));
 					rectangle.setSize(sf::Vector2f(it.second->hpTexture->getSize().x, it.second->hpTexture->getSize().y));
 					rectangle.setTexture(it.second->hpTexture);
@@ -445,7 +392,6 @@ void Scene::handleCharactersCollisions(float dt)
 						float moveBy = 0.2;
 						if (!level.collidingObj[i]->IsBarrier())
 						{
-							//moveBy = level.collidingObj[i]->getVelocity().x * dt;
 							sf::Vector2f dir = level.collidingObj[i]->getPosition() - level.collidingObj[j]->getPosition();
 							if (dir.x < 0)
 							{
@@ -455,7 +401,6 @@ void Scene::handleCharactersCollisions(float dt)
 							{
 								level.collidingObj[i]->move(moveBy, 0);
 							}
-							//moveBy = level.collidingObj[i]->getVelocity().y * dt;
 							if (dir.y < 0)
 							{
 								level.collidingObj[i]->move(0, -moveBy);
@@ -468,7 +413,6 @@ void Scene::handleCharactersCollisions(float dt)
 						if (!level.collidingObj[j]->IsBarrier())
 						{
 							sf::Vector2f dir = level.collidingObj[j]->getPosition() - level.collidingObj[i]->getPosition();
-							//moveBy = level.collidingObj[j]->getVelocity().x * dt;
 							if (dir.x < 0)
 							{
 								level.collidingObj[j]->move(-moveBy, 0);
@@ -477,7 +421,6 @@ void Scene::handleCharactersCollisions(float dt)
 							{
 								level.collidingObj[j]->move(moveBy, 0);
 							}
-							//moveBy = level.collidingObj[i]->getVelocity().y * dt;
 							if (dir.y < 0)
 							{
 								level.collidingObj[j]->move(0, -moveBy);
@@ -509,25 +452,15 @@ bool Scene::checkBoundingBox(GameObject* s1, GameObject* s2)
 }
 
 void Scene::loadLevelInBackground(int levelNumber) {
-	// If already loading, don't start a new thread
 	if (loadingLevel) return;
+	loadingLevel = true;
 
-	loadingLevel = true; // Set the flag
-
-	// Launch a background thread
 	levelLoadingThread = std::thread([this, levelNumber]() {
-		// Load the level
 		level.loadLevel(levelNumber);
-
-		// Switch the level once loading is complete
-		//level.switchLevel();
-
-		// Mark loading as complete
 		levelLoaded = true;
 		loadingLevel = false;
 		});
 
-	// Detach the thread so it runs independently
 	levelLoadingThread.detach();
 }
 
@@ -541,5 +474,4 @@ void Scene::countEnemies()
 			enemiesAlive++;
 		}
 	}
-	//std::cout << std::endl << enemiesAlive << std::endl;
 }
