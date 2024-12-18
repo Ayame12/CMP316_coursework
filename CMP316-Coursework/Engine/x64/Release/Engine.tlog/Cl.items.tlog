@@ -1,3 +1,17 @@
-C:\Users\2200147\OneDrive - Abertay University\CMP316 - Engine\coursework\CMP316-Coursework\Engine\Engine.cpp;C:\Users\2200147\OneDrive - Abertay University\CMP316 - Engine\coursework\CMP316-Coursework\Engine\x64\Release\Engine.obj
-C:\Users\2200147\OneDrive - Abertay University\CMP316 - Engine\coursework\CMP316-Coursework\Engine\EngineUtility.cpp;C:\Users\2200147\OneDrive - Abertay University\CMP316 - Engine\coursework\CMP316-Coursework\Engine\x64\Release\EngineUtility.obj
-C:\Users\2200147\OneDrive - Abertay University\CMP316 - Engine\coursework\CMP316-Coursework\Engine\pch.cpp;C:\Users\2200147\OneDrive - Abertay University\CMP316 - Engine\coursework\CMP316-Coursework\Engine\x64\Release\pch.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\AnimationComponent.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\AnimationComponent.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\AttackComponent.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\AttackComponent.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\AttackObj.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\AttackObj.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Component.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\Component.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Engine.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\Engine.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\FollowMovementComponent.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\FollowMovementComponent.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\GameObject.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\GameObject.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Input.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\Input.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Level.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\Level.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Menu.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\Menu.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuMaker.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\MenuMaker.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuObject.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\MenuObject.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\PatrolMovementComponent.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\PatrolMovementComponent.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\PlayerMovementComponent.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\PlayerMovementComponent.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\ObjectMaker.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\ObjectMaker.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\pch.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\pch.obj
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp;E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\x64\Release\Scene.obj

@@ -43,7 +43,7 @@ void Level::loadLevel(int lvlNo)
 		}
 	}
 
-	std::string lvl = "../LoadingFiles/level" + std::to_string(lvlNo);
+	std::string lvl = "LoadingFiles/level" + std::to_string(lvlNo);
 	std::cout << "Opening from " << lvl << std::endl;
 	std::ifstream input;
 	input.open(lvl);

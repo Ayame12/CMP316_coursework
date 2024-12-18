@@ -1,9 +1,41 @@
-﻿  ObjectMaker.cpp
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\ObjectMaker.cpp(67,35): warning C4311: '<function-style-cast>': pointer truncation from 'bool *' to 'int'
-  (compiling source file '/ObjectMaker.cpp')
+﻿  Scene.cpp
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\MenuObject.h(35,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file '/Scene.cpp')
   
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\ObjectMaker.cpp(67,35): warning C4302: '<function-style-cast>': truncation from 'bool *' to 'int'
-  (compiling source file '/ObjectMaker.cpp')
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.h(36,24): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file '/Scene.cpp')
+  
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(325,81): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(325,81): warning C4244:         with
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(325,81): warning C4244:         [
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(325,81): warning C4244:             T=float
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(325,81): warning C4244:         ]
+  (compiling source file '/Scene.cpp')
+  
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,103): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,103): warning C4244:         with
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,103): warning C4244:         [
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,103): warning C4244:             T=unsigned int
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,103): warning C4244:         ]
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,103): warning C4244:         and
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,103): warning C4244:         [
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,103): warning C4244:             T=float
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,103): warning C4244:         ]
+  (compiling source file '/Scene.cpp')
+  
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,68): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,68): warning C4244:         with
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,68): warning C4244:         [
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,68): warning C4244:             T=unsigned int
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,68): warning C4244:         ]
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,68): warning C4244:         and
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,68): warning C4244:         [
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,68): warning C4244:             T=float
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(326,68): warning C4244:         ]
+  (compiling source file '/Scene.cpp')
+  
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\Engine\Scene.cpp(413,20): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file '/Scene.cpp')
   
 winmm.lib(WINMM.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
 gdi32.lib(GDI32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored

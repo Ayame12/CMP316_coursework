@@ -14,7 +14,7 @@ Scene::Scene(sf::RenderWindow* hwnd, Input* in)
 	level.switchLevel();
 
 	std::ifstream inn;
-	inn.open("../LoadingFiles/fin");
+	inn.open("LoadingFiles/fin");
 	std::string str;
 	inn >> str;
 	inn.close();

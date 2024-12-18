@@ -19,7 +19,7 @@ void Menu::loadMenus()
 	font->loadFromFile("res/arial.ttf");
 
 	std::ifstream input;
-	input.open("../LoadingFiles/Menus");
+	input.open("LoadingFiles/Menus");
 	std::string str;
 
 	std::getline(input, str, ':');

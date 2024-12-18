@@ -16,7 +16,7 @@ void MenuMaker::writeMenus()
 	}
 
 	std::ofstream out;
-	out.open("../LoadingFiles/Menus");
+	out.open("LoadingFiles/Menus");
 
 	out << texVec.size() << ":";
 	for (int i = 0; i < texVec.size(); i++)
