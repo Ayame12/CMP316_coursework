@@ -1,16 +1,16 @@
 ﻿  main.cpp
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(18,57): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(19,67): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(20,65): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(17,57): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(18,67): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(19,65): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(20,62): warning C4305: 'argument': truncation from 'double' to 'float'
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(21,62): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(22,62): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(33,25): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(50,57): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(51,65): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(52,63): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(53,62): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(54,60): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(63,25): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(32,25): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(49,57): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(50,65): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(51,63): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(52,62): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(53,60): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(62,25): warning C4305: 'argument': truncation from 'double' to 'float'
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(126,57): warning C4305: 'argument': truncation from 'double' to 'float'
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(127,67): warning C4305: 'argument': truncation from 'double' to 'float'
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(128,65): warning C4305: 'argument': truncation from 'double' to 'float'
@@ -18,61 +18,4 @@ E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursew
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(130,62): warning C4305: 'argument': truncation from 'double' to 'float'
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(138,26): warning C4305: 'argument': truncation from 'double' to 'float'
 E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\CMP316-Coursework\main.cpp(141,25): warning C4305: 'argument': truncation from 'double' to 'float'
-Engine.lib(Keyboard.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Keyboard.obj)' or at ''; linking object as if no debug info
-Engine.lib(Time.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Time.obj)' or at ''; linking object as if no debug info
-Engine.lib(Clock.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Clock.obj)' or at ''; linking object as if no debug info
-Engine.lib(String.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(String.obj)' or at ''; linking object as if no debug info
-Engine.lib(VideoMode.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(VideoMode.obj)' or at ''; linking object as if no debug info
-Engine.lib(WindowBase.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(WindowBase.obj)' or at ''; linking object as if no debug info
-Engine.lib(Window.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Window.obj)' or at ''; linking object as if no debug info
-Engine.lib(Color.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Color.obj)' or at ''; linking object as if no debug info
-Engine.lib(View.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(View.obj)' or at ''; linking object as if no debug info
-Engine.lib(RenderTarget.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(RenderTarget.obj)' or at ''; linking object as if no debug info
-Engine.lib(RenderWindow.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(RenderWindow.obj)' or at ''; linking object as if no debug info
-Engine.lib(InputImpl.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(InputImpl.obj)' or at ''; linking object as if no debug info
-Engine.lib(ClockImpl.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(ClockImpl.obj)' or at ''; linking object as if no debug info
-Engine.lib(VideoModeImpl.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(VideoModeImpl.obj)' or at ''; linking object as if no debug info
-Engine.lib(Cursor.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Cursor.obj)' or at ''; linking object as if no debug info
-Engine.lib(WindowImpl.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(WindowImpl.obj)' or at ''; linking object as if no debug info
-Engine.lib(Err.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Err.obj)' or at ''; linking object as if no debug info
-Engine.lib(GlResource.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(GlResource.obj)' or at ''; linking object as if no debug info
-Engine.lib(GlContext.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(GlContext.obj)' or at ''; linking object as if no debug info
-Engine.lib(Sleep.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Sleep.obj)' or at ''; linking object as if no debug info
-Engine.lib(Transform.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Transform.obj)' or at ''; linking object as if no debug info
-Engine.lib(BlendMode.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(BlendMode.obj)' or at ''; linking object as if no debug info
-Engine.lib(Vertex.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Vertex.obj)' or at ''; linking object as if no debug info
-Engine.lib(Shader.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Shader.obj)' or at ''; linking object as if no debug info
-Engine.lib(Texture.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Texture.obj)' or at ''; linking object as if no debug info
-Engine.lib(VertexBuffer.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(VertexBuffer.obj)' or at ''; linking object as if no debug info
-Engine.lib(GLExtensions.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(GLExtensions.obj)' or at ''; linking object as if no debug info
-Engine.lib(GLCheck.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(GLCheck.obj)' or at ''; linking object as if no debug info
-Engine.lib(Context.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Context.obj)' or at ''; linking object as if no debug info
-Engine.lib(Mutex.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Mutex.obj)' or at ''; linking object as if no debug info
-Engine.lib(Lock.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Lock.obj)' or at ''; linking object as if no debug info
-Engine.lib(RenderTextureImplFBO.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(RenderTextureImplFBO.obj)' or at ''; linking object as if no debug info
-Engine.lib(Transformable.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Transformable.obj)' or at ''; linking object as if no debug info
-Engine.lib(Shape.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Shape.obj)' or at ''; linking object as if no debug info
-Engine.lib(RectangleShape.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(RectangleShape.obj)' or at ''; linking object as if no debug info
-Engine.lib(RenderStates.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(RenderStates.obj)' or at ''; linking object as if no debug info
-Engine.lib(CursorImpl.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(CursorImpl.obj)' or at ''; linking object as if no debug info
-Engine.lib(JoystickManager.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(JoystickManager.obj)' or at ''; linking object as if no debug info
-Engine.lib(SensorManager.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(SensorManager.obj)' or at ''; linking object as if no debug info
-Engine.lib(WindowImplWin32.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(WindowImplWin32.obj)' or at ''; linking object as if no debug info
-Engine.lib(VulkanImplWin32.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(VulkanImplWin32.obj)' or at ''; linking object as if no debug info
-Engine.lib(ThreadLocal.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(ThreadLocal.obj)' or at ''; linking object as if no debug info
-Engine.lib(WglContext.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(WglContext.obj)' or at ''; linking object as if no debug info
-Engine.lib(SleepImpl.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(SleepImpl.obj)' or at ''; linking object as if no debug info
-Engine.lib(Glsl.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Glsl.obj)' or at ''; linking object as if no debug info
-Engine.lib(Image.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Image.obj)' or at ''; linking object as if no debug info
-Engine.lib(TextureSaver.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(TextureSaver.obj)' or at ''; linking object as if no debug info
-Engine.lib(MutexImpl.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(MutexImpl.obj)' or at ''; linking object as if no debug info
-Engine.lib(RenderTextureImpl.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(RenderTextureImpl.obj)' or at ''; linking object as if no debug info
-Engine.lib(VertexArray.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(VertexArray.obj)' or at ''; linking object as if no debug info
-Engine.lib(Font.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Font.obj)' or at ''; linking object as if no debug info
-Engine.lib(Text.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Text.obj)' or at ''; linking object as if no debug info
-Engine.lib(Joystick.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(Joystick.obj)' or at ''; linking object as if no debug info
-Engine.lib(JoystickImpl.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(JoystickImpl.obj)' or at ''; linking object as if no debug info
-Engine.lib(SensorImpl.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(SensorImpl.obj)' or at ''; linking object as if no debug info
-Engine.lib(ThreadLocalImpl.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(ThreadLocalImpl.obj)' or at ''; linking object as if no debug info
-Engine.lib(ImageLoader.obj) : warning LNK4099: PDB '' was not found with 'Engine.lib(ImageLoader.obj)' or at ''; linking object as if no debug info
   CMP316-Coursework.vcxproj -> E:\Uni\CMP316 - engine development\ScribeEngine\CMP316-Coursework\x64\Debug\CMP316-Coursework.exe

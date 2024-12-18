@@ -119,10 +119,6 @@ void Level::loadLevel(int lvlNo)
 			nextCollidingObj.push_back(it.second);
 			break;
 		}
-		case UI:
-			break;
-		case TRIGGER:
-			break;
 		case NONE:
 			break;
 		default:
@@ -132,22 +128,6 @@ void Level::loadLevel(int lvlNo)
 		//health
 		std::getline(input, str, ';');
 		it.second->setHealth(stoi(str));
-
-		//trigger action
-		std::getline(input, str, ':');
-		std::getline(input, str, ';');
-		TRIGGER_ACTION_TYPE tra = static_cast<TRIGGER_ACTION_TYPE>(stoi(str));
-		switch (tra)
-		{
-		case LOAD_NEXT_LVL:
-			break;
-		case ENTER_NEXT_LVL:
-			break;
-		case NO_ACTION:
-			break;
-		default:
-			break;
-		}
 
 		//transforms
 		std::getline(input, str, ':');

@@ -2,11 +2,10 @@
 allTextures:3:res/enemyAnimationDemo.png;res/heart.png;res/playerProjectile.png;
 tag:player;
 objectType:0;5;
-triggerType:2;
 transforms:20;20;2;2;0;
 health:res/heart.png;550;300;1;1;0;
 visual:res/enemyAnimationDemo.png;1;
-animations:0;0;48;48;4;0.2;1825831576;0;96;48;48;4;0.2;1825831576;0;144;48;48;4;0.2;1825831576;0;48;48;48;4;0.2;1825831576;0;192;48;48;4;0.2;1825831576;
+animations:0;0;48;48;4;0.2;2015689368;0;96;48;48;4;0.2;2015689368;0;144;48;48;4;0.2;2015689368;0;48;48;48;4;0.2;2015689368;0;192;48;48;4;0.2;2015689368;
 movement:3;700;
 followTarget:;0;
 patrolPoints:0:

@@ -18,12 +18,13 @@ public:
 
 	void setTag(std::string tag) { objTag = tag; };
 	void setObjType(OBJECT_TYPE type) { objType = type; };
+	//set the objects hp
 	void setHealth(int hp) { health = hp; };
-	void setTriggerAction(TRIGGER_ACTION_TYPE type) { triggerType = type; };
 
 	void setPosition(float x, float y) { xPos = x; yPos = y; };
 	void setScale(float x, float y) { xScale = x; yScale = y; };
 	void setRotation(float r) { rotation = r; };
+	//setting up hp for a player object
 	void setHealth(std::string filepath, float xpos, float ypos, float xsc, float ysc, float r)
 	{
 		if (allTextures.size() == 0)
@@ -137,7 +138,6 @@ private:
 	OBJECT_TYPE objType = OBJECT_TYPE::BACKGROUND;
 
 	bool isPlayer = false;
-	TRIGGER_ACTION_TYPE triggerType = TRIGGER_ACTION_TYPE::NO_ACTION;
 
 	float xPos = 0, yPos = 0;
 	float xScale = 1, yScale = 1;

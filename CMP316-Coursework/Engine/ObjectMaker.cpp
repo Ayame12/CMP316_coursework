@@ -49,7 +49,6 @@ void Object::writeObject()
 	
 	out << "tag:" << objTag << ";" << std::endl;
 	out << "objectType:" << objType << ";" << health << ";" << std::endl;
-	out << "triggerType:" << triggerType << ";" << std::endl;
 
 	out << "transforms:" << xPos << ";" << yPos << ";" << xScale << ";" << yScale << ";" << rotation << ";" << std::endl;
 
@@ -170,7 +169,6 @@ void Object::resetObject()
 {
 	objTag = "";
 	isPlayer = false;
-	triggerType = TRIGGER_ACTION_TYPE::NO_ACTION;
 
 	objType = OBJECT_TYPE::BACKGROUND;
 

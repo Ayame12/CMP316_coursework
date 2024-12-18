@@ -3,7 +3,6 @@
 #include <iostream>
 #include "MenuMaker.h"
 
-
 Object o;
 
 //function i made to just quickly set up more enemies with less function calls
@@ -64,6 +63,7 @@ int main() {
 	o.setAttackDamage(1, 1);
 	o.writeObject();
 	o.finishLevel();
+
 
 	o.setTag("bg");
 	o.setPosition(-2000, -1000);
@@ -244,3 +244,4 @@ int main() {
 	}*/
 	return 0;
 }
+
